@@ -16,7 +16,6 @@
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 		<!--Slider-->
-
 		<link rel="stylesheet" href="assets/flexslider/css/flexslider.css" type="text/css" media="screen" />
 
 		<!-- Modernizr -->
@@ -32,6 +31,9 @@
 			body {
 			  /* Margin bottom by footer height */
 			  margin-bottom: 60px;
+			  padding-top: 40px;
+			  background-image: url(bg3.png);
+			  background-repeat: repeat;
 			}
 			.footer {
 				background: #252525 url("../images/foot.png") repeat-x scroll 0% 0%;
@@ -56,14 +58,44 @@
 			#footer-contact {
     			padding: 20px;
     			text-align: center;
-
 			}
+
+			.flex-caption {
+		      width: 100%;
+		      padding: 2%;
+		      left: 0;
+		      bottom: 0;
+		      background: rgba(0,0,0,.5);
+		      color: #fff;
+		      text-shadow: 0 -1px 0 rgba(0,0,0,.3);
+		      font-size: 14px;
+		      line-height: 18px;
+		    }
+		    li.css a {
+		      border-radius: 0;
+		    }
+
+		    .panel {
+  				border: solid 1px #31A1FF;
+				margin: 5px 3px 10px;
+				box-shadow: 0px 1px 1px #888888;
+			}	
+
+			.judul_panel {
+			  color: #000;
+			  background-color: #004A87;
+			  padding: 5px;
+			  font-weight: bold;
+			  color: #fff;
+			}
+
+	
 		</style>
 	</head>
 	<body>
 		<!--Gambar header-->
-		<div class="image-header clearfix" >
-			<img class="img-responsive" style="width:100%" src="header.png">
+		<div class="image-header" >
+			<img class="img-responsive" style="width:100%;" src="header.png">
 		</div>
 		<!--Menu Navigasi-->
 		<div class="navigasi_atas">
@@ -148,21 +180,29 @@
 				          <ul class="slides">
 				            <li>
 				  	    	    <img src="assets/flexslider/images/kitchen_adventurer_cheesecake_brownie.jpg" />
+				  	    	     <p class="flex-caption">Adventurer Cheesecake Brownie</p>
 				  	    		</li>
 				  	    		<li>
 				  	    	    <img src="assets/flexslider/images/kitchen_adventurer_lemon.jpg" />
+				  	    	    <p class="flex-caption">Adventurer Cheesecake Brownie</p>
 				  	    		</li>
 				  	    		<li>
 				  	    	    <img src="assets/flexslider/images/kitchen_adventurer_donut.jpg" />
+				  	    	    <p class="flex-caption">Adventurer Cheesecake Brownie</p>
 				  	    		</li>
 				  	    		<li>
 				  	    	    <img src="assets/flexslider/images/kitchen_adventurer_caramel.jpg" />
+				  	    		<p class="flex-caption">Adventurer Cheesecake Brownie</p>
 				  	    		</li>
 				          </ul>
 				        </div>
 					</div>
 					<div class="col-md-6">
-						hahaha
+						<div class="panel">
+							<div class="judul_panel">
+								<h5><b>TEST</b><h5>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -171,44 +211,26 @@
 
 		<!-- jQuery -->
 		  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-		  <script>window.jQuery || document.write('<script src="assets/flexslider/js/libs/jquery-1.7.min.js">\x3C/script>')</script>
-
 		  <!-- FlexSlider -->
 		  <script defer src="assets/flexslider/js/jquery.flexslider.js"></script>
 
 		  <script type="text/javascript">
-		    $(function(){
+		     $(function(){
 		      SyntaxHighlighter.all();
 		    });
 		    $(window).load(function(){
-		      $('#carousel').flexslider({
+		      $('.flexslider').flexslider({
 		        animation: "slide",
 		        controlNav: false,
-		        animationLoop: false,
-		        slideshow: false,
-		        itemWidth: 210,
-		        itemMargin: 5,
-		        asNavFor: '#slider'
-		      });
-
-		      $('#slider').flexslider({
-		        animation: "slide",
-		        controlNav: false,
-		        animationLoop: false,
-		        slideshow: false,
-		        sync: "#carousel",
+		        fx: 'fade',
+			    timeout: 5000,
+			    speed: 500,
 		        start: function(slider){
 		          $('body').removeClass('loading');
 		        }
 		      });
 		    });
 		  </script>
-
-
-		  <!-- Syntax Highlighter -->
-		  <script type="text/javascript" src="assets/flexslider/js/shCore.js"></script>
-		  <script type="text/javascript" src="assets/flexslider/js/shBrushXml.js"></script>
-		  <script type="text/javascript" src="assets/flexslider/js/shBrushJScript.js"></script>
 
 		  <!-- Optional FlexSlider Additions -->
 		  <script src="assets/flexslider/js/jquery.easing.js"></script>
@@ -218,7 +240,8 @@
 
 
 	</body>
-	<footer class="footer" >
+
+	<footer class="footer" style="">
 		<div id="footer-contact">
 			SMA Negeri 2 Salatiga
 			<br>
@@ -233,4 +256,5 @@
 
 		</div>
 	</footer>
+
 </html>
