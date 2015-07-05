@@ -1,275 +1,116 @@
+'use strict';
 module.exports = function (grunt) {
 
-  // From TWBS
-  RegExp.quote = function (string) {
-    return string.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
-  };
-
-  // Project configuration.
   grunt.initConfig({
-
-    // Metadata.
-    pkg: grunt.file.readJSON('package.json'),
-    banner: '/*!\n' +
-    ' * Bootstrap-select v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
-    ' *\n' +
-    ' * Copyright 2013-<%= grunt.template.today(\'yyyy\') %> bootstrap-select\n' +
-    ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n' +
-    ' */\n',
-
-    // Task configuration.
-
-    clean: {
-      css: 'dist/css',
-      js: 'dist/js'
+    watch: {
+      // If any .less file changes in directory "build/less/" run the "less"-task.
+      files: ["build/less/*.less", "build/less/skins/*.less", "dist/js/app.js"],
+      tasks: ["less", "uglify"]
     },
-
-    jshint: {
-      options: {
-        jshintrc: 'js/.jshintrc'
-      },
-      gruntfile: {
+    // "less"-task configuration
+    // This task will compile all less files upon saving to create both AdminLTE.css and AdminLTE.min.css
+    less: {
+      // Development not compressed
+      development: {
         options: {
-          'node': true
+          // Whether to compress or not
+          compress: false
         },
-        src: 'Gruntfile.js'
-      },
-      main: {
-        src: 'js/*.js'
-      },
-      i18n: {
-        src: 'js/i18n/*.js'
-      }
-    },
-
-    concat: {
-      options: {
-        stripBanners: true
-      },
-      main: {
-        src: '<%= jshint.main.src %>',
-        dest: 'dist/js/<%= pkg.name %>.js'
-      },
-      i18n: {
-        expand: true,
-        src: '<%= jshint.i18n.src %>',
-        dest: 'dist/'
-      }
-    },
-
-    umd: {
-      main: {
-        options: {
-          deps: {
-            args: ['jQuery'],
-            amd: ['jquery'],
-            cjs: ['jquery'],
-            global: ['jQuery']
-          }
-        },
-        src: '<%= concat.main.dest %>'
-      },
-      i18n: {
-        options: {
-          deps: {
-            args: ['jQuery'],
-            amd: ['jquery'],
-            cjs: ['jquery'],
-            global: ['jQuery']
-          }
-        },
-        src: 'dist/<%= jshint.i18n.src %>',
-        dest: '.'
-      }
-    },
-
-    uglify: {
-      options: {
-        preserveComments: 'some'
-      },
-      main: {
-        src: '<%= concat.main.dest %>',
-        dest: 'dist/js/<%= pkg.name %>.min.js',
-        options: {
-          sourceMap: true,
-          sourceMapName: 'dist/js/<%= pkg.name %>.js.map'
+        files: {
+          // compilation.css  :  source.less          
+          "dist/css/AdminLTE.css": "build/less/AdminLTE.less",
+          //Non minified skin files
+          "dist/css/skins/skin-blue.css": "build/less/skins/skin-blue.less",
+          "dist/css/skins/skin-black.css": "build/less/skins/skin-black.less",
+          "dist/css/skins/skin-yellow.css": "build/less/skins/skin-yellow.less",
+          "dist/css/skins/skin-green.css": "build/less/skins/skin-green.less",
+          "dist/css/skins/skin-red.css": "build/less/skins/skin-red.less",
+          "dist/css/skins/skin-purple.css": "build/less/skins/skin-purple.less",
+          "dist/css/skins/skin-blue-light.css": "build/less/skins/skin-blue-light.less",
+          "dist/css/skins/skin-black-light.css": "build/less/skins/skin-black-light.less",
+          "dist/css/skins/skin-yellow-light.css": "build/less/skins/skin-yellow-light.less",
+          "dist/css/skins/skin-green-light.css": "build/less/skins/skin-green-light.less",
+          "dist/css/skins/skin-red-light.css": "build/less/skins/skin-red-light.less",
+          "dist/css/skins/skin-purple-light.css": "build/less/skins/skin-purple-light.less",
+          "dist/css/skins/_all-skins.css": "build/less/skins/_all-skins.less"
         }
       },
-      i18n: {
-        expand: true,
-        src: 'dist/<%= jshint.i18n.src %>',
-        ext: '.min.js'
-      }
-    },
-
-    less: {
-      options: {
-        strictMath: true,
-        sourceMap: true,
-        outputSourceFiles: true,
-        sourceMapURL: '<%= pkg.name %>.css.map',
-        sourceMapFilename: '<%= less.css.dest %>.map'
-      },
-      css: {
-        src: 'less/bootstrap-select.less',
-        dest: 'dist/css/<%= pkg.name %>.css'
-      }
-    },
-
-    usebanner: {
-      css: {
+      // Production compresses version
+      production: {
         options: {
-          banner: '<%= banner %>'
+          // Whether to compress or not          
+          compress: true
         },
-        src: '<%= less.css.dest %>'
-      },
-      js: {
-        options: {
-          banner: '<%= banner %>'
-        },
-        src: [
-          '<%= concat.main.dest %>',
-          '<%= uglify.main.dest %>',
-          'dist/<%= jshint.i18n.src %>',
-        ]
+        files: {
+          // compilation.css  :  source.less
+          "dist/css/AdminLTE.min.css": "build/less/AdminLTE.less",
+          // Skins minified
+          "dist/css/skins/skin-blue.min.css": "build/less/skins/skin-blue.less",
+          "dist/css/skins/skin-black.min.css": "build/less/skins/skin-black.less",
+          "dist/css/skins/skin-yellow.min.css": "build/less/skins/skin-yellow.less",
+          "dist/css/skins/skin-green.min.css": "build/less/skins/skin-green.less",
+          "dist/css/skins/skin-red.min.css": "build/less/skins/skin-red.less",
+          "dist/css/skins/skin-purple.min.css": "build/less/skins/skin-purple.less",
+          "dist/css/skins/skin-blue-light.min.css": "build/less/skins/skin-blue-light.less",
+          "dist/css/skins/skin-black-light.min.css": "build/less/skins/skin-black-light.less",
+          "dist/css/skins/skin-yellow-light.min.css": "build/less/skins/skin-yellow-light.less",
+          "dist/css/skins/skin-green-light.min.css": "build/less/skins/skin-green-light.less",
+          "dist/css/skins/skin-red-light.min.css": "build/less/skins/skin-red-light.less",
+          "dist/css/skins/skin-purple-light.min.css": "build/less/skins/skin-purple-light.less",
+          "dist/css/skins/_all-skins.min.css": "build/less/skins/_all-skins.less"
+        }
       }
     },
-
-    cssmin: {
+    // Uglify task info. Compress the js files.
+    uglify: {
       options: {
-        compatibility: 'ie8',
-        keepSpecialComments: '*',
-        advanced: false
+        mangle: true,
+        preserveComments: 'some'
       },
-      css: {
-        src: '<%= less.css.dest %>',
-        dest: 'dist/css/<%= pkg.name %>.min.css'
+      my_target: {
+        files: {
+          'dist/js/app.min.js': ['dist/js/app.js']
+        }
       }
     },
-
-    csslint: {
-      options: {
-        'adjoining-classes': false,
-        'box-sizing': false,
-        'box-model': false,
-        'compatible-vendor-prefixes': false,
-        'floats': false,
-        'font-sizes': false,
-        'gradients': false,
-        'important': false,
-        'known-properties': false,
-        'outline-none': false,
-        'qualified-headings': false,
-        'regex-selectors': false,
-        'shorthand': false,
-        'text-indent': false,
-        'unique-headings': false,
-        'universal-selector': false,
-        'unqualified-attributes': false,
-        'overqualified-elements': false
-      },
-      css: {
-        src: '<%= less.css.dest %>'
-      }
-    },
-
-    sed: {
-      versionNumber: {
-        path: [
-          'js/<%= pkg.name %>.js',
-          'bower.json',
-          'composer.json',
-          'package.json'
-        ],
-        pattern: (function () {
-          var old = grunt.option('old');
-          return old ? RegExp.quote(old) : old;
-        })(),
-        replacement: grunt.option('new'),
-        recursive: true
-      }
-    },
-
-    autoprefixer: {
-      options: {
-        browsers: [
-          'Android 2.3',
-          'Android >= 4',
-          'Chrome >= 20',
-          'Firefox >= 24', // Firefox 24 is the latest ESR
-          'Explorer >= 8',
-          'iOS >= 6',
-          'Opera >= 12',
-          'Safari >= 6'
-        ]
-      },
-      css: {
+    // Build the documentation files
+    includes: {
+      build: {
+        src: ['*.html'], // Source files 
+        dest: 'documentation/', // Destination directory 
+        flatten: true,
+        cwd: 'documentation/build',
         options: {
-          map: true
-        },
-        src: '<%= less.css.dest %>'
+          silent: true,
+          includePath: 'documentation/build/include'
+        }
       }
     },
-
-    compress: {
-      zip: {
-        options: {
-          archive: 'bootstrap-select-<%= pkg.version %>.zip',
-          mode: 'zip'
-        },
-        files: [
-          {
-            expand: true,
-            cwd: 'dist/',
-            src: '**',
-            dest: 'bootstrap-select-<%= pkg.version %>/'
-          }, {
-            src: ['bower.json', 'composer.json', 'package.json'],
-            dest: 'bootstrap-select-<%= pkg.version %>/'
-          }
-        ]
-      }
-    },
-
-    watch: {
-      gruntfile: {
-        files: '<%= jshint.gruntfile.src %>',
-        tasks: 'jshint:gruntfile'
-      },
-      js: {
-        files: ['<%= jshint.main.src %>', '<%= jshint.i18n.src %>'],
-        tasks: 'build-js'
-      },
-      less: {
-        files: 'less/*.less',
-        tasks: 'build-css'
+    cssjanus: {
+      build: {
+        files: {
+          'dist/css/AdminLTE-rtl.css': 'dist/css/AdminLTE.css',
+          'dist/css/AdminLTE-rtl.min.css': 'dist/css/AdminLTE.min.css',
+          'bootstrap/css/bootstrap-rtl.css': 'bootstrap/css/bootstrap.css',
+          'bootstrap/css/bootstrap-rtl.min.css': 'bootstrap/css/bootstrap.min.css'
+        }
       }
     }
   });
 
-  // These plugins provide necessary tasks.
-  require('load-grunt-tasks')(grunt, {
-    scope: 'devDependencies'
-  });
+  // Load all grunt tasks
 
-  // Version numbering task.
-  // grunt change-version-number --old=A.B.C --new=X.Y.Z
-  // This can be overzealous, so its changes should always be manually reviewed!
-  grunt.registerTask('change-version-number', 'sed');
+  // LESS Compiler
+  grunt.loadNpmTasks('grunt-contrib-less');
+  // Watch File Changes
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  // Compress JS Files
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  // Include Files Within HTML
+  grunt.loadNpmTasks('grunt-includes');
+  // Convert CSS to RTL
+  grunt.loadNpmTasks('grunt-cssjanus');
 
-  // CSS distribution
-  grunt.registerTask('build-css', ['clean:css', 'less', 'autoprefixer', 'usebanner:css', 'cssmin']);
-
-  // JS distribution
-  grunt.registerTask('build-js', ['clean:js', 'concat', 'umd', 'usebanner:js', 'uglify']);
-
-  // Development watch
-  grunt.registerTask('dev-watch', ['build-css', 'build-js', 'watch']);
-
-  // Full distribution
-  grunt.registerTask('dist', ['build-css', 'build-js', 'compress']);
-
-  // Default task.
-  grunt.registerTask('default', ['build-css', 'build-js']);
-
+  // The default task (running "grunt" in console) is "watch"
+  grunt.registerTask('default', ['watch']);
 };

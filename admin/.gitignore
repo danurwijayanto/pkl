@@ -1,10 +1,9 @@
-# OS or Editor folders
-.DS_Store
+*.DS_Store
 .idea
-
-# Folders to ignore
-node_modules
-bower_components
-
-# Dist zip
-bootstrap-select-*.zip
+/nbproject/private/
+/nbproject/
+/node_modules/
+TODO
+*.zip
+test.html
+*.log
