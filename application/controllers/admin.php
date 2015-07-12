@@ -21,9 +21,9 @@ class Admin extends CI_Controller {
 	{
 		
 		$data=array('title'=>'SMA 2 Salatiga',
-					'isi' =>'client_konten/home'
+					'isi' =>'admin_konten/home'
 					);
-		$this->load->view('client_wrapper', $data);
+		$this->load->view('admin_wrapper', $data);
 	}
 
 }
