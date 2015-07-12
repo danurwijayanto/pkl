@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Client extends CI_Controller {
+class Admin extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -26,21 +26,6 @@ class Client extends CI_Controller {
 		$this->load->view('client_wrapper', $data);
 	}
 
-	public function visimisi(){
-		$data=array('title'=>'SMA 2 Salatiga',
-					'isi' =>'client_konten/visimisi',
-					 'sidebar_kanan' => 'client_konten/sidebar_kanan'
-					);
-		$this->load->view('client_wrapper', $data);
-	}
-
-	public function artikel(){
-		$data=array('title'=>'SMA 2 Salatiga',
-					'isi' =>'client_konten/artikel',
-					 'sidebar_kanan' => 'client_konten/sidebar_kanan'
-					);
-		$this->load->view('client_wrapper', $data);
-	}
 }
 
 /* End of file welcome.php */
