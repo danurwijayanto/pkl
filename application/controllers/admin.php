@@ -26,6 +26,29 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_wrapper', $data);
 	}
 
+	public function artikel()
+	{
+		
+		$data=array('title'=>'SMA 2 Salatiga',
+					'isi' =>'admin_konten/artikel'
+					);
+		$this->load->view('admin_wrapper', $data);
+	}
+
+	public function tambah_artikel()
+	{
+		
+		$this->load->library('ckeditor');
+		$this->ckeditor->basePath = base_url().'assets/ckeditor/';
+		$this->ckeditor->config['toolbar'] = "Full";
+		$this->ckeditor->config['language'] = 'en';
+	            
+		$data=array('title'=>'SMA 2 Salatiga',
+					'isi' =>'admin_konten/tambah_artikel'
+					);
+		$this->load->view('admin_wrapper', $data);
+	}
+
 }
 
 /* End of file welcome.php */
