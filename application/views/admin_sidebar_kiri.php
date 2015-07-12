@@ -14,8 +14,8 @@
                 <span>Artikel</span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>Daftar Artikel</a></li>
-                <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>Tambah Artikel</a></li>
+                <li><a href="<?php echo base_url();?>admin/artikel"><i class="fa fa-circle-o"></i>Daftar Artikel</a></li>
+                <li><a href="<?php echo base_url();?>admin/tambah_artikel"><i class="fa fa-circle-o"></i>Tambah Artikel</a></li>
               </ul>
             </li>
             <li class="treeview">
