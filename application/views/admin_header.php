@@ -7,7 +7,7 @@
     <!-- Bootstrap 3.3.4 -->
     <link href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome Icons -->
-    <link href="<?php echo base_url();?>assets/bootstrap/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url();?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
     <link href="<?php echo base_url();?>assets/ionicons/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- jvectormap -->
@@ -33,7 +33,7 @@
         <!-- Logo -->
         <a href="index2.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>LT</span>
+          <span class="logo-mini"><b>A</b></span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b>Admin</b> Dashboard</span>
         </a>
