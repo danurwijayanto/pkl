@@ -39,6 +39,7 @@ class Admin extends CI_Controller {
 	{
 		
 		$this->load->library('ckeditor');
+		$this->load->helper('ckeditor_helper');
 		$this->ckeditor->basePath = base_url().'assets/ckeditor/';
 		$this->ckeditor->config['toolbar'] = "Full";
 		$this->ckeditor->config['language'] = 'en';

@@ -13,8 +13,9 @@
 
         <!-- Main content -->
         <section class="content">
+          <script type="text/javascript" src="<?php echo base_url(); ?>assets/ckeditor/ckeditor.js"></script>
             <?php echo $this->ckeditor->editor("Post","default textarea value"); ?>
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
 
-      <script type="text/javascript" src="<?php echo base_url(); ?>asset/ckeditor/ckeditor.js"></script>
+   

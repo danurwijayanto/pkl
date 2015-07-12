@@ -22,7 +22,7 @@ $_CONFIG = array(
 // GENERAL SETTINGS
 
     'disabled' => false,
-    'uploadURL' => "upload",
+    'uploadURL' => "../../upload/Gambar",
     'uploadDir' => "",
     'theme' => "default",
 
