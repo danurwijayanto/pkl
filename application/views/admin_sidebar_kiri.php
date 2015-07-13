@@ -16,6 +16,7 @@
               <ul class="treeview-menu">
                 <li><a href="<?php echo base_url();?>admin/artikel"><i class="fa fa-circle-o"></i>Daftar Artikel</a></li>
                 <li><a href="<?php echo base_url();?>admin/tambah_artikel"><i class="fa fa-circle-o"></i>Tambah Artikel</a></li>
+                <li><a href="<?php echo base_url();?>admin/kategori"><i class="fa fa-circle-o"></i>Kategori</a></li>
               </ul>
             </li>
             <li class="treeview">
