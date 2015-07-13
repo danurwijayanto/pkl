@@ -19,11 +19,17 @@
                 <th>Kategori</th>
                 <th>Action</th>
               </tr>
-              <tr>
-                <td><?php echo $id[''];?></td>
-                <td></td>
-                <td></td>
-              </tr>
+              <?php if (!$kategori){ ?>
+                <tr>
+                  <td colspan="3" valign="middle"> Kategori Kosong</td>
+                </tr>
+              <?php }else {foreach ($kategori as $kategori){ ?>
+                <tr>
+                  <td><?php echo $kategori['id'];?></td>
+                  <td><?php echo $kategori['nama'];?></td>
+                  <td></td>
+                </tr>
+              <?php } } ?>
           </table>
           <br>
           <!-- Tambah Kategori dengan modal-->
