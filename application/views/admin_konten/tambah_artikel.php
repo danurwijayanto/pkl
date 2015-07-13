@@ -13,9 +13,12 @@
 
         <!-- Main content -->
         <section class="content">
-          <script type="text/javascript" src="<?php echo base_url(); ?>assets/ckeditor/ckeditor.js"></script>
-            <?php echo $this->ckeditor->editor("Post","default textarea value"); ?>
+            <form action="<?php echo base_url();?>operation/simpan_artikel">
+              <textarea id="ckeditor" name="ckeditor" class="ckeditor">&lt;p&gt;Initial value.&lt;/p&gt;</textarea>
+              <br>
+              <input type="submit" value="Simpan" class="btn btn-primary">
+            </form>
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
 
-   
+      <script type="text/javascript" src="<?php echo base_url(); ?>assets/ckeditor/ckeditor.js"></script>
