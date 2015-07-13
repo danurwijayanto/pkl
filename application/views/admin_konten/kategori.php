@@ -27,7 +27,16 @@
                 <tr>
                   <td><?php echo $kategori['id'];?></td>
                   <td><?php echo $kategori['nama'];?></td>
-                  <td></td>
+                  <td>
+                    <a class="btn btn-warning" href="#">
+                      <i class="fa fa-trash-o fa-lg"></i> Delete</a>
+                    <a class="btn btn-default" href="#">
+                      <i class="fa fa-trash-o fa-lg"></i> Edit</a>
+                    <a class="btn btn-warning" href="#">
+                      <i class="fa fa-trash-o fa-lg"></i> Cencel</a>
+                    <a class="btn btn-primary" href="#">
+                      <i class="fa fa-trash-o fa-lg"></i> Simpan</a>  
+                  </td>
                 </tr>
               <?php } } ?>
           </table>
