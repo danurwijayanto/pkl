@@ -28,9 +28,10 @@ class Operation extends CI_Controller {
 
 	public function simpan_artikel(){
 		$this->load->database();
+		$txt = $_GET['ckeditor'];
 		$data = array(
 					'id'=>'',
-					'text' => $this->input->post('ckeditor')
+					'text' => $txt
 				);
 		$result=$this->sma_sltg->simpan_artikel($data);
 		if ($result == TRUE){
