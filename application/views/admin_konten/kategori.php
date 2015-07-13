@@ -20,9 +20,9 @@
                 <th>Action</th>
               </tr>
               <tr>
-                <th></th>
-                <th></th>
-                <th></th>
+                <td><?php echo $id[''];?></td>
+                <td></td>
+                <td></td>
               </tr>
           </table>
           <br>

@@ -69,9 +69,12 @@ class Admin extends CI_Controller {
 	*/
 
 	public function kategori(){
+		$this->load->database();
 		$data=array('title'=>'Kelola Kategori',
 					'isi' =>'admin_konten/kategori'
 					);
+
+		$data['kategori'] = $this->sma_sltg->get_list_kategori();
 		$this->load->view('admin_wrapper', $data);
 	}
 
