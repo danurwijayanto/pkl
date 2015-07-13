@@ -24,7 +24,7 @@ class Admin extends CI_Controller {
 	public function index()
 	{
 		
-		$data=array('title'=>'SMA 2 Salatiga',
+		$data=array('title'=>'Admin Page',
 					'isi' =>'admin_konten/home'
 					);
 		$this->load->view('admin_wrapper', $data);
@@ -39,7 +39,7 @@ class Admin extends CI_Controller {
 	public function artikel()
 	{
 		
-		$data=array('title'=>'SMA 2 Salatiga',
+		$data=array('title'=>'Kelola Artikel',
 					'isi' =>'admin_konten/artikel'
 					);
 		$this->load->view('admin_wrapper', $data);
@@ -54,7 +54,7 @@ class Admin extends CI_Controller {
 		$this->ckeditor->config['toolbar'] = "Full";
 		$this->ckeditor->config['language'] = 'en';
 	            
-		$data=array('title'=>'SMA 2 Salatiga',
+		$data=array('title'=>'Tambah Artikel',
 					'isi' =>'admin_konten/tambah_artikel'
 					);
 		$this->load->view('admin_wrapper', $data);
@@ -67,6 +67,13 @@ class Admin extends CI_Controller {
 	/**
 		* Fungsi dan Halaman Kategori
 	*/
+
+	public function kategori(){
+		$data=array('title'=>'Kelola Kategori',
+					'isi' =>'admin_konten/kategori'
+					);
+		$this->load->view('admin_wrapper', $data);
+	}
 }
 
 /* End of file welcome.php */
