@@ -17,6 +17,10 @@ class Admin extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	/**
+		* Default Page Admin
+	*/
 	public function index()
 	{
 		
@@ -25,7 +29,13 @@ class Admin extends CI_Controller {
 					);
 		$this->load->view('admin_wrapper', $data);
 	}
+	/**
+		* End Default Page Admin
+	*/
 
+	/**
+		* Fungsi dan Halaman Artikel
+	*/
 	public function artikel()
 	{
 		
@@ -50,6 +60,13 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_wrapper', $data);
 	}
 
+	/**
+		* End Fungsi dan Halaman Artikel
+	*/
+
+	/**
+		* Fungsi dan Halaman Kategori
+	*/
 }
 
 /* End of file welcome.php */
