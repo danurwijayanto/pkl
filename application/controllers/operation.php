@@ -26,6 +26,10 @@ class Operation extends CI_Controller {
 		$this->load->view('admin_wrapper', $data);
 	}
 
+	/**
+		* Fungsi untuk menyimpan artikel ke database
+	*/
+
 	public function simpan_artikel(){
 		$this->load->database();
 		$txt = $_GET['ckeditor'];
@@ -35,11 +39,36 @@ class Operation extends CI_Controller {
 				);
 		$result=$this->sma_sltg->simpan_artikel($data);
 		if ($result == TRUE){
-			echo "<script type='text/javascript'>alert('Upload Berhasil !')</script>";
+			echo "<script type='text/javascript'>alert('Simpan Berhasil !')</script>";
 		} else {
-			echo "<script type='text/javascript'>alert('Upload Gagal !')</script>";
+			echo "<script type='text/javascript'>alert('Simpan Gagal !')</script>";
 		}
 	}
+
+	/**
+		* End Fungsi untuk menyimpan artikel ke database
+	*/
+
+	/**
+		* Fungsi untuk menyimpan kategori ke database
+	*/
+
+	public function simpan_kategori(){
+		$this->load->database();
+		$data = array('nama' => $this->input->post('kategori'));
+		$result=$this->sma_sltg->simpan_kategori($data);
+		if ($result == TRUE){
+			echo "<script type='text/javascript'>alert('Simpan Berhasil !')</script>";
+		} else {
+			echo "<script type='text/javascript'>alert('Simpan Gagal !')</script>";
+		}
+		redirect('admin/kategori', 'refresh');
+
+	}
+
+	/**
+		* End Fungsi untuk menyimpan artikel ke database
+	*/
 }
 
 /* End of file welcome.php */

@@ -74,6 +74,11 @@ class Admin extends CI_Controller {
 					);
 		$this->load->view('admin_wrapper', $data);
 	}
+
+	/**
+		* End Fungsi dan Halaman Kategori
+	*/
+
 }
 
 /* End of file welcome.php */

@@ -40,21 +40,18 @@
                   <h4 class="modal-title">Tambah Kategori</h4>
                 </div>
                 <div class="modal-body">
-                  <form class="form-horizontal" role="form">
+                  <form class="form-horizontal" role="form" method="post" action="<?php echo base_url();?>operation/simpan_kategori" >
                     <div class="form-group">
                       <div class="col-sm-10">
-                        <input type="text" class="form-control kategori" id="kategori" placeholder="Nama Kategori">
+                        <input type="text" class="form-control" name="kategori"  placeholder="Nama Kategori">
                       </div>
                     </div>
                     <div class="form-group">        
                       <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <input type="submit" name="daftar" value="Daftar" class="btn btn-primary ">
                       </div>
                     </div>
                   </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
               </div>
 
