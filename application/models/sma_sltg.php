@@ -38,12 +38,26 @@
 		function get_list_kategori(){
 			$query = "SELECT *  
 				FROM kategori";
-	        //Get all invoices from Invoices table
 	        $result = $this->db->query($query);
 	        if($result->num_rows() > 0){
 	            return $result->result_array();
 	        } else {
 	            return false;
+	        }
+		}
+
+		/**
+			*Delete Kategori Berdasarkan ID
+			*data : 
+		*/
+		function del_kat_byid($data){
+			$query = "DELETE FROM kategori
+				WHERE id=$data[id]";
+	        $result = $this->db->query($query);
+	        if($result){
+	            return TRUE;
+	        } else {
+	            return FALSE;
 	        }
 		}
 	

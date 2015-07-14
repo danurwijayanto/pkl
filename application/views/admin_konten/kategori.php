@@ -28,14 +28,37 @@
                   <td><?php echo $kategori['id'];?></td>
                   <td><?php echo $kategori['nama'];?></td>
                   <td>
-                    <a class="btn btn-warning" href="#">
+                    <a class="btn btn-warning" href="<?php echo base_url();?>operation/del_kat_byid?id=<?php echo $kategori['id'];?>">
                       <i class="fa fa-trash-o fa-lg"></i> Delete</a>
-                    <a class="btn btn-default" href="#">
+                    <a class="btn btn-default" data-toggle="modal" data-target="#edit" id="<?php echo $kategori['id'];?>">
                       <i class="fa fa-trash-o fa-lg"></i> Edit</a>
-                    <a class="btn btn-warning" href="#">
-                      <i class="fa fa-trash-o fa-lg"></i> Cencel</a>
-                    <a class="btn btn-primary" href="#">
-                      <i class="fa fa-trash-o fa-lg"></i> Simpan</a>  
+                    <!-- Modal -->
+                    <div id="edit" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Ganti Kategori</h4>
+                          </div>
+                          <div class="modal-body">
+                            <form class="form-horizontal" role="form" method="post" action="<?php echo base_url();?>operation/simpan_kategori" >
+                              <div class="form-group">
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control" name="kategori"  placeholder="Nama Kategori Baru">
+                                </div>
+                              </div>
+                              <div class="form-group">        
+                                <div class="col-sm-10">
+                                  <input type="submit" name="simpan" value="Simpan" class="btn btn-primary ">
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
                   </td>
                 </tr>
               <?php } } ?>
@@ -47,7 +70,6 @@
           <!-- Modal -->
           <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
-
               <!-- Modal content-->
               <div class="modal-content">
                 <div class="modal-header">

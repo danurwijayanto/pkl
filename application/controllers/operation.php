@@ -69,6 +69,28 @@ class Operation extends CI_Controller {
 	/**
 		* End Fungsi untuk menyimpan artikel ke database
 	*/
+
+	/**
+		* Fungsi untuk delete kategori ke berdasarkan id
+	*/
+
+	public function del_kat_byid(){
+		$this->load->database();
+		$id = $_GET['id'];
+		$data = array('id' => $id);
+		$result=$this->sma_sltg->del_kat_byid($data);
+		if ($result == TRUE){
+			echo "<script type='text/javascript'>alert('Delete Berhasil !')</script>";
+		} else {
+			echo "<script type='text/javascript'>alert('Delete Gagal !')</script>";
+		}
+		redirect('admin/kategori', 'refresh');
+
+	}
+
+	/**
+		* End Fungsi untuk delete kategori ke berdasarkan id
+	*/
 }
 
 /* End of file welcome.php */
