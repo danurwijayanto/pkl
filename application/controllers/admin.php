@@ -47,16 +47,17 @@ class Admin extends CI_Controller {
 
 	public function tambah_artikel()
 	{
-		
+		$this->load->database();
 		$this->load->library('ckeditor');
 		$this->load->helper('ckeditor_helper');
 		$this->ckeditor->basePath = base_url().'assets/ckeditor/';
 		$this->ckeditor->config['toolbar'] = "Full";
 		$this->ckeditor->config['language'] = 'en';
-	            
+	    
 		$data=array('title'=>'Tambah Artikel',
 					'isi' =>'admin_konten/tambah_artikel'
 					);
+		$data['kategori'] = $this->sma_sltg->get_semuakat();
 		$this->load->view('admin_wrapper', $data);
 	}
 

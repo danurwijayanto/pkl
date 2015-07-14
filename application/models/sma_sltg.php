@@ -96,6 +96,24 @@
 	        }
 
 		}
+
+		/**
+			* Mendapatkan list kateogri
+			* data : 
+		*/
+		function get_semuakat(){
+			$query = "SELECT * 
+				FROM kategori";
+	        $result = $this->db->query($query);
+	        if($result){
+	            return $result->result_array();
+	        } else {
+	            return FALSE;
+	        }
+
+		}
+
+
 	
 
 

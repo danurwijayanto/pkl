@@ -16,14 +16,22 @@
             <form action="<?php echo base_url();?>operation/simpan_artikel" role="form" method="post" class="form-horizontal">
               <div class="form-group">
                 <label class="col-sm-1 control-label">Judul</label>
-                <div class="col-sm-11">
+                <div class="col-sm-7">
                   <input type="text" class="form-control" name="judul"  placeholder="Judul">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-1 control-label">Kategori</label>
-                <div class="col-sm-11">
-                  <input type="text" class="form-control" name="kategori"  placeholder="Kategori">
+                <div class="col-sm-7">
+                  <select name='kategori' id='kategori'  class="form-control">
+                    <option value=0>-- Pilih Kategori --</option>
+                    <?php 
+                        foreach($kategori as $kategori)
+                        {   ?>      
+                            <option value="<?php echo $kategori['id']; ?>"><?php echo $kategori['nama']; ?></option>
+                     <?php   }
+                    ?>
+                </select>
                 </div>
               </div>
               <div class="form-group">
