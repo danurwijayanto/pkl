@@ -122,12 +122,7 @@ class Operation extends CI_Controller {
 				'value' => $_POST['value']
 			);
 		$result=$this->sma_sltg->ganti_kategori($data);
-		if ($result == TRUE){
-			echo "<script type='text/javascript'>alert('Ganti Berhasil !')</script>";
-		} else {
-			echo "<script type='text/javascript'>alert('Ganti Gagal !')</script>";
-		}
-		redirect('admin/kategori', 'refresh');
+
 	}
 
 	/**
