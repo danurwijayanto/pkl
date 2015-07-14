@@ -32,7 +32,7 @@ class Operation extends CI_Controller {
 
 	public function simpan_artikel(){
 		$this->load->database();
-		$txt = $_GET['ckeditor'];
+		$txt = $this->input->post('ckeditor');
 		$data = array(
 					'id'=>'',
 					'text' => $txt
@@ -43,6 +43,7 @@ class Operation extends CI_Controller {
 		} else {
 			echo "<script type='text/javascript'>alert('Simpan Gagal !')</script>";
 		}
+		redirect('admin/tambah_artikel', 'refresh');
 	}
 
 	/**

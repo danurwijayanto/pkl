@@ -137,7 +137,7 @@
     // on success...
     function success(){
       alert('Perubahan Berhasil')
-      location.reload(true); 
+      window.location.reload();
     }
   });
 
