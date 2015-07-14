@@ -122,7 +122,7 @@ class Operation extends CI_Controller {
 				'value' => $_POST['value']
 			);
 		$result=$this->sma_sltg->ganti_kategori($data);
-
+		
 	}
 
 	/**

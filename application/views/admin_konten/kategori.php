@@ -137,7 +137,7 @@
     // on success...
     function success(){
       alert('Perubahan Berhasil')
-      window.location.assign('../admin/kategori');  
+      location.reload(true); 
     }
   });
 
