@@ -30,7 +30,8 @@
                   <td>
                     <a class="btn btn-warning" href="<?php echo base_url();?>operation/del_kat_byid?id=<?php echo $kategori['id'];?>">
                       <i class="fa fa-trash-o fa-lg"></i> Delete</a>
-                    <a class="btn btn-default" data-toggle="modal" data-target="#edit" id="<?php echo $kategori['id'];?>">
+
+                    <a class="btn btn-default edit_kat" data-toggle="modal" data-target="#edit" id="<?php echo $kategori['id'];?>">
                       <i class="fa fa-trash-o fa-lg"></i> Edit</a>
                     <!-- Modal -->
                     <div id="edit" class="modal fade" role="dialog">
@@ -42,15 +43,15 @@
                             <h4 class="modal-title">Ganti Kategori</h4>
                           </div>
                           <div class="modal-body">
-                            <form class="form-horizontal" role="form" method="post" action="<?php echo base_url();?>operation/simpan_kategori" >
+                             <form class="form-horizontal" role="form">
                               <div class="form-group">
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="kategori"  placeholder="Nama Kategori Baru">
+                                  <input type="text" class="form-control" name="kategori" id="cat_text"  placeholder="Nama Kategori Baru">
                                 </div>
                               </div>
                               <div class="form-group">        
                                 <div class="col-sm-10">
-                                  <input type="submit" name="simpan" value="Simpan" class="btn btn-primary ">
+                                 <a class="btn btn-default simpan_edit_kat" id="<?php echo $kategori['id'];?>">Ganti</a>
                                 </div>
                               </div>
                             </form>
@@ -85,7 +86,7 @@
                     </div>
                     <div class="form-group">        
                       <div class="col-sm-10">
-                        <input type="submit" name="daftar" value="Daftar" class="btn btn-primary ">
+                        <input type="submit" name="simpan" value="Simpan" class="btn btn-primary ">
                       </div>
                     </div>
                   </form>
@@ -98,3 +99,46 @@
         </section><!-- /.content -->
 
       </div><!-- /.content-wrapper -->
+
+<script>
+            
+  //Menampilkan kategori di modal sebelum dirubah 
+  $(document).ready(function(){
+    var id;
+    $(".edit_kat").click(function(){
+      var element = $(this);
+      id = element.attr("id");
+     
+      $.ajax({
+        url:"../operation/get_kat_byid?id="+id,              
+        dataType : "json",
+        type: "POST",
+
+        success: function(data){
+          document.getElementById("cat_text").value = data;
+          //document.form_ganti_kat.action = "../operation/ganti_kategori?id="+id;   
+        }
+      });                        
+    });
+
+    //Menyimpan kategori baru telah dirubah
+    $(".simpan_edit_kat").click(function(){
+      var myData = 'value='+ document.getElementById("cat_text").value;
+     
+      $.ajax({
+        url:"../operation/ganti_kategori?id="+id,              
+        dataType : "json",
+        data : myData,
+        type: "POST",
+        success: success()       
+      });                        
+    });
+
+    // on success...
+    function success(){
+      alert('Perubahan Berhasil')
+      window.location.assign('../admin/kategori');  
+    }
+  });
+
+  </script>
