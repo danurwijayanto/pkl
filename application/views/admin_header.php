@@ -10,14 +10,14 @@
     <link href="<?php echo base_url();?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
     <link href="<?php echo base_url();?>assets/ionicons/ionicons.min.css" rel="stylesheet" type="text/css" />
-    <!-- jvectormap -->
-    <link href="plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="<?php echo base_url();?>assets/adminlte/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link href="<?php echo base_url();?>assets/adminlte/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
-
+   <!-- Load JQuery dari CDN -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.js"></script>
+    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

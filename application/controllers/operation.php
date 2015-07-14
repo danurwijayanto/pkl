@@ -91,6 +91,48 @@ class Operation extends CI_Controller {
 	/**
 		* End Fungsi untuk delete kategori ke berdasarkan id
 	*/
+
+	/**
+		* Fungsi untuk mendapatkan kategori ke berdasarkan id dengan AJAX
+	*/
+
+	public function get_kat_byid(){
+		$this->load->database();
+		$id = $_GET['id'];
+		$data = array('id' => $id);
+		$result=$this->sma_sltg->get_kat_byid($data);
+		echo json_encode($result);
+
+
+
+	}
+
+	/**
+		* End Fungsi untuk mendapatkan kategori ke berdasarkan id dengan AJAX
+	*/
+
+		/**
+		* Fungsi untuk Mengganti Kategori
+	*/
+
+	public function ganti_kategori(){
+		$this->load->database();
+		$data = array(
+				'id' => $_GET['id'],
+				'value' => $_POST['value']
+			);
+		$result=$this->sma_sltg->ganti_kategori($data);
+		if ($result == TRUE){
+			echo "<script type='text/javascript'>alert('Ganti Berhasil !')</script>";
+		} else {
+			echo "<script type='text/javascript'>alert('Ganti Gagal !')</script>";
+		}
+		redirect('admin/kategori', 'refresh');
+	}
+
+	/**
+		* End Fungsi untuk Mengganti Kategori
+	*/
 }
 
 /* End of file welcome.php */

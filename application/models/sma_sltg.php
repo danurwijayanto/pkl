@@ -60,6 +60,42 @@
 	            return FALSE;
 	        }
 		}
+
+		/**
+			* Get Kategori Berdasarkan ID AJAX
+			* data : 
+		*/
+		function get_kat_byid($data){
+			$query = "SELECT nama FROM kategori
+				WHERE id=$data[id]";
+	        $result = $this->db->query($query);
+
+	        $index = 0;
+			$query_result = array();
+			
+			foreach ($result->result_array() as $row){
+				$query_result[$index] = $row['nama'];
+
+				$index++;
+			}
+			return $query_result;
+		}
+
+		/**
+			*Ganti Kategori Berdasarkan ID
+			*data : 
+		*/
+		function ganti_kategori($data){
+			$query = "UPDATE kategori SET nama='$data[value]'
+				WHERE id=$data[id]";
+	        $result = $this->db->query($query);
+	        if($result){
+	            return TRUE;
+	        } else {
+	            return FALSE;
+	        }
+
+		}
 	
 
 
