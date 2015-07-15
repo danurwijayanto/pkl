@@ -113,6 +113,23 @@
 
 		}
 
+		/**
+			* Mendapatkan list artikel
+			* data : 
+		*/
+		function get_semuaartikel(){
+			$query = "SELECT artikel.* , kategori.nama 
+				FROM artikel, kategori
+				WHERE artikel.kategori = kategori.id";
+	        $result = $this->db->query($query);
+	        if($result){
+	            return $result->result_array();
+	        } else {
+	            return FALSE;
+	        }
+
+		}
+
 
 	
 

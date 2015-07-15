@@ -17,12 +17,22 @@
            <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Gambar</th>
+                <th scope="col">Judul</th>
                 <th scope="col">Kategori</th>
+                <th scope="col">Time</th>
+                <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
-
+            <?php foreach ($artikel as $artikel) { ?>
+              <td><?php echo $artikel['id'];?></td>
+              <td><?php echo $artikel['judul'];?></td>
+              <td><?php echo $artikel['nama'];?></td>
+              <td><?php echo date("d-m-Y",strtotime($artikel['time']));?></td>
+              <td></td>
+            <?php
+              }
+            ?>
           </tbody>
         </table>
         </section><!-- /.content -->

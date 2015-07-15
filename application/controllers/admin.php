@@ -38,10 +38,11 @@ class Admin extends CI_Controller {
 	*/
 	public function artikel()
 	{
-		
+		$this->load->database();
 		$data=array('title'=>'Kelola Artikel',
 					'isi' =>'admin_konten/artikel'
 					);
+		$data['artikel'] = $this->sma_sltg->get_semuaartikel();
 		$this->load->view('admin_wrapper', $data);
 	}
 
