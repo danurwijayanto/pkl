@@ -17,6 +17,7 @@
     <link href="<?php echo base_url();?>assets/adminlte/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
    <!-- Load JQuery dari CDN -->
     <script type="text/javascript" src="<?php echo base_url();?>assets/jquery/2.1.4/jquery.min.js"></script>
+
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

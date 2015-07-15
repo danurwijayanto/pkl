@@ -13,6 +13,23 @@
 
         <!-- Main content -->
         <section class="content">
+          <table id="myTable" class="table table-bordered table-hover table-striped">
+           <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Gambar</th>
+                <th scope="col">Kategori</th>
+            </tr>
+          </thead>
+          <tbody>
 
+          </tbody>
+        </table>
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
+      <script>
+      //Datatables
+            $(document).ready(function(){
+                $('#myTable').DataTable();
+            });
+            </script>
