@@ -32,10 +32,12 @@ class Operation extends CI_Controller {
 
 	public function simpan_artikel(){
 		$this->load->database();
-		$txt = $this->input->post('ckeditor');
 		$data = array(
-					'id'=>'',
-					'text' => $txt
+					'id'=> '',
+					'judul' => $this->input->post('judul'),
+					'text' => $this->input->post('ckeditor'),
+					'kategori' => $this->input->post('kategori'),
+					'time' => date("Ymd")
 				);
 		$result=$this->sma_sltg->simpan_artikel($data);
 		if ($result == TRUE){
