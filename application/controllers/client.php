@@ -41,6 +41,16 @@ class Client extends CI_Controller {
 					);
 		$this->load->view('client_wrapper', $data);
 	}
+
+	public function sejarah(){
+		$this->load->database();
+		$data=array('title'=>'SMA 2 Salatiga',
+					'isi' =>'client_konten/sejarah',
+					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
+					 'sejarah' => $this->sma_sltg->get_artikelbyid(12)
+					);
+		$this->load->view('client_wrapper', $data);
+	}
 }
 
 /* End of file welcome.php */
