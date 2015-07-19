@@ -15,20 +15,20 @@
         <section class="content">
             <form action="<?php echo base_url();?>operation/simpan_artikel" role="form" method="post" class="form-horizontal">
               <div class="form-group">
-                <label class="col-sm-1 control-label">Judul</label>
+                <label class="col-sm-1 control-label" >Judul</label>
                 <div class="col-sm-7">
-                  <input type="text" class="form-control" name="judul"  placeholder="Judul">
+                  <input type="text" class="form-control" name="judul" value="<?php if (isset($artikel)){echo $artikel['judul'];}else{}?>" placeholder="Judul">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-1 control-label">Kategori</label>
                 <div class="col-sm-7">
                   <select name='kategori' id='kategori'  class="form-control">
-                    <option value=0>-- Pilih Kategori --</option>
+                    <?php if (isset($artikel)){}else{echo '<option value=0>-- Pilih Kategori --</option>'; }?>
                     <?php 
                         foreach($kategori as $kategori)
                         {   ?>      
-                            <option value="<?php echo $kategori['id']; ?>"><?php echo $kategori['nama']; ?></option>
+                            <option value="<?php echo $kategori['id']; ?>" <?php if (isset($artikel)){if($artikel['nama']==$kategori['nama']){echo 'selected="selected"';}}else{}?>><?php echo $kategori['nama']; ?></option>
                      <?php   }
                     ?>
                 </select>
@@ -38,7 +38,7 @@
                 <div class="col-sm-1">
                 </div>
                 <div class="col-sm-11">
-                  <textarea id="ckeditor" name="ckeditor" class="ckeditor">&lt;p&gt;Initial value.&lt;/p&gt;</textarea>
+                  <textarea id="ckeditor" name="ckeditor" class="ckeditor"><?php if (isset($artikel)){echo $artikel['text'];}else{}?></textarea>
                 </div>
               </div>
               <div class="form-group">

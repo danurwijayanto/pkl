@@ -67,7 +67,7 @@ class Admin extends CI_Controller {
 	*/
 
 	/**
-		* Fungsi dan Halaman Kategori
+		* Fungsi mendapatkan semua Kategori
 	*/
 
 	public function kategori(){
@@ -81,8 +81,19 @@ class Admin extends CI_Controller {
 	}
 
 	/**
-		* End Fungsi dan Halaman Kategori
+		* End Fungsi mendapatkan semua Kategori
 	*/
+
+	public function edit_artikel(){
+		$this->load->database();
+		$id = $_GET['id'];
+		$data=array('title'=>'Kelola Kategori',
+					'isi' =>'admin_konten/tambah_artikel'
+					);
+		$data['artikel'] = $this->sma_sltg->get_artikelbyid($id);
+		$data['kategori'] = $this->sma_sltg->get_list_kategori();
+		$this->load->view('admin_wrapper', $data);
+	}
 
 }
 

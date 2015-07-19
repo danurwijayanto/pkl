@@ -75,7 +75,6 @@
 			
 			foreach ($result->result_array() as $row){
 				$query_result[$index] = $row['nama'];
-
 				$index++;
 			}
 			return $query_result;
@@ -130,6 +129,31 @@
 
 		}
 
+		/**
+			* Mendapatkan artikel berdasarkan ID
+			* data : 
+		*/
+		function get_artikelbyid($data){
+			$query = "SELECT artikel.* , kategori.nama 
+				FROM artikel, kategori
+				WHERE artikel.kategori = kategori.id AND artikel.id=$data";
+	        $result = $this->db->query($query);
+	      
+			$query_result = array();
+			foreach ($result->result_array() as $row){
+				$query_result['id'] = $row['id'];
+				$query_result['judul'] = $row['judul'];
+				$query_result['text'] = $row['text'];
+				$query_result['nama'] = $row['nama'];
+				$query_result['time'] = $row['time'];
+			}
+	        if($result){
+	            return $query_result;
+	        } else {
+	            return FALSE;
+	        }
+
+		}
 
 	
 

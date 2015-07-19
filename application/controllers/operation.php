@@ -105,9 +105,6 @@ class Operation extends CI_Controller {
 		$data = array('id' => $id);
 		$result=$this->sma_sltg->get_kat_byid($data);
 		echo json_encode($result);
-
-
-
 	}
 
 	/**
