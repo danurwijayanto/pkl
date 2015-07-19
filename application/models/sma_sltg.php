@@ -1,8 +1,6 @@
 <?php
 
-	Class Sma_sltg extends CI_Model {
-
-		
+	Class Sma_sltg extends CI_Model {		
 		/**
 			* Menambah artikel baru
 			* data : 
@@ -172,7 +170,21 @@
 
 		}
 
-	
+		/**
+			* Delete artikel berdasarkan ID
+			* data : 
+		*/
+		function del_art_byid($data){
+			$query = "DELETE FROM artikel
+				WHERE id=$data";
+	        $result = $this->db->query($query);
 
-
+	        if($result){
+	            return TRUE;
+	        } else {
+	            return FALSE;
+	        }
+		}
 	}
+	/* End of file sma_sltg.php */
+	/* Location: ./application/models/sma_sltg.php */

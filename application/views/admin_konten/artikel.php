@@ -31,7 +31,8 @@
               <td><?php echo $artikel['nama'];?></td>
               <td><?php echo date("d-m-Y",strtotime($artikel['time']));?></td>
               <td>
-                <a href="<?php echo base_url();?>admin/edit_artikel?id=<?php echo $artikel['id']; ?>" class="btn btn-success">Edit</a>                                                    
+                <a href="<?php echo base_url();?>admin/edit_artikel?id=<?php echo $artikel['id']; ?>" class="btn btn-success">Edit</a>
+                <a href="<?php echo base_url();?>operation/del_art_byid?id=<?php echo $artikel['id']; ?>" class="btn btn-danger" <?php if ($artikel['kategori']==7){echo "style='pointer-events: none; opacity: 0.5;'";}else{}?>>Delete</a>                                               
               </td>
             </tr>
             <?php

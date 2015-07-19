@@ -76,8 +76,21 @@ class Operation extends CI_Controller {
 	}
 
 	/**
-		* End Fungsi untuk Mengganti Kategori
+		* End Fungsi untuk Menghapus Artikel
 	*/
+
+	public function del_art_byid(){
+		$this->load->database();
+		$data = array('id' =>  $_GET['id']);
+		$result=$this->sma_sltg->del_art_byid($data['id']);
+		if ($result == TRUE){
+			echo "<script type='text/javascript'>alert('Delete Berhasil !')</script>";
+		} else {
+			echo "<script type='text/javascript'>alert('Delete Gagal !')</script>";
+		}
+		redirect('admin/artikel', 'refresh');
+
+	}
 
 	/**
 		* Fungsi untuk menyimpan kategori ke database
@@ -155,6 +168,8 @@ class Operation extends CI_Controller {
 	/**
 		* End Fungsi untuk Mengganti Kategori
 	*/
+
+
 }
 
 /* End of file welcome.php */
