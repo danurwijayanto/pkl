@@ -2,7 +2,7 @@
 		<div class="container">
 			<div class="content">
 				<div class="row clearfix">
-					<div class="col-md-8">
+					<div class="col-md-8" style="margin: -15px">
 						<div id="article">
 							<!-- Place somewhere in the <body> of your page -->
 							<h2 style="padding: 15px 0 0 20px;">Workshop Penjaminan Mutu</h2>
