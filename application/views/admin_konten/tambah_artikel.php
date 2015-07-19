@@ -52,6 +52,7 @@
                 </div>
                 <div class="col-sm-11">
                   <input type="submit" value="Simpan" class="btn btn-primary">
+                   <a href="<?php echo base_url();?>admin/artikel" class="btn btn-danger">Kembali</a>
                 </div>
               </div>
             </form>

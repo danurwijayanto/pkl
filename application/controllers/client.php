@@ -63,6 +63,26 @@ class Client extends CI_Controller {
 					);
 		$this->load->view('client_wrapper', $data);
 	}
+
+	public function logo_motto(){
+		$this->load->database();
+		$data=array('title'=>'SMA 2 Salatiga',
+					'isi' =>'client_konten/logo_motto',
+					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
+					 'logomotto' => $this->sma_sltg->get_artikelbyid(15)
+					);
+		$this->load->view('client_wrapper', $data);
+	}
+
+	public function struktur_organisasi(){
+		$this->load->database();
+		$data=array('title'=>'SMA 2 Salatiga',
+					'isi' =>'client_konten/struktur_organisasi',
+					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
+					 'struktur_organs' => $this->sma_sltg->get_artikelbyid(16)
+					);
+		$this->load->view('client_wrapper', $data);
+	}
 }
 
 /* End of file welcome.php */
