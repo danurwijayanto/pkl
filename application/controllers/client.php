@@ -29,9 +29,9 @@ class Client extends CI_Controller {
 	public function visimisi(){
 		$this->load->database();
 		$data=array('title'=>'SMA 2 Salatiga',
-					'isi' =>'client_konten/visimisi',
+					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
-					 'visi_misi' => $this->sma_sltg->get_artikelbyid(13)
+					 'konten' => $this->sma_sltg->get_artikelbyid(13)
 					);
 		$this->load->view('client_wrapper', $data);
 	}
@@ -47,9 +47,9 @@ class Client extends CI_Controller {
 	public function sejarah(){
 		$this->load->database();
 		$data=array('title'=>'SMA 2 Salatiga',
-					'isi' =>'client_konten/sejarah',
+					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
-					 'sejarah' => $this->sma_sltg->get_artikelbyid(12)
+					 'konten' => $this->sma_sltg->get_artikelbyid(12)
 					);
 		$this->load->view('client_wrapper', $data);
 	}
@@ -57,9 +57,9 @@ class Client extends CI_Controller {
 	public function tujuan(){
 		$this->load->database();
 		$data=array('title'=>'SMA 2 Salatiga',
-					'isi' =>'client_konten/tujuan',
+					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
-					 'tujuan' => $this->sma_sltg->get_artikelbyid(14)
+					 'konten' => $this->sma_sltg->get_artikelbyid(14)
 					);
 		$this->load->view('client_wrapper', $data);
 	}
@@ -67,9 +67,9 @@ class Client extends CI_Controller {
 	public function logo_motto(){
 		$this->load->database();
 		$data=array('title'=>'SMA 2 Salatiga',
-					'isi' =>'client_konten/logo_motto',
+					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
-					 'logomotto' => $this->sma_sltg->get_artikelbyid(15)
+					 'konten' => $this->sma_sltg->get_artikelbyid(15)
 					);
 		$this->load->view('client_wrapper', $data);
 	}
@@ -77,9 +77,9 @@ class Client extends CI_Controller {
 	public function struktur_organisasi(){
 		$this->load->database();
 		$data=array('title'=>'SMA 2 Salatiga',
-					'isi' =>'client_konten/struktur_organisasi',
+					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
-					 'struktur_organs' => $this->sma_sltg->get_artikelbyid(16)
+					 'konten' => $this->sma_sltg->get_artikelbyid(16)
 					);
 		$this->load->view('client_wrapper', $data);
 	}
