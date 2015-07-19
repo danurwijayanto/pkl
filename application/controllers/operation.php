@@ -53,6 +53,33 @@ class Operation extends CI_Controller {
 	*/
 
 	/**
+		* Fungsi untuk Mengganti Artikel
+	*/
+
+	public function rubah_artikel(){
+		$this->load->database();
+		$data = array(
+				'id' => $this->input->post('id'),
+				'judul' => $this->input->post('judul'),
+				'text' => $this->input->post('ckeditor'),
+				'kategori' => $this->input->post('kategori'),
+				'time' => date("Ymd")
+			);
+		$result=$this->sma_sltg->rubah_artikel($data);
+		if ($result == TRUE){
+			echo "<script type='text/javascript'>alert('Perubahan Berhasil !')</script>";
+		} else {
+			echo "<script type='text/javascript'>alert('Perubahan Gagal !')</script>";
+		}
+		redirect('admin/artikel', 'refresh');
+		
+	}
+
+	/**
+		* End Fungsi untuk Mengganti Kategori
+	*/
+
+	/**
 		* Fungsi untuk menyimpan kategori ke database
 	*/
 
@@ -111,7 +138,7 @@ class Operation extends CI_Controller {
 		* End Fungsi untuk mendapatkan kategori ke berdasarkan id dengan AJAX
 	*/
 
-		/**
+	/**
 		* Fungsi untuk Mengganti Kategori
 	*/
 

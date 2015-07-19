@@ -13,7 +13,12 @@
 
         <!-- Main content -->
         <section class="content">
-            <form action="<?php echo base_url();?>operation/simpan_artikel" role="form" method="post" class="form-horizontal">
+            <?php if($simpan_edit==TRUE){
+              echo '<form action="'.base_url().'operation/rubah_artikel" role="form" method="post" class="form-horizontal">';
+              echo '<input type="hidden" name="id" value="'.$artikel['id'].'" />';
+            }else{
+              echo '<form action="<?php echo base_url();?>operation/simpan_artikel" role="form" method="post" class="form-horizontal">';
+            }?>
               <div class="form-group">
                 <label class="col-sm-1 control-label" >Judul</label>
                 <div class="col-sm-7">

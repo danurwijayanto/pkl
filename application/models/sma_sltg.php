@@ -18,6 +18,23 @@
 		}
 
 		/**
+			* Merubah artikel 
+			* data : 
+		*/
+		function rubah_artikel($data) {
+			$query = "UPDATE artikel 
+				SET judul='$data[judul]', text='$data[text]', kategori='$data[kategori]' , time='$data[time]'
+				WHERE id=$data[id]";
+			$result = $this->db->query($query);
+			if ($query) {
+				return TRUE;
+			}else {
+				return FALSE;
+			}
+
+		}
+
+		/**
 			*Menambah kategori baru 
 			*data : 
 		*/

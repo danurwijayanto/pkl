@@ -92,6 +92,7 @@ class Admin extends CI_Controller {
 					);
 		$data['artikel'] = $this->sma_sltg->get_artikelbyid($id);
 		$data['kategori'] = $this->sma_sltg->get_list_kategori();
+		$data['simpan_edit'] = TRUE;
 		$this->load->view('admin_wrapper', $data);
 	}
 
