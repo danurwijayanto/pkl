@@ -161,7 +161,7 @@
                         <ul class="dropdown-menu">
                           <li><a href="<?php echo base_url();?>client/sejarah">Sejarah</a></li>
                           <li><a href="<?php echo base_url();?>client/visimisi">Visi dan Misi</a></li>
-                          <li><a href="#">Tujuan</a></li>
+                          <li><a href="<?php echo base_url();?>client/tujuan">Tujuan</a></li>
                           <li><a href="#">Logo dan Motto</a></li>
                           <li><a href="#">Struktur Organisasi</a></li>
                         </ul>

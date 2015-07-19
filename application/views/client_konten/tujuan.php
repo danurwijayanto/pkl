@@ -3,5 +3,5 @@
 			<div class="content">
 				<div class="row clearfix">
 					<div class="col-md-8">
-						<?php echo $visi_misi['text'];?>
+						<?php echo $tujuan['text'];?>
 					</div>

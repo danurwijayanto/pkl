@@ -27,9 +27,11 @@ class Client extends CI_Controller {
 	}
 
 	public function visimisi(){
+		$this->load->database();
 		$data=array('title'=>'SMA 2 Salatiga',
 					'isi' =>'client_konten/visimisi',
-					 'sidebar_kanan' => 'client_konten/sidebar_kanan'
+					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
+					 'visi_misi' => $this->sma_sltg->get_artikelbyid(13)
 					);
 		$this->load->view('client_wrapper', $data);
 	}
@@ -48,6 +50,16 @@ class Client extends CI_Controller {
 					'isi' =>'client_konten/sejarah',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
 					 'sejarah' => $this->sma_sltg->get_artikelbyid(12)
+					);
+		$this->load->view('client_wrapper', $data);
+	}
+
+	public function tujuan(){
+		$this->load->database();
+		$data=array('title'=>'SMA 2 Salatiga',
+					'isi' =>'client_konten/tujuan',
+					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
+					 'tujuan' => $this->sma_sltg->get_artikelbyid(14)
 					);
 		$this->load->view('client_wrapper', $data);
 	}
