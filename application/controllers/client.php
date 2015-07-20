@@ -89,7 +89,7 @@ class Client extends CI_Controller {
 		$this->load->database();
 
 		$data=array('title'=>'SMA 2 Salatiga',
-					'isi' =>'client_konten/profile',
+					'isi' =>'client_konten/artikel',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
 					 'konten' => $this->sma_sltg->get_artikelbyid($data),
 					 'agenda' => $this->sma_sltg->get_artikelbykat(8)
