@@ -171,6 +171,24 @@
 		}
 
 		/**
+			* Mendapatkan artikel berdasarkan Kategori
+			* data : 
+		*/
+		function get_artikelbykat($data){
+			$query = "SELECT artikel.* , kategori.nama 
+				FROM artikel, kategori
+				WHERE artikel.kategori = kategori.id AND kategori.id=$data";
+	        $result = $this->db->query($query);
+	      
+	        if($result){
+	            return $result->result_array();
+	        } else {
+	            return FALSE;
+	        }
+
+		}
+
+		/**
 			* Delete artikel berdasarkan ID
 			* data : 
 		*/

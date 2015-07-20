@@ -131,6 +131,11 @@
         border-width: 2px;
       }
 
+      .date-title {
+        font-size: 10px;
+        color: #555;
+      }
+
   
     </style>
   </head>

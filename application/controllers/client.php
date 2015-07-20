@@ -18,10 +18,11 @@ class Client extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{
-		
+	{	
+		$this->load->database();
 		$data=array('title'=>'SMA 2 Salatiga',
-					'isi' =>'client_konten/home'
+					'isi' =>'client_konten/home',
+					'agenda' => $this->sma_sltg->get_artikelbykat(8)
 					);
 		$this->load->view('client_wrapper', $data);
 	}
@@ -80,6 +81,18 @@ class Client extends CI_Controller {
 					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
 					 'konten' => $this->sma_sltg->get_artikelbyid(16)
+					);
+		$this->load->view('client_wrapper', $data);
+	}
+
+	public function news($data){
+		$this->load->database();
+
+		$data=array('title'=>'SMA 2 Salatiga',
+					'isi' =>'client_konten/profile',
+					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
+					 'konten' => $this->sma_sltg->get_artikelbyid($data),
+					 'agenda' => $this->sma_sltg->get_artikelbykat(8)
 					);
 		$this->load->view('client_wrapper', $data);
 	}
