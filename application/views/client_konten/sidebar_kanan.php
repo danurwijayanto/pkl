@@ -1,3 +1,35 @@
+<?php if (isset($tautan)){
+	if ($tautan == TRUE){
+?>
+						<div class="col-md-4">
+						<div class="panel" style="font-size: 14px;">
+							<div class="judul_panel">
+								<h5><b>Tautan</b></h5>
+							</div>
+							<br>
+							<ul class="">
+							  	<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							  		<a href="http://www.uksw.edu/id.php" title="Universitas Kristen Satya Wacana Salatiga">Universitas Kristen Satya Wacana Salatiga</a>
+							  	</li>
+							  	<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							  		<a href="http://unnes.ac.id/" title="Universitas Negeri Semarang">Universitas Negeri Semarang</a>
+							  	</li>
+							  	<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							  		<a href="http://iainsalatiga.ac.id/" title="STAIN / UIN Salatiga">STAIN / UIN Salatiga</a>
+							  	</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="row clearfix" style="margin: 0 0 158px;">
+				</div>
+			</div>
+		</div>
+		<!--End Content-->
+	<?php
+		}
+	}else{
+	?>
 					<div class="col-md-4">
 						<div class="panel" style="font-size: 14px;">
 							<div class="judul_panel">
@@ -50,3 +82,6 @@
 			</div>
 		</div>
 		<!--End Content-->
+<?php
+}
+?>

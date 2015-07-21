@@ -175,8 +175,8 @@
 			* Mendapatkan artikel berdasarkan Kategori
 			* data : 
 		*/
-		function get_artikelbykat($sampai=null, $dari=null, $data=null){
-			if (($sampai <= 0) AND ($dari<= 0)){
+		function get_artikelbykat($limit=null, $offset=null, $data=null){
+			if (($limit <= 0) AND ($offset<= 0)){
 				$query = "SELECT artikel.* , kategori.nama 
 					FROM artikel, kategori
 					WHERE artikel.kategori = kategori.id AND kategori.id=$data";
@@ -188,10 +188,11 @@
 		            return FALSE;
 		        }
 		    }else{
-		    	$result = $this->db
-		    			->order_by('time', 'asc')
-		    			->limit($sampai, $dari)
-		    			->get_where('artikel');		    
+		    	$query = "SELECT artikel.* , kategori.nama 
+					FROM artikel, kategori
+					WHERE artikel.kategori = kategori.id AND kategori.id=$data
+					LIMIT $limit OFFSET $offset";
+		        $result = $this->db->query($query);
 		    	if($result){
 		            return $result->result_array();
 		        } else {
@@ -221,10 +222,10 @@
 			* Menghitung jumlah row			
 			* data : 
 		*/
-		function jumlah_row($tabel, $id){
+		function jumlah_row($tabel, $id, $kolom){
 			$query = "SELECT * 
 					FROM $tabel
-					WHERE $tabel.id=$id";
+					WHERE $tabel.$kolom=$id";
 	        $result = $this->db->query($query);
 
 	        if($result){
