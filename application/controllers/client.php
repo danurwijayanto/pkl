@@ -22,7 +22,7 @@ class Client extends CI_Controller {
 		$this->load->database();
 		$data=array('title'=>'SMA 2 Salatiga',
 					'isi' =>'client_konten/home',
-					'agenda' => $this->sma_sltg->get_artikelbykat(8)
+					'agenda' => $this->sma_sltg->get_artikelbykat(0,0,8)
 					);
 		$this->load->view('client_wrapper', $data);
 	}
@@ -92,11 +92,36 @@ class Client extends CI_Controller {
 					'isi' =>'client_konten/artikel',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
 					 'konten' => $this->sma_sltg->get_artikelbyid($data),
-					 'agenda' => $this->sma_sltg->get_artikelbykat(8)
+					 'agenda' => $this->sma_sltg->get_artikelbykat(0,0,8)
 					);
 		$this->load->view('client_wrapper', $data);
 	}
+
+	public function kategori(){
+		$this->load->database();
+		$this->load->library('pagination');
+		//$id = $_GET['id'];
+		//$tabel = 'artikel';
+
+		//$jumlah= $this->sma_sltg->jumlah_row($tabel,$id);
+		$config['base_url'] = base_url().'/client/kategori/';
+		$config['total_rows'] = 5;
+		$config['per_page'] = 2; 
+		$config['uri_segment'] = 3;
+		//$dari = $this->uri->segment(4,0);
+		$this->pagination->initialize($config); 
+		$data=array('title'=>'SMA 2 Salatiga',
+					'isi' =>'client_konten/art_bykat',
+					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
+					 'pagging' => $this->pagination->create_links(),
+					 'konten' => $this->sma_sltg->get_artikelbykat(0,0,7)
+					);
+
+		$this->load->view('pagination',$data);
+	}
 }
+
 
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */
+

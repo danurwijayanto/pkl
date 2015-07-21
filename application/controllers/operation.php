@@ -169,6 +169,21 @@ class Operation extends CI_Controller {
 		* End Fungsi untuk Mengganti Kategori
 	*/
 
+	/**
+		* Fungsi untuk Mendapatkan Artikel Berdasarkan Kategori
+	*/
+
+	public function get_artikelbykat(){
+		$this->load->database();
+		$data = $_GET['id'];
+		$result=$this->sma_sltg->get_artikelbykat(0,0,$data);
+		
+	}
+
+	/**
+		* End Fungsi untuk Mendapatkan Artikel Berdasarkan Kategori
+	*/
+
 
 }
 

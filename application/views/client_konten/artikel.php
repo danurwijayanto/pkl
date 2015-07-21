@@ -13,7 +13,7 @@
 							</p>
 
 							<div style="padding: 15px 0 20px 20px;">
-								Kategori: <b><a href="http://if.undip.ac.id/news?cat=1">
+								Kategori: <b><a href="<?php echo base_url();?>client/kategori?id=<?php echo $konten['kategori'];?>">
 									<?php echo $konten['nama']?></a></b>
 							</div>
 
