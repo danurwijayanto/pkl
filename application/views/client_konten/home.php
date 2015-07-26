@@ -4,7 +4,7 @@
 				<div class="row clearfix">
 					<div class="col-md-6">
 						<!-- Place somewhere in the <body> of your page -->
-						<div id="slider" class="flexslider">
+						<div id="slider-one" class="flexslider">
 				          <ul class="slides">
 				            <li>
 				  	    	    <img src="<?php echo base_url();?>assets/flexslider/images/kitchen_adventurer_cheesecake_brownie.jpg" />
@@ -136,7 +136,36 @@
 					</div>
 
 				</div>
-				<div class="row clearfix" style="margin: 0 0 158px;">
+				<div class="row clearfix" style="margin: auto;">
+					<div class="col-sm-12">
+						<div id="main link-gambar" class="col-sm-12 link-gambar" role="main">
+							<div class="flexslider" id="slider-two">
+								<ul class="slides">
+									<li>
+						    			<a href="http://dapo.dikmen.kemdikbud.go.id/portal/web/">
+										<img style="height: 100px; !important" src="<?php echo base_url()?>assets/image/dapodikmen.jpg" class="attachment-full image" alt="site-name3" />
+										</a>
+									</li>
+									<li>
+						    			<a href="http://bse.kemdikbud.go.id/buku/kurikulum2013">
+										<img style="height: 100px; !important" src="<?php echo base_url()?>assets/image/bse.jpg" class="attachment-full image" alt="mailundip" />                            </a>
+									</li>
+									<li>
+						    			<a href="http://pintar.pdkjateng.go.id/">
+										<img style="height: 100px; !important" src="<?php echo base_url()?>assets/image/jatengpintar.jpg" class="attachment-full image" alt="regonline" />                            </a>
+									</li>
+									<li>
+						    			<a href="http://padamu.siap.web.id/">
+										<img style="height: 100px; !important" src="<?php echo base_url()?>assets/image/padamunegeri.jpg" class="attachment-full image" alt="siaundip" />                            </a>
+									</li>
+									<li>
+						    			<a href="http://192.168.0.15/siakad/index.php">
+										<img style="height: 100px; !important" src="<?php echo base_url()?>assets/image/smanda.jpg" class="attachment-full image" alt="ac" />                            </a>
+									</li>
+								</ul><!-- .slides -->
+							</div><!-- .flexslider -->
+						</div> <!-- END LINK GAMBAR -->
+					</div>
 				</div>
 			</div>
 		</div>
@@ -145,3 +174,5 @@
 		<!--JS -->
 		
     </body>
+
+
