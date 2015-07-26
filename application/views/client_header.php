@@ -141,10 +141,16 @@
           padding: 5px;
           min-height: 100px;
       }
-      img {
-        height: 100px;
-        padding: 5px;
-    }
+      .link-gambar img {
+          padding: 5px;
+          filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
+          transition-duration: 1s;
+      }
+
+      .link-gambar img:hover {
+          transition-duration: 1s;
+          filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0'/></filter></svg>#grayscale");
+      }
     </style>
   </head>
   <body>
