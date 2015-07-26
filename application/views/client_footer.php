@@ -21,7 +21,7 @@
               SyntaxHighlighter.all();
             });
             $(window).load(function(){
-              $('.flexslider').flexslider({
+              $('#slider-one').flexslider({
                 animation: "slide",
                 controlNav: false,
                 fx: 'fade',
@@ -31,6 +31,18 @@
                   $('body').removeClass('loading');
                 }
               });
+
+              $('#slider-two').flexslider({
+                    animation: "slide",
+                    animationLoop: true,
+                    controlNav: false,
+                    itemWidth: 100,
+                    itemHeight: 100,
+                    itemMargin: 5,
+                    minItems: 2,
+                    maxItems: 4
+                });
+
             });
           </script>
 

@@ -136,7 +136,15 @@
         color: #555;
       }
 
-  
+      .link-gambar {
+          margin: 63px 0px;
+          padding: 5px;
+          min-height: 100px;
+      }
+      img {
+        height: 100px;
+        padding: 5px;
+    }
     </style>
   </head>
   <body>
