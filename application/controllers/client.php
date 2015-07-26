@@ -104,29 +104,70 @@ class Client extends CI_Controller {
 		$this->load->view('client_wrapper', $data);
 	}
 
-	public function kategori($offset = 0){
+	public function kategori($data=0,$offset=0){
 		$this->load->database();
 		$this->load->library('pagination');
-		$id = $_GET['id'];
-		$tabel = 'artikel';
-		$kolom = 'kategori';
+		//if (isset($id)){
+			$id = $data;
+			$tabel = 'artikel';
+			$kolom = 'kategori';
 
-		$jumlah= $this->sma_sltg->jumlah_row($tabel,$id,$kolom);
-		$config['base_url'] = base_url().'/client/kategori/';
-		$config['total_rows'] = $jumlah;
-		$config['per_page'] = 4; 
-		//$config['uri_segment'] = 3;
-		//$dari = $this->uri->segment(4,0);
-		$this->pagination->initialize($config); 
+			//$jumlah= $this->sma_sltg->jumlah_row($tabel,$id,$kolom);
+			$config['base_url'] = base_url().'/client/kategori/';
+			//$config['total_rows'] = 5;
+			$config['per_page'] = 3; 
+			$config['uri_segment'] = 2;
+			//$dari = $this->uri->segment(4,0);
+			//$this->pagination->initialize($config); 
+			$data=array('title'=>'SMA 2 Salatiga',
+						'isi' =>'client_konten/art_bykat',
+						 'sidebar_kanan' => 'client_konten/sidebar_kanan',
+						 'konten' => $this->sma_sltg->get_artikelbykat($config['per_page'],$offset,$id),
+						 'konten_row' => $this->sma_sltg->get_artikelbykat(0,$offset,$id),
+						 'agenda' => $this->sma_sltg->get_artikelbykat(0,0,8)
+						);
+			$row = count($data['konten_row']);
+			$config['total_rows'] = $row;
+			$this->pagination->initialize($config);
+			$data['pagging'] = $this->pagination->create_links(); 
+
+			$this->load->view('pagination',$data);
+		//}else{}
+		
+		
+	}
+
+	public function guru(){
+		$this->load->database();
 		$data=array('title'=>'SMA 2 Salatiga',
-					'isi' =>'client_konten/art_bykat',
+					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
-					 'pagging' => $this->pagination->create_links(),
-					 'konten' => $this->sma_sltg->get_artikelbykat($config['per_page'],$offset,$id),
-					 'agenda' => $this->sma_sltg->get_artikelbykat(0,0,8)
+					 'konten' => $this->sma_sltg->get_artikelbyid(20),
+					 'tautan'=> TRUE
 					);
+		$this->load->view('client_wrapper', $data);
+	}
 
-		$this->load->view('pagination',$data);
+	public function karyawan(){
+		$this->load->database();
+		$data=array('title'=>'SMA 2 Salatiga',
+					'isi' =>'client_konten/profile',
+					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
+					 'konten' => $this->sma_sltg->get_artikelbyid(21),
+					 'tautan'=> TRUE
+					);
+		$this->load->view('client_wrapper', $data);
+	}
+
+	public function kontak(){
+		$this->load->database();
+		$data=array('title'=>'SMA 2 Salatiga',
+					'isi' =>'client_konten/profile',
+					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
+					 'konten' => $this->sma_sltg->get_artikelbyid(22),
+					 'tautan'=> TRUE
+					);
+		$this->load->view('client_wrapper', $data);
 	}
 }
 

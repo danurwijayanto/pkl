@@ -170,7 +170,7 @@ class Operation extends CI_Controller {
 	*/
 
 	/**
-		* Fungsi untuk Mendapatkan Artikel Berdasarkan Kategori
+		* Fungsi untuk Mendapatkan Artikel Berdasarkan Kategori --jkljlkj
 	*/
 
 	public function get_artikelbykat(){

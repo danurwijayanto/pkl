@@ -193,8 +193,10 @@
 					WHERE artikel.kategori = kategori.id AND kategori.id=$data
 					LIMIT $limit OFFSET $offset";
 		        $result = $this->db->query($query);
+		        $hasil = $result->result_array();
 		    	if($result){
-		            return $result->result_array();
+		            return $hasil;
+				
 		        } else {
 		            return FALSE;
 		        }

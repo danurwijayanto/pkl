@@ -17,7 +17,7 @@
           <script  type="text/javascript" src="<?php echo base_url();?>assets/flexslider/js/jquery.flexslider.js"></script>
 
           <script type="text/javascript">
-             $(function(){
+            $(function(){
               SyntaxHighlighter.all();
             });
             $(window).load(function(){

@@ -176,8 +176,8 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kepegawaian
                       <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a href="#">Guru</a></li>
-                          <li><a href="#">Karyawan</a></li>
+                          <li><a href="<?php echo base_url();?>client/guru">Guru</a></li>
+                          <li><a href="<?php echo base_url();?>client/karyawan">Karyawan</a></li>
                         </ul>
               </li>
               <li class="dropdown">
@@ -209,7 +209,7 @@
                         </ul>
               </li>
               <li class=""><a href="#">Elearning</a></li>
-              <li class=""><a href="#">Kontak</a></li>
+              <li class=""><a href="<?php echo base_url();?>client/kontak">Kontak</a></li>
             </ul>
           </div>
         </div>
