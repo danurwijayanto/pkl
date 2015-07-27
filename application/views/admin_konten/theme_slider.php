@@ -42,6 +42,7 @@
 		                 	<div class="form-group">
 		                    	<div class="col-sm-10">		                      	
                                		<div class="col-sm-4">
+                               			<input type="hidden" name="type" value="0">
                                     	<input type="file" name="userfile" size='20' id="upload" required onchange="previewImage(this,[256],1);">
                                     	<div class="imagePreview"></div>
                                 	</div>		                

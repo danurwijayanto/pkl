@@ -204,7 +204,8 @@ class Operation extends CI_Controller {
 			$data = array(
 					'id' => '',
 					'gambar' => $gambar['raw_name'].$gambar['file_ext'],
-					'tanggal' => date("Ymd")
+					'tanggal' => date("Ymd"),
+					'type' => $_POST['type']
 				);
 			$result=$this->sma_sltg->upload_gambar($data);
 			if ($result == TRUE){
