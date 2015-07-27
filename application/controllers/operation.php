@@ -186,7 +186,7 @@ class Operation extends CI_Controller {
 
 	public function do_upload(){
 		$this->load->database();
-		$config['upload_path'] = 'assets/image/';
+		$config['upload_path'] = 'upload\Gambar\images';
 		$config['file_name'] = 'gbr_'.date("Ymd");
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['max_size']	= '1000';
