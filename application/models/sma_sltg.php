@@ -236,6 +236,19 @@
 	            return FALSE;
 	        }
 		}
+
+		/**
+			* Upload Gambar	
+			* data : 
+		*/
+		function upload_gambar($data){
+			$query = $this->db->insert('slider',$data);
+			if ($this->db->affected_rows() > 0) {
+				return TRUE;
+			}else {
+				return FALSE;
+			}
+		}
 	}
 	/* End of file sma_sltg.php */
 	/* Location: ./application/models/sma_sltg.php */

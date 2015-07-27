@@ -37,7 +37,8 @@
 		               <h4 class="modal-title">Upload Gambar</h4>
 		            </div>
 		            <div class="modal-body">
-		                <form class="form-horizontal" role="form">
+		            	<form action='<?php echo base_url();?>operation/do_upload' class="form-horizontal" enctype="multipart/form-data" method='post'>
+		                
 		                 	<div class="form-group">
 		                    	<div class="col-sm-10">		                      	
                                		<div class="col-sm-4">
@@ -48,7 +49,7 @@
 		                  	</div>
 		                  	<div class="form-group">        
 		                    	<div class="col-sm-10">
-		                     		<a class="btn btn-default simpan_edit_kat" id="<?php //echo //$kategori['id'];?>">Upload</a>
+		                     		 <input type="submit" value="Upload" class="btn btn-primary">
 		                    	</div>
 		                  	</div>
 		                </form>

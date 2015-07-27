@@ -184,6 +184,43 @@ class Operation extends CI_Controller {
 		* End Fungsi untuk Mendapatkan Artikel Berdasarkan Kategori
 	*/
 
+	public function do_upload(){
+		$this->load->database();
+		$config['upload_path'] = 'assets/image/';
+		$config['file_name'] = 'gbr_'.date("Ymd");
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size']	= '1000';
+ 
+		$this->load->library('upload', $config);
+ 
+		if (!$this->upload->do_upload()){			
+       		$data['message'] = array('error' => $this->upload->display_errors());
+       		echo "<script type='text/javascript'>alert('".$data['message']['error']."')</script>";
+        	//$this->load->view('layout/wrapper', $data);
+       		redirect('admin/slider', 'refresh');
+		}
+		else{
+			$gambar = $this->upload->data();
+			$data = array(
+					'id' => '',
+					'gambar' => $gambar['raw_name'].$gambar['file_ext'],
+					'tanggal' => date("Ymd")
+				);
+			$result=$this->sma_sltg->upload_gambar($data);
+			if ($result == TRUE){
+				echo "<script type='text/javascript'>alert('Upload Berhasil !')</script>";
+			} else {
+				echo "<script type='text/javascript'>alert('Upload Gagal !')</script>";
+			}
+			//$pesan = 'sukses';
+			redirect('admin/slider', 'refresh');
+ 			//$data = array(
+          	//	'isi' => 'konten/admin_kelbar'
+       		//);
+       		//$data['message'] = array('error' => $this->upload->data());
+        	//$this->load->view('layout/wrapper', $data);    
+		}
+	}
 
 }
 
