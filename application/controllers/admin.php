@@ -92,7 +92,23 @@ class Admin extends CI_Controller {
 					);
 		$data['artikel'] = $this->sma_sltg->get_artikelbyid($id);
 		$data['kategori'] = $this->sma_sltg->get_list_kategori();
+		//mengganti tombol simpan dengan edit
 		$data['simpan_edit'] = TRUE;
+		$this->load->view('admin_wrapper', $data);
+	}
+
+	/**
+		* End Fungsi theme slider
+	*/
+
+	public function slider(){
+		$this->load->database();
+		$data=array('title'=>'Kelola Kategori',
+					'isi' =>'admin_konten/theme_slider'
+					);
+		//$data['artikel'] = $this->sma_sltg->get_artikelbyid($id);
+		//$data['kategori'] = $this->sma_sltg->get_list_kategori();
+		//$data['simpan_edit'] = TRUE;
 		$this->load->view('admin_wrapper', $data);
 	}
 
