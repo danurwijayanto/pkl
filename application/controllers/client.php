@@ -24,7 +24,9 @@ class Client extends CI_Controller {
 					'isi' =>'client_konten/home',
 					'agenda' => $this->sma_sltg->get_artikelbykat(0,0,8),
 					'pengumuman' => $this->sma_sltg->get_artikelbykat(0,0,6),
-					'artikel' => $this->sma_sltg->get_artikelbykat(0,0,3)
+					'artikel' => $this->sma_sltg->get_artikelbykat(0,0,3),
+					'slider_one' => $this->sma_sltg->get_slider(0),
+					'slider_two' => $this->sma_sltg->get_slider(1)
 					);
 		$this->load->view('client_wrapper', $data);
 	}

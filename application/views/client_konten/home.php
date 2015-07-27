@@ -6,22 +6,23 @@
 						<!-- Place somewhere in the <body> of your page -->
 						<div id="slider-one" class="flexslider">
 				          <ul class="slides">
-				            <li>
-				  	    	    <img src="<?php echo base_url();?>assets/flexslider/images/kitchen_adventurer_cheesecake_brownie.jpg" />
-				  	    	     <p class="flex-caption">Adventurer Cheesecake Brownie</p>
-				  	    		</li>
-				  	    		<li>
-				  	    	    <img src="<?php echo base_url();?>assets/flexslider/images/kitchen_adventurer_lemon.jpg" />
-				  	    	    <p class="flex-caption">Adventurer Cheesecake Brownie</p>
-				  	    		</li>
-				  	    		<li>
-				  	    	    <img src="<?php echo base_url();?>assets/flexslider/images/kitchen_adventurer_donut.jpg" />
-				  	    	    <p class="flex-caption">Adventurer Cheesecake Brownie</p>
-				  	    		</li>
-				  	    		<li>
-				  	    	    <img src="<?php echo base_url();?>assets/flexslider/images/kitchen_adventurer_caramel.jpg" />
-				  	    		<p class="flex-caption">Adventurer Cheesecake Brownie</p>
-				  	    		</li>
+				          	<?php
+				          	if ($slider_one == NULL){?>
+				          	<li>
+				          		<img src="<?php echo base_url();?>upload/Gambar/images/no-image-available.jpg" />
+				  	    	    <p class="flex-caption">Slider Tidak Tersedia</p>	
+				          	</li>
+				          	<?php } else {
+				          	foreach ($slider_one as $sliderone) {?>
+				          	<li>
+				          		<img src="<?php echo base_url();?>upload/Gambar/images/<?php echo $sliderone['gambar']?>" />
+				  	    	    <p class="flex-caption"><?php echo $sliderone['keterangan']?></p>	
+				          	</li>
+				          	<?php
+				          	}
+				          	}
+				          	?>
+				          	no-image-available.jpg
 				          </ul>
 				        </div>
 					</div>

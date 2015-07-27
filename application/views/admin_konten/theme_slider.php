@@ -16,10 +16,31 @@
           <table id="myTable" class="table table-bordered table-hover table-striped" style="width:60%">
            <thead>
             <tr>
-                <th scope="col">No</th>
-                <th scope="col">Gambar</th>
-                <th scope="col">Action</th>
+              <th scope="col">No</th>
+              <th scope="col">Keterangan</th>
+              <th scope="col">Gambar</th>
+              <th scope="col">Action</th>
             </tr>
+            <?php
+              if ($slider_one != NULL){
+                
+                $i = 1; 
+                foreach ($slider_one as $sliderone) { ;?>
+                <tr>
+                  <td><?php echo $i;?></td>
+                  <td><?php echo $sliderone['keterangan'];?></td>
+                  <td><img alt="Thumbnail image" src="<?php echo base_url();?>upload/Gambar/images/<?php echo $sliderone['gambar'];?>" class="img-thumbnail" width="150" height="200"></td>
+                  <td>
+                    <a href="<?php echo base_url();?>operation/del_slider?id=<?php echo $sliderone['id']; ?>" class="btn btn-danger">Delete</a>
+                  </td>
+                </tr>
+                <?php
+                $i = $i+1; 
+                }
+              } else{
+                echo "<tr><td colspan='4'>Tidak Ada Data</td></tr>";
+              }
+            ?>
           </thead>
           <tbody>
 
@@ -38,14 +59,12 @@
 		            </div>
 		            <div class="modal-body">
 		            	<form action='<?php echo base_url();?>operation/do_upload' class="form-horizontal" enctype="multipart/form-data" method='post'>
-		                
 		                 	<div class="form-group">
-		                    	<div class="col-sm-10">		                      	
-                               		<div class="col-sm-4">
-                               			<input type="hidden" name="type" value="0">
-                                    	<input type="file" name="userfile" size='20' id="upload" required onchange="previewImage(this,[256],1);">
-                                    	<div class="imagePreview"></div>
-                                	</div>		                
+		                    	<div class="col-sm-10">		    
+                            <input type="text" class="form-control" name="keterangan" placeholder="Keterangan" required><br>                  	
+                           	<input type="hidden" name="type" value="0">
+                            <input type="file" name="userfile" size='20' id="upload" required onchange="previewImage(this,[256],1);">
+                            <div class="imagePreview"></div>		                
 		                    	</div>
 		                  	</div>
 		                  	<div class="form-group">        

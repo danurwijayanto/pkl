@@ -187,7 +187,7 @@ class Operation extends CI_Controller {
 	public function do_upload(){
 		$this->load->database();
 		$config['upload_path'] = 'upload\Gambar\images';
-		$config['file_name'] = 'gbr_'.date("Ymd");
+		$config['file_name'] = 'gbr_'.date("YmdYmdHis");
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['max_size']	= '1000';
  
@@ -203,6 +203,7 @@ class Operation extends CI_Controller {
 			$gambar = $this->upload->data();
 			$data = array(
 					'id' => '',
+					'keterangan' => $_POST['keterangan'],
 					'gambar' => $gambar['raw_name'].$gambar['file_ext'],
 					'tanggal' => date("Ymd"),
 					'type' => $_POST['type']

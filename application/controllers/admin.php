@@ -106,7 +106,8 @@ class Admin extends CI_Controller {
 		$data=array('title'=>'Kelola Kategori',
 					'isi' =>'admin_konten/theme_slider'
 					);
-		//$data['slider_one'] = $this->sma_sltg->get_artikelbyid($id);
+		$data['slider_one'] = $this->sma_sltg->get_slider(0);
+		$data['slider_two'] = $this->sma_sltg->get_slider(1);
 		//$data['kategori'] = $this->sma_sltg->get_list_kategori();
 		//$data['simpan_edit'] = TRUE;
 		$this->load->view('admin_wrapper', $data);

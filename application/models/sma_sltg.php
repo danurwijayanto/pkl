@@ -249,6 +249,23 @@
 				return FALSE;
 			}
 		}
+
+		/**
+			* Get Semua Slider gambar	
+			* data : 
+		*/
+		function get_slider($data){
+			$query = "SELECT *  
+				FROM slider
+				WHERE type=$data";
+	        $result = $this->db->query($query);
+	        if($result){
+	            return $result->result_array();
+	        } else {
+	            return FALSE;
+	        }
+		}
+
 	}
 	/* End of file sma_sltg.php */
 	/* Location: ./application/models/sma_sltg.php */
