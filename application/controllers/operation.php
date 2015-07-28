@@ -181,7 +181,11 @@ class Operation extends CI_Controller {
 	}
 
 	/**
-		* End Fungsi untuk Mendapatkan Artikel Berdasarkan Kategori
+		* End Fungsi untuk Mendapatkan Artikel Berdasarkan Kategori --jkljlkj
+	*/
+
+	/**
+		* End Fungsi untuk upload slider admin
 	*/
 
 	public function do_upload(){
@@ -203,10 +207,11 @@ class Operation extends CI_Controller {
 			$gambar = $this->upload->data();
 			$data = array(
 					'id' => '',
-					'keterangan' => $_POST['keterangan'],
+					'keterangan' =>  $this->input->post('keterangan'),
 					'gambar' => $gambar['raw_name'].$gambar['file_ext'],
 					'tanggal' => date("Ymd"),
-					'type' => $_POST['type']
+					'type' => $_POST['type'],
+					'link' =>  $this->input->post('link')
 				);
 			$result=$this->sma_sltg->upload_gambar($data);
 			if ($result == TRUE){
@@ -224,6 +229,29 @@ class Operation extends CI_Controller {
 		}
 	}
 
+	/**
+		* End Fungsi untuk Upload slider 
+	*/
+
+	/**
+		* Fungsi untuk Mendapatkan Artikel Berdasarkan Kategori --jkljlkj
+	*/
+
+	public function del_slider(){
+		$this->load->database();
+		$data = $_GET['id'];
+		$result=$this->sma_sltg->del_slider($data);
+		if ($result == TRUE){
+			echo "<script type='text/javascript'>alert('Delete Berhasil !')</script>";
+		} else {
+			echo "<script type='text/javascript'>alert('Delete Gagal !')</script>";
+		}
+		redirect('admin/slider', 'refresh');
+	}
+
+	/**
+		* End Fungsi untuk Mendapatkan Artikel Berdasarkan Kategori --jkljlkj
+	*/
 }
 
 /* End of file welcome.php */

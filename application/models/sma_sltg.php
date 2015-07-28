@@ -266,6 +266,42 @@
 	        }
 		}
 
+		/**
+			* Get Semua Slider gambar	
+			* data : 
+		*/
+		function get_sliderid($data){
+			$query = "SELECT *  
+				FROM slider
+				WHERE id=$data";
+	        $result = $this->db->query($query);
+	        if($result){
+	            return $result->result_array();
+	        } else {
+	            return FALSE;
+	        }
+		}
+
+		/**
+			* Delete artikel berdasarkan ID
+			* data : 
+		*/
+		function del_slider($data){
+			$get_detail = $this->get_sliderid($data);
+			$path = "upload/Gambar/images/".$get_detail['gambar'];
+			$query = "DELETE FROM slider
+				WHERE id=$data";
+	        $result = $this->db->query($query);
+
+	        if($this->db->affected_rows() >= 1){
+		        if(unlink($path))
+		        return TRUE;
+		    } else {
+		        return FALSE;
+		    }
+
+		}
+
 	}
 	/* End of file sma_sltg.php */
 	/* Location: ./application/models/sma_sltg.php */
