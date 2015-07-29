@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2015 at 08:35 AM
+-- Generation Time: Jul 29, 2015 at 04:54 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -89,9 +89,23 @@ INSERT INTO `kategori` (`id`, `nama`) VALUES
 
 CREATE TABLE IF NOT EXISTS `slider` (
   `id` int(11) NOT NULL,
+  `keterangan` varchar(1000) NOT NULL,
   `gambar` varchar(100) NOT NULL,
-  `tanggal` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `tanggal` date NOT NULL,
+  `type` int(2) NOT NULL,
+  `link` varchar(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `slider`
+--
+
+INSERT INTO `slider` (`id`, `keterangan`, `gambar`, `tanggal`, `type`, `link`) VALUES
+(18, '0', 'gbr_2015072820150728053000.jpg', '2015-07-28', 1, 'http://dapo.dikmen.kemdikbud.go.id/portal/web/'),
+(20, '0', 'gbr_2015072820150728053121.jpg', '2015-07-28', 1, 'http://bse.kemdikbud.go.id/buku/kurikulum2013'),
+(21, '0', 'gbr_2015072820150728053133.jpg', '2015-07-28', 1, 'http://pintar.pdkjateng.go.id/'),
+(22, '0', 'gbr_2015072820150728053148.jpg', '2015-07-28', 1, 'http://padamu.siap.web.id/'),
+(23, '0', 'gbr_2015072820150728053204.jpg', '2015-07-28', 1, 'http://192.168.0.15/siakad/index.php');
 
 --
 -- Indexes for dumped tables
@@ -133,7 +147,7 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
