@@ -57,16 +57,16 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-                  <span class="hidden-xs"><?php $session['nama'];?></span>
+                  <i class="fa fa-user fa-2x"></i>
+                  <span class="hidden-xs"><?php echo $session['nama'];?></span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                     <i class="fa fa-user fa-2x"></i>
                     <p>
-                      Alexander Pierce - Web Developer
-                      <small>Member since Nov. 2012</small>
+                      <?php echo $session['nama'];?><br><?php echo $session['email'];?>
+                      <small></small>
                     </p>
                   </li>
                   <!-- Menu Body -->
