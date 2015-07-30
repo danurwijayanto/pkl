@@ -18,9 +18,18 @@ class Admin extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 
+	
+	public function __construct() {
+		parent::__construct();
+			if ($this->session->userdata('email')=="") {
+			redirect('masukadmin', 'refresh');
+		}
+	}
+
 	/**
 		* Default Page Admin
-	*/
+	*/	
+
 	public function index()
 	{
 		
@@ -32,6 +41,7 @@ class Admin extends CI_Controller {
 	/**
 		* End Default Page Admin
 	*/
+
 
 	/**
 		* Fungsi dan Halaman Artikel
