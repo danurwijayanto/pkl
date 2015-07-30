@@ -1,6 +1,8 @@
+ 
  <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
+        <input type="hidden" name="id" value="<?php echo $session['id'];?>">
         <section class="content-header">
           <h1>
             Akun Saya
@@ -22,12 +24,13 @@
             <div class="tab-pane active" id="akun">
               <!-- DATA PERSONAL-->
               <h3>Data Personal</h3><br>
-              <form name="datauser" class="form-horizontal" role="form" action="<?php echo base_url();?>" method="post" >
+              <form name="datauser" class="form-horizontal" role="form" action="<?php echo base_url();?>operation/change_useremail" method="post" >
                 <!-- Nama -->
                 <div class="form-group">
                   <label class="col-sm-1 control-label" for="lg">Username</label>
                   <div class="col-sm-5">
                      <input type="text" id="nama" class="form-control" id="focusedInput" name="nama" value="<?php echo $session['nama'];?>" required value="">
+                    <input type="hidden" name="id" value="<?php echo $session['id'];?>">
                   </div>
                 </div>
 
@@ -61,7 +64,7 @@
                 <div class="form-group">
                   <label class="col-sm-1 control-label" for="lg">Password Baru</label>
                     <div class="col-sm-5">
-                       <input type="password" id="confirmpass" name="confirmpass" class="form-control" placeholder="Masukkan Password yang Baru" required value="">
+                       <input type="password" id="confirmpass" name="confirmpass" class="form-control" placeholder="Masukkan Password yang Baru" required>
                     </div>
                 </div>
 
@@ -69,7 +72,7 @@
                 <div class="form-group">
                   <label class="col-sm-1 control-label" for="lg">Confirm Password Baru</label>
                     <div class="col-sm-5">
-                       <input type="password" id="confirmpass1" name="confirmpass1" class="form-control" placeholder="Konfirmasi Masukkan Password yang Baru" required value="">
+                       <input type="password" id="confirmpass1" name="confirmpass1" class="form-control" placeholder="Konfirmasi Masukkan Password yang Baru" required>
                     </div>
                 </div>
                 <input type="submit" name="simpan" value="Simpan" class="btn btn-primary">

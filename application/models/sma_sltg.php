@@ -299,9 +299,23 @@
 		    } else {
 		        return FALSE;
 		    }
-
 		}
 
+		/**
+			* Change username dan email
+			* data : 
+		*/
+		function change_useremail($data){
+			$query = "UPDATE user 
+				SET nama='$data[nama]', email='$data[email]'
+				WHERE id=$data[id]";
+			$result = $this->db->query($query);
+			if ($query) {
+				return TRUE;
+			}else {
+				return FALSE;
+			}
+		}
 	}
 	/* End of file sma_sltg.php */
 	/* Location: ./application/models/sma_sltg.php */

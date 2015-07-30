@@ -252,6 +252,36 @@ class Operation extends CI_Controller {
 	/**
 		* End Fungsi untuk Mendapatkan Artikel Berdasarkan Kategori --jkljlkj
 	*/
+
+	/**
+		* Fungsi untuk mengganti username dan email
+	*/
+
+	public function change_useremail(){
+		$this->load->database();
+		$data = array(
+			'id' => $_POST['id'],
+			'nama' => $_POST['nama'],
+			'email' => $_POST['email']
+			);
+		$result=$this->sma_sltg->change_useremail($data);
+		if ($result == TRUE){
+			echo "<script type='text/javascript'>alert('Pergantian Berhasil !')</script>";
+			$sess_array = array(
+						'email' => $_POST['email']
+					);
+
+					// Add user data in session
+					$this->session->set_userdata('logged_in', $sess_array);
+		} else {
+			echo "<script type='text/javascript'>alert('Pergantian Gagal !')</script>";
+		}
+		redirect('admin/akunku', 'refresh');
+	}
+
+	/**
+		* End Fungsi untuk mengganti username dan email
+	*/
 }
 
 /* End of file welcome.php */
