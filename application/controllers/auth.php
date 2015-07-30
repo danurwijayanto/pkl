@@ -17,22 +17,10 @@ class Auth extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function __construct() {
-		parent::__construct();
-		if ($this->session->userdata('logged_in')!=NULL) {
-			redirect('admin', 'refresh');
-			$this->load->database();
-		}
-	}
-	
-
-	/**
-		* Default Page Admin
-	*/	
 
 	public function user_login_process()
 	{
-
+		$this->load->database();
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 
@@ -64,6 +52,18 @@ class Auth extends CI_Controller {
 					//redirect('kelbar', 'refresh');
 				}
 			}
+	}
+
+	// Logout from admin page
+	public function logout() {
+
+		// Removing session data
+		$sess_array = array(
+			'email' => ''
+		);
+		$this->session->unset_userdata('logged_in', $sess_array);
+		$data['message'] = 'Successfully Logout';
+		$this->load->view('admin_konten/login', $data);
 	}
 }
 
