@@ -21,7 +21,8 @@ class Admin extends CI_Controller {
 	
 	public function __construct() {
 		parent::__construct();
-			if ($this->session->userdata('email')=="") {
+		$this->load->database();
+		if ($this->session->userdata('logged_in')==NULL) {
 			redirect('masukadmin', 'refresh');
 		}
 	}
@@ -32,10 +33,13 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-		
-		$data=array('title'=>'Admin Page',
-					'isi' =>'admin_konten/home'
-					);
+		$session_data = $this->session->userdata('logged_in');
+		$result = $this->user_auth->read_user_information($session_data);
+		$data=array(
+			'session' => $result,
+			'title'=>'Admin Page',
+			'isi' =>'admin_konten/home'
+		);
 		$this->load->view('admin_wrapper', $data);
 	}
 	/**

@@ -26,7 +26,7 @@
 			}
 		?>
 		<div class="container">
-			<form name="login" action="<?php echo base_url();?>user_auth/user_login_process" method="post" role="form" class="form-signin">
+			<form name="login" action="<?php echo base_url();?>auth/user_login_process" method="post" role="form" class="form-signin">
 
 					<h1 align="center">
 						<?php 
