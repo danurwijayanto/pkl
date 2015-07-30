@@ -6,9 +6,13 @@
 			* data : 
 		*/
 		function login($data) {
+			$salt = '123NgopoNdes**//';
+			//encrypt password inputan lama
+			$password = crypt($data['password'], $salt);
+			//Cek Password Lama
 			$query = "SELECT *  
 				FROM user
-				WHERE email='$data[email]' AND password='$data[password]'";
+				WHERE email='$data[email]' AND password='$password'";
 			$result = $this->db->query($query);
 			if ($this->db->affected_rows() > 0) {
 				return TRUE;

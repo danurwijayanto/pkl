@@ -316,6 +316,41 @@
 				return FALSE;
 			}
 		}
+
+		/**
+			* Change password
+			* data : 
+		*/
+		function ganti_password($data){
+			// == Generate hash untuk password baru
+			$salt = '123NgopoNdes**//';
+			//encrypt password inputan lama
+			$password = crypt($data['pass'], $salt);
+			//Cek Password Lama
+			$cek = "SELECT password
+					FROM user
+					WHERE id=$data[id] AND password='$password'";
+			$cek = $this->db->query($cek);
+			$pass_lama = $cek->result_array();
+
+			//Membandingkan Dengan Password Baru
+			if ($pass_lama!=NULL){
+				//Encrypt password baru
+				$passwordHash = crypt($data['passbaru'], $salt);
+
+				$query = "UPDATE user 
+				SET password='$passwordHash'
+				WHERE id=$data[id]";
+				$result = $this->db->query($query);
+				if ($query) {
+					return TRUE;
+				}else {
+					return FALSE;
+				}
+			}else {
+				return FALSE;
+			}
+		}
 	}
 	/* End of file sma_sltg.php */
 	/* Location: ./application/models/sma_sltg.php */

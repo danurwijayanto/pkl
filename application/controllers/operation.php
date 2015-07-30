@@ -282,6 +282,31 @@ class Operation extends CI_Controller {
 	/**
 		* End Fungsi untuk mengganti username dan email
 	*/
+
+	/**
+		* Fungsi untuk mengganti password
+	*/
+
+	public function ganti_password(){
+		$this->load->database();
+		$data = array(
+			'id' => $_POST['id'],
+			'pass' => $_POST['pass'],
+			'passbaru' => $_POST['passbaru'],
+		);
+		$result=$this->sma_sltg->ganti_password($data);
+		if ($result == TRUE){
+			echo "<script type='text/javascript'>alert('Pergantian Password Berhasil !')</script>";
+		} else {
+			echo "<script type='text/javascript'>alert('Pergantian Password Gagal !')</script>";
+		}
+		redirect('admin/akunku', 'refresh');
+	}
+
+	/**
+		* End Fungsi untuk mengganti password
+	*/
+
 }
 
 /* End of file welcome.php */
