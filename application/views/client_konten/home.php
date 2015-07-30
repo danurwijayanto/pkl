@@ -151,7 +151,7 @@
 						          	<?php } else {
 						          	foreach ($slider_two as $slidertwo) {?>
 						          	<li>
-						          		<a href="#">
+						          		<a href="<?php echo $slidertwo['link'];?>">
 										<img style="height: 100px; !important" src="<?php echo base_url();?>upload/Gambar/images/<?php echo $slidertwo['gambar']?>" class="attachment-full image" alt="site-name3" />
 										</a>
 						          	</li>
