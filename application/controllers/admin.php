@@ -36,6 +36,8 @@ class Admin extends CI_Controller {
 		$session_data = $this->session->userdata('logged_in');
 		$result = $this->user_auth->read_user_information($session_data);
 		$data=array(
+			'totalartikel' => count($this->sma_sltg->get_semuaartikel()),
+			'totalkategori' => count($this->sma_sltg->get_semuakat()),
 			'session' => $result,
 			'title'=>'Admin Page',
 			'isi' =>'admin_konten/home'
