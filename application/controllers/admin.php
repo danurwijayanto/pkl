@@ -18,12 +18,17 @@ class Admin extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 
-	
+
+
 	public function __construct() {
 		parent::__construct();
 		$this->load->database();
+
 		if ($this->session->userdata('logged_in')==NULL) {
 			redirect('masukadmin', 'refresh');
+		}else{
+			$this->session_data = $this->session->userdata('logged_in');
+			$this->data_sesi = $this->user_auth->read_user_information($this->session_data);
 		}
 	}
 
@@ -33,12 +38,11 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-		$session_data = $this->session->userdata('logged_in');
-		$result = $this->user_auth->read_user_information($session_data);
+		
 		$data=array(
 			'totalartikel' => count($this->sma_sltg->get_semuaartikel()),
 			'totalkategori' => count($this->sma_sltg->get_semuakat()),
-			'session' => $result,
+			'session' => $this->data_sesi,
 			'title'=>'Admin Page',
 			'isi' =>'admin_konten/home'
 		);
@@ -114,7 +118,7 @@ class Admin extends CI_Controller {
 	}
 
 	/**
-		* End Fungsi theme slider
+		* Fungsi theme slider
 	*/
 
 	public function slider(){
@@ -129,6 +133,26 @@ class Admin extends CI_Controller {
 		$this->load->view('admin_wrapper', $data);
 	}
 
+	/**
+		* End Fungsi theme slider
+	*/
+
+	/**
+		* Fungsi theme slider
+	*/
+
+	public function akunku(){
+		$this->load->database();
+		$data=array('title'=>'Kelola Kategori',
+					'isi' =>'admin_konten/akun_detail',
+					'session' => $this->data_sesi
+					);
+		$this->load->view('admin_wrapper', $data);
+	}
+
+	/**
+		* End Fungsi theme slider
+	*/
 }
 
 /* End of file welcome.php */
