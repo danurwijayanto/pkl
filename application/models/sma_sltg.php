@@ -149,9 +149,9 @@
 			* data : 
 		*/
 		function get_artikelbyid($data){
-			$query = "SELECT artikel.* , kategori.nama
-				FROM artikel, kategori
-				WHERE artikel.kategori = kategori.id AND artikel.id=$data";
+			$query = "SELECT artikel.* , kategori.nama, user.nama_user
+				FROM artikel, kategori, user
+				WHERE artikel.kategori = kategori.id AND artikel.id=$data AND artikel.user_id=user.id";
 	        $result = $this->db->query($query);
 	      
 			$query_result = array();
@@ -162,6 +162,7 @@
 				$query_result['nama'] = $row['nama'];
 				$query_result['kategori'] = $row['kategori'];
 				$query_result['time'] = $row['time'];
+				$query_result['nama_user'] = $row['nama_user'];
 			}
 	        if($result){
 	            return $query_result;
@@ -179,7 +180,8 @@
 			if (($limit <= 0) AND ($offset<= 0)){
 				$query = "SELECT artikel.* , kategori.nama 
 					FROM artikel, kategori
-					WHERE artikel.kategori = kategori.id AND kategori.id=$data";
+					WHERE artikel.kategori = kategori.id AND kategori.id=$data
+					ORDER BY artikel.time DESC";
 		        $result = $this->db->query($query);
 		      
 		        if($result){

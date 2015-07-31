@@ -60,7 +60,8 @@ class Admin extends CI_Controller {
 	{
 		$this->load->database();
 		$data=array('title'=>'Kelola Artikel',
-					'isi' =>'admin_konten/artikel'
+					'isi' =>'admin_konten/artikel',
+					'session' => $this->data_sesi
 					);
 		$data['artikel'] = $this->sma_sltg->get_semuaartikel();
 		$this->load->view('admin_wrapper', $data);
@@ -76,7 +77,8 @@ class Admin extends CI_Controller {
 		$this->ckeditor->config['language'] = 'en';
 	    
 		$data=array('title'=>'Tambah Artikel',
-					'isi' =>'admin_konten/tambah_artikel'
+					'isi' =>'admin_konten/tambah_artikel',
+					'session' => $this->data_sesi
 					);
 		$data['kategori'] = $this->sma_sltg->get_semuakat();
 		$this->load->view('admin_wrapper', $data);
@@ -93,7 +95,8 @@ class Admin extends CI_Controller {
 	public function kategori(){
 		$this->load->database();
 		$data=array('title'=>'Kelola Kategori',
-					'isi' =>'admin_konten/kategori'
+					'isi' =>'admin_konten/kategori',
+					'session' => $this->data_sesi
 					);
 
 		$data['kategori'] = $this->sma_sltg->get_list_kategori();
@@ -108,7 +111,8 @@ class Admin extends CI_Controller {
 		$this->load->database();
 		$id = $_GET['id'];
 		$data=array('title'=>'Kelola Kategori',
-					'isi' =>'admin_konten/tambah_artikel'
+					'isi' =>'admin_konten/tambah_artikel',
+					'session' => $this->data_sesi
 					);
 		$data['artikel'] = $this->sma_sltg->get_artikelbyid($id);
 		$data['kategori'] = $this->sma_sltg->get_list_kategori();
@@ -124,7 +128,8 @@ class Admin extends CI_Controller {
 	public function slider(){
 		$this->load->database();
 		$data=array('title'=>'Kelola Kategori',
-					'isi' =>'admin_konten/theme_slider'
+					'isi' =>'admin_konten/theme_slider',
+					'session' => $this->data_sesi
 					);
 		$data['slider_one'] = $this->sma_sltg->get_slider(0);
 		$data['slider_two'] = $this->sma_sltg->get_slider(1);

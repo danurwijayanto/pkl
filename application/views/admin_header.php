@@ -58,14 +58,14 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="fa fa-user fa-2x"></i>
-                  <span class="hidden-xs"><?php echo $session['nama'];?></span>
+                  <span class="hidden-xs"><?php echo $session['nama_user'];?></span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
                      <i class="fa fa-user fa-2x"></i>
                     <p>
-                      <?php echo $session['nama'];?><br><?php echo $session['email'];?>
+                      <?php echo $session['nama_user'];?><br><?php echo $session['email'];?>
                       <small></small>
                     </p>
                   </li>

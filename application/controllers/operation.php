@@ -17,6 +17,16 @@ class Operation extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	public function __construct() {
+		parent::__construct();
+		$this->load->database();
+
+		$this->session_data = $this->session->userdata('logged_in');
+		$this->data_sesi = $this->user_auth->read_user_information($this->session_data);
+
+	}
+
 	public function index()
 	{
 		
@@ -37,7 +47,8 @@ class Operation extends CI_Controller {
 					'judul' => $this->input->post('judul'),
 					'text' => $this->input->post('ckeditor'),
 					'kategori' => $this->input->post('kategori'),
-					'time' => date("Ymd")
+					'time' => date("Ymd"),
+					'user_id' => $this->data_sesi['id']
 				);
 		$result=$this->sma_sltg->simpan_artikel($data);
 		if ($result == TRUE){
@@ -63,7 +74,8 @@ class Operation extends CI_Controller {
 				'judul' => $this->input->post('judul'),
 				'text' => $this->input->post('ckeditor'),
 				'kategori' => $this->input->post('kategori'),
-				'time' => date("Ymd")
+				'time' => date("Ymd"),
+				'user_id' => $this->data_sesi['id']
 			);
 		$result=$this->sma_sltg->rubah_artikel($data);
 		if ($result == TRUE){

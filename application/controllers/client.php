@@ -110,23 +110,27 @@ class Client extends CI_Controller {
 		$this->load->database();
 		$this->load->library('pagination');
 		//if (isset($id)){
-			$id = $data;
+			$id = $this->input->get('id');
 			$tabel = 'artikel';
 			$kolom = 'kategori';
 
 			//$jumlah= $this->sma_sltg->jumlah_row($tabel,$id,$kolom);
 			$config['base_url'] = base_url().'/client/kategori/';
+			//setting supaya link pagination terdatap parameter
+			if (count($_GET) > 0) $config['suffix'] = '?' . http_build_query($_GET, '', "&");
+			$config['first_url'] = $config['base_url'].'?'.http_build_query($_GET);
 			//$config['total_rows'] = 5;
 			$config['per_page'] = 3; 
-			$config['uri_segment'] = 2;
+			$config['uri_segment'] = 3;
+			$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 			//$dari = $this->uri->segment(4,0);
 			//$this->pagination->initialize($config); 
 			$data=array('title'=>'SMA 2 Salatiga',
 						'isi' =>'client_konten/art_bykat',
 						 'sidebar_kanan' => 'client_konten/sidebar_kanan',
-						 'konten' => $this->sma_sltg->get_artikelbykat($config['per_page'],$offset,$id),
+						 'konten' => $this->sma_sltg->get_artikelbykat($config['per_page'],$page,$id),
 						 'konten_row' => $this->sma_sltg->get_artikelbykat(0,$offset,$id),
-						 'agenda' => $this->sma_sltg->get_artikelbykat(0,0,8)
+						 //'agenda' => $this->sma_sltg->get_artikelbykat(0,0,8)
 						);
 			$row = count($data['konten_row']);
 			$config['total_rows'] = $row;

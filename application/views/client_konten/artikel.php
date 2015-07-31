@@ -6,7 +6,7 @@
 						<div id="article" style="padding: 10px">
 							<!-- Place somewhere in the <body> of your page -->
 							<h2 style="padding: 15px 0 0 20px;"><?php echo $konten['judul']?></h2>
-							<div class="site_news_metadate">Diposting oleh Administrator pada <?php echo date("d m Y",strtotime($konten['time']));?></div>
+							<div class="site_news_metadate">Diposting oleh <?php echo $konten['nama_user'];?> pada <?php echo date("d m Y",strtotime($konten['time']));?></div>
 							<hr>
 							<p style="padding: 15px 0 0px 20px;">
 								<?php echo $konten['text'];?>

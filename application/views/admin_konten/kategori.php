@@ -19,13 +19,15 @@
                 <th>Kategori</th>
                 <th>Action</th>
               </tr>
-              <?php if (!$kategori){ ?>
+              <?php 
+              
+              if (!$kategori){ ?>
                 <tr>
                   <td colspan="3" valign="middle"> Kategori Kosong</td>
                 </tr>
-              <?php }else {foreach ($kategori as $kategori){ ?>
+              <?php }else {$i=1; foreach ($kategori as $kategori){ ?>
                 <tr>
-                  <td><?php echo $kategori['id'];?></td>
+                  <td><?php echo $i;?></td>
                   <td><?php echo $kategori['nama'];?></td>
                   <td>
                     <a class="btn btn-warning" href="<?php echo base_url();?>operation/del_kat_byid?id=<?php echo $kategori['id'];?>">
@@ -62,12 +64,12 @@
                     </div>
                   </td>
                 </tr>
-              <?php } } ?>
+              <?php $i=$i+1;} } ?>
           </table>
           <br>
           <!-- Tambah Kategori dengan modal-->
           <!-- Trigger the modal with a button -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Tambah Kategori</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" disabled>Tambah Kategori</button>
           <!-- Modal -->
           <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">

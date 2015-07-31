@@ -29,7 +29,7 @@
 			$query_result = array();
 			foreach ($result->result_array() as $row){
 				$query_result['id'] = $row['id'];
-				$query_result['nama'] = $row['nama'];
+				$query_result['nama_user'] = $row['nama_user'];
 				$query_result['email'] = $row['email'];
 				$query_result['password'] = $row['password'];
 			}

@@ -5,10 +5,13 @@
           <h1>
             Daftar Artikel
           </h1>
+
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Artikel</a></li>
             <li class="active">Daftar Artikel</li>
           </ol>
+          <br>
+          <a href="<?php echo base_url();?>admin/tambah_artikel" class="btn btn-warning">Tambah Artikel</a>
         </section>
 
         <!-- Main content -->
