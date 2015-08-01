@@ -125,7 +125,7 @@ class Client extends CI_Controller {
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
 					 'konten' => $this->sma_sltg->get_artikelbykat($config['per_page'],$page,$id),
 					 'konten_row' => $this->sma_sltg->get_artikelbykat(0,$offset,$id),
-					 'agenda' => $this->sma_sltg->get_artikelbykat(0,0,8)
+					 'agenda' => $this->sma_sltg->get_artikelbykat(0,0,8),
 					);
 		$row = count($data['konten_row']);
 		$config['total_rows'] = $row;
