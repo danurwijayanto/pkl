@@ -153,7 +153,7 @@
                              <form class="form-horizontal" role="form">
                               <div class="form-group">
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="link" id="link_edit" required><br>                    
+                                  <input type="url" class="form-control" name="link" id="link_edit" required ><br>                    
                                   <input type="hidden" name="type" value="0">
                                   <input type="text" style="cursor:pointer" class="form-control" name="file_gambar" id="file_gambar_edit2" placeholder="Klick Untuk Upload" onclick="openKCFinder(this);" readonly="readonly" required></input>
                                 </div>
@@ -183,10 +183,10 @@
 
           </tbody>
         </table>
-          <a class="btn btn-default edit_kat" data-toggle="modal" data-target="#edit1" id="<?php //echo //$kategori['id'];?>">
-            <i class="fa fa-trash-o fa-lg"></i> Tambah</a>
+          <a class="btn btn-default edit_kat" data-toggle="modal" data-target="#tambah1" >
+          <i class="fa fa-trash-o fa-lg"></i> Tambah</a>
           <!-- Modal -->
-          <div id="edit1" class="modal fade" role="dialog">
+          <div id="tambah1" class="modal fade" role="dialog">
             <div class="modal-dialog">
               <!-- Modal content-->
               <div class="modal-content">
@@ -198,9 +198,9 @@
                   <form action='<?php echo base_url();?>operation/do_upload' class="form-horizontal" enctype="multipart/form-data" method='post'>
                       <div class="form-group">
                           <div class="col-sm-10">       
-                            <input type="text" class="form-control" name="link" placeholder="Link Gambar, ex : http://google.com" required><br>                      
+                            <input type="url" class="form-control" name="link" placeholder="Link Gambar, ex : http://google.com" required  pattern="https?://.+"><br>                      
                             <input type="hidden" name="type" value="1">
-                             <input type="text" style="cursor:pointer" class="form-control" placeholder="Klick Untuk Upload" name="file_gambar" id="file_gambar2"  placeholder="Klik Untuk Pilih File Gambar" value="" onclick="openKCFinder(this);" onchange="" readonly="readonly" required></input>
+                            <input type="text" style="cursor:pointer" class="form-control" placeholder="Klick Untuk Upload" name="file_gambar" id="file_gambar2"  placeholder="Klik Untuk Pilih File Gambar" value="" onclick="openKCFinder(this);" onchange="" readonly="readonly" required></input>
                             <!--<input type="file"  name="userfile" size='20' id="upload" required onchange="previewImage(this,[256],1);">
                           <div class="imagePreview"></div>   -->                   
                           </div>
@@ -230,7 +230,7 @@ function openKCFinder(field) {
             window.KCFinder = null;
         }
     };
-    window.open('../../assets/kcfinder/browse.php?type=images', 'kcfinder_textbox',
+    window.open('../assets/kcfinder/browse.php?type=images', 'kcfinder_textbox',
         'status=0, toolbar=0, location=0, menubar=0, directories=0, ' +
         'resizable=1, scrollbars=0, width=800, height=600'
     );

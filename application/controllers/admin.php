@@ -148,7 +148,7 @@ class Admin extends CI_Controller {
 
 	public function akunku(){
 		$this->load->database();
-		$data=array('title'=>'Kelola Kategori',
+		$data=array('title'=>'My Account',
 					'isi' =>'admin_konten/akun_detail',
 					'session' => $this->data_sesi
 					);
@@ -157,6 +157,38 @@ class Admin extends CI_Controller {
 
 	/**
 		* End Fungsi theme slider
+	*/
+
+	public function manage_images(){
+		$this->load->database();
+		$data=array('title'=>'Kelola Gambar',
+					'isi' =>'admin_konten/manage_files',
+					'session' => $this->data_sesi,
+					'kcfinder' => 'images'
+					);
+		$this->load->view('admin_wrapper', $data);
+	}
+
+	/**
+		* End Fungsi theme slider
+	*/
+
+	/**
+		* End Fungsi manage files
+	*/
+
+	public function manage_files(){
+		$this->load->database();
+		$data=array('title'=>'Kelola Files',
+					'isi' =>'admin_konten/manage_files',
+					'session' => $this->data_sesi,
+					'kcfinder' => 'files'
+					);
+		$this->load->view('admin_wrapper', $data);
+	}
+
+	/**
+		* End Fungsi manage_files
 	*/
 }
 
