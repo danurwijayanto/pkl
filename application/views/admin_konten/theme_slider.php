@@ -53,7 +53,7 @@
                               </div>
                               <div class="form-group">        
                                 <div class="col-sm-10">
-                                 <a class="btn btn-primary simpan_edit_slider" id="">Ganti</a>
+                                 <a class="btn btn-primary simpan_edit_slider1" id="">Ganti</a>
                                 </div>
                               </div>
                             </form>
@@ -227,10 +227,11 @@ function openKCFinder(field) {
 
     //Menyimpan kategori baru telah dirubah
     $(".simpan_edit_slider1").click(function(){
-      var myData = 'value='+ document.getElementById("cat_text").value;
+      var myData = 'keterangan_edit='+ document.getElementById("keterangan_edit").value +
+                    '&file_gambar_edit='+ document.getElementById("file_gambar_edit").value;
      
       $.ajax({
-        url:"../operation/ganti_kategori?id="+id,              
+        url:"../operation/ganti_slider?id="+id,              
         dataType : "json",
         data : myData,
         type: "POST",

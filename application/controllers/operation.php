@@ -189,7 +189,7 @@ class Operation extends CI_Controller {
 
 
 	/**
-		* Fungsi untuk Mengganti Kategori
+		* Fungsi untuk Mengganti Kategori using ajax
 	*/
 
 	public function ganti_kategori(){
@@ -203,7 +203,26 @@ class Operation extends CI_Controller {
 	}
 
 	/**
-		* End Fungsi untuk Mengganti Kategori
+		* End Fungsi untuk Mengganti Kategori using ajax
+	*/
+
+	/**
+		* Fungsi untuk Mengganti slider using ajax
+	*/
+
+	public function ganti_slider(){
+		$this->load->database();
+		$data = array(
+				'id' => $_GET['id'],
+				'keterangan' => $_POST['keterangan_edit'],
+				'file_gambar' => $_POST['file_gambar_edit']
+			);
+		$result=$this->sma_sltg->ganti_slider($data);
+		
+	}
+
+	/**
+		* End Fungsi untuk Mengganti slider using ajax
 	*/
 
 	/**

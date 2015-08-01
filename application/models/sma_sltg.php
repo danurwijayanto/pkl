@@ -350,6 +350,22 @@
 				return FALSE;
 			}
 		}
+
+		/**
+			*Ganti slider Berdasarkan ID
+			*data : 
+		*/
+		function ganti_slider($data){
+			$query = "UPDATE slider SET keterangan='$data[keterangan]', gambar='$data[file_gambar]'
+				WHERE id=$data[id]";
+	        $result = $this->db->query($query);
+	        if($result){
+	            return TRUE;
+	        } else {
+	            return FALSE;
+	        }
+
+		}
 	}
 	/* End of file sma_sltg.php */
 	/* Location: ./application/models/sma_sltg.php */
