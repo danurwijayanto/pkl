@@ -63,9 +63,9 @@
 		                    	<div class="col-sm-10">		    
                             <input type="text" class="form-control" name="keterangan" placeholder="Keterangan" required><br>                  	
                            	<input type="hidden" name="type" value="0">
-                            <input type="text" style="cursor:pointer" class="form-control" name="userfile" placeholder="Klick Untuk Upload" name="file_gambar"  value="Klik Untuk Pilih File Gambar" onclick="openKCFinder(this);" onchange="previewImage(this,[256],1);" readonly="readonly" required></input>
-                            <!--<input type="file" name="userfile" size='20' id="upload" required onchange="previewImage(this,[256],1);">-->
-                            <div class="imagePreview"></div>		                
+                            <input type="text" style="cursor:pointer" class="form-control" name="file_gambar" placeholder="Klick Untuk Upload" name="file_gambar"  placeholder="Klik Untuk Pilih File Gambar" value="" onclick="openKCFinder(this);previewImage(this,[256],1);" onchange="" readonly="readonly" required></input>
+                            <!--<input type="file" name="userfile" size='20' id="upload" required onchange="previewImage(this,[256],1);">
+                            <div class="imagePreview"></div>-->		                
 		                    	</div>
 		                  	</div>
 		                  	<div class="form-group">        
@@ -165,7 +165,7 @@ function openKCFinder(field) {
     window.KCFinder = {
         callBack: function(url) {
             var newURL = window.location.protocol + "://" + window.location.host + "/" + window.location.pathname;
-            field.value = url;//.split('/').pop();
+            field.value = url.split('/').pop();
             window.KCFinder = null;
         }
     };
