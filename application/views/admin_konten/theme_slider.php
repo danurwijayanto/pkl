@@ -63,7 +63,8 @@
 		                    	<div class="col-sm-10">		    
                             <input type="text" class="form-control" name="keterangan" placeholder="Keterangan" required><br>                  	
                            	<input type="hidden" name="type" value="0">
-                            <input type="file" name="userfile" size='20' id="upload" required onchange="previewImage(this,[256],1);">
+                            <input type="text" style="cursor:pointer" class="form-control" name="userfile" placeholder="Klick Untuk Upload" name="file_gambar"  value="Klik Untuk Pilih File Gambar" onclick="openKCFinder(this);" onchange="previewImage(this,[256],1);" readonly="readonly" required></input>
+                            <!--<input type="file" name="userfile" size='20' id="upload" required onchange="previewImage(this,[256],1);">-->
                             <div class="imagePreview"></div>		                
 		                    	</div>
 		                  	</div>
@@ -139,7 +140,7 @@
                           <div class="col-sm-10">       
                             <input type="text" class="form-control" name="link" placeholder="Link Gambar, ex : http://google.com" required><br>                      
                             <input type="hidden" name="type" value="1">
-                            <input type="file" name="userfile" size='20' id="upload" required onchange="previewImage(this,[256],1);">
+                            <input type="file"  name="userfile" size='20' id="upload" required onchange="previewImage(this,[256],1);">
                             <div class="imagePreview"></div>                    
                           </div>
                         </div>
@@ -157,5 +158,21 @@
         <!-- /.content -->
 
       </div><!-- /.content-wrapper -->
-      <script>
-      //Datatables
+
+      <script type="text/javascript">
+
+function openKCFinder(field) {
+    window.KCFinder = {
+        callBack: function(url) {
+            var newURL = window.location.protocol + "://" + window.location.host + "/" + window.location.pathname;
+            field.value = url;//.split('/').pop();
+            window.KCFinder = null;
+        }
+    };
+    window.open('../../assets/kcfinder/browse.php?type=images', 'kcfinder_textbox',
+        'status=0, toolbar=0, location=0, menubar=0, directories=0, ' +
+        'resizable=1, scrollbars=0, width=800, height=600'
+    );
+}
+
+</script>

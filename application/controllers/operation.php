@@ -202,25 +202,26 @@ class Operation extends CI_Controller {
 
 	public function do_upload(){
 		$this->load->database();
-		$config['upload_path'] = 'upload\Gambar\images';
-		$config['file_name'] = 'gbr_'.date("YmdYmdHis");
-		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size']	= '1000';
+		//$config['upload_path'] = 'upload\Gambar\images';
+		//$config['file_name'] = 'gbr_'.date("YmdYmdHis");
+		//$config['allowed_types'] = 'gif|jpg|png';
+		//$config['max_size']	= '1000';
  
-		$this->load->library('upload', $config);
+		//$this->load->library('upload', $config);
  
-		if (!$this->upload->do_upload()){			
-       		$data['message'] = array('error' => $this->upload->display_errors());
-       		echo "<script type='text/javascript'>alert('".$data['message']['error']."')</script>";
+		//if (!$this->upload->do_upload()){			
+       		//$data['message'] = array('error' => $this->upload->display_errors());
+       		//echo "<script type='text/javascript'>alert('".$data['message']['error']."')</script>";
         	//$this->load->view('layout/wrapper', $data);
-       		redirect('admin/slider', 'refresh');
-		}
-		else{
-			$gambar = $this->upload->data();
+       		//redirect('admin/slider', 'refresh');
+		//}
+		//else{
+			//$gambar = $this->upload->data();
 			$data = array(
 					'id' => '',
 					'keterangan' =>  $this->input->post('keterangan'),
-					'gambar' => $gambar['raw_name'].$gambar['file_ext'],
+					//'gambar' => $gambar['raw_name'].$gambar['file_ext'],
+					'gambar' => $_POST['file_gambar'],
 					'tanggal' => date("Ymd"),
 					'type' => $_POST['type'],
 					'link' =>  $this->input->post('link')
@@ -238,7 +239,7 @@ class Operation extends CI_Controller {
        		//);
        		//$data['message'] = array('error' => $this->upload->data());
         	//$this->load->view('layout/wrapper', $data);    
-		}
+		//}
 	}
 
 	/**
