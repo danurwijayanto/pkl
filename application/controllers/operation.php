@@ -177,7 +177,8 @@ class Operation extends CI_Controller {
 			$result = array(
 					'id' => $row['id'],
 					'keterangan' => $row['keterangan'],
-					'gambar' => $row['gambar']
+					'gambar' => $row['gambar'],
+					'link' => $row['link']
 				);
 		}
 		echo json_encode($result);
@@ -207,22 +208,41 @@ class Operation extends CI_Controller {
 	*/
 
 	/**
-		* Fungsi untuk Mengganti slider using ajax
+		* Fungsi untuk Mengganti slider one using ajax
 	*/
 
-	public function ganti_slider(){
+	public function ganti_slider_one(){
 		$this->load->database();
 		$data = array(
 				'id' => $_GET['id'],
 				'keterangan' => $_POST['keterangan_edit'],
 				'file_gambar' => $_POST['file_gambar_edit']
 			);
-		$result=$this->sma_sltg->ganti_slider($data);
+		$result=$this->sma_sltg->ganti_slider_one($data);
 		
 	}
 
 	/**
-		* End Fungsi untuk Mengganti slider using ajax
+		* End Fungsi untuk Mengganti slider one using ajax
+	*/
+
+	/**
+		* Fungsi untuk Mengganti slider two using ajax
+	*/
+
+	public function ganti_slider_two(){
+		$this->load->database();
+		$data = array(
+				'id' => $_GET['id'],
+				'link' => $_POST['link_edit'],
+				'file_gambar' => $_POST['file_gambar_edit2']
+			);
+		$result=$this->sma_sltg->ganti_slider_two($data);
+		
+	}
+
+	/**
+		* End Fungsi untuk Mengganti slider two using ajax
 	*/
 
 	/**

@@ -352,11 +352,27 @@
 		}
 
 		/**
-			*Ganti slider Berdasarkan ID
+			*Ganti slider one Berdasarkan ID
 			*data : 
 		*/
-		function ganti_slider($data){
+		function ganti_slider_one($data){
 			$query = "UPDATE slider SET keterangan='$data[keterangan]', gambar='$data[file_gambar]'
+				WHERE id=$data[id]";
+	        $result = $this->db->query($query);
+	        if($result){
+	            return TRUE;
+	        } else {
+	            return FALSE;
+	        }
+
+		}
+
+		/**
+			*Ganti slider two Berdasarkan ID
+			*data : 
+		*/
+		function ganti_slider_two($data){
+			$query = "UPDATE slider SET link='$data[link]', gambar='$data[file_gambar]'
 				WHERE id=$data[id]";
 	        $result = $this->db->query($query);
 	        if($result){
