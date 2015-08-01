@@ -190,14 +190,13 @@
 		            return FALSE;
 		        }
 		    }else{
-		    	$query = "SELECT artikel.* , kategori.nama 
-					FROM artikel, kategori
-					WHERE artikel.kategori = kategori.id AND kategori.id=$data
+		    	$query = "SELECT artikel.* , kategori.nama, user.nama_user
+					FROM artikel, kategori, user
+					WHERE artikel.kategori = kategori.id AND kategori.id=$data AND artikel.user_id=user.id
 					LIMIT $limit OFFSET $offset";
 		        $result = $this->db->query($query);
-		        $hasil = $result->result_array();
 		    	if($result){
-		            return $hasil;
+		            return $result->result_array();
 				
 		        } else {
 		            return FALSE;

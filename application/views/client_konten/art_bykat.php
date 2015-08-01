@@ -9,7 +9,11 @@
 						<div id="article">
 							<!-- Place somewhere in the <body> of your page -->
 							<h2 style="padding: 15px 0 0 20px;"><?php echo $konten['judul']?></h2>
-							<div class="site_news_metadate">Diposting oleh Administrator pada <?php echo date("d m Y",strtotime($konten['time']));?></div>
+							<p  style="padding: 0 20px 0 20px;"><?php echo substr( strip_tags($konten['text']), 0, 300).' .....  <a href="'.base_url().'client/news/'.$konten['id'].'" class="news_readmore">Read More >></a>';?>						
+							</p><br>
+
+							
+							<div class="site_news_metadate">Diposting oleh <?php echo $konten['nama_user'];?> pada <?php echo date("d m Y",strtotime($konten['time']));?></div>
 							<hr>
 
 						</div>

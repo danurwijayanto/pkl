@@ -151,6 +151,15 @@
           transition-duration: 1s;
           filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0'/></filter></svg>#grayscale");
       }
+
+      .news_readmore {
+          margin-top: 15px;
+          padding: 3px;
+          border: 1px solid #D3EBFF;
+          border-radius: 1px;
+          background: #F7FBFF none repeat scroll 0% 0%;
+          clear: both;
+      }
     </style>
   </head>
   <body>
