@@ -163,6 +163,31 @@ class Operation extends CI_Controller {
 		* End Fungsi untuk mendapatkan kategori ke berdasarkan id dengan AJAX
 	*/
 
+
+	/**
+		* Fungsi untuk mendapatkan slider ke berdasarkan id dengan AJAX
+	*/
+
+	public function get_slider_byid(){
+		$this->load->database();
+		$id = $_GET['id'];
+		$result=$this->sma_sltg->get_sliderid($id);
+		
+		foreach ($result as $row){
+			$result = array(
+					'id' => $row['id'],
+					'keterangan' => $row['keterangan'],
+					'gambar' => $row['gambar']
+				);
+		}
+		echo json_encode($result);
+	}
+
+	/**
+		* End Fungsi untuk mendapatkan slider ke berdasarkan id dengan AJAX
+	*/
+
+
 	/**
 		* Fungsi untuk Mengganti Kategori
 	*/

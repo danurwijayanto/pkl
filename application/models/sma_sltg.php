@@ -289,13 +289,11 @@
 		*/
 		function del_slider($data){
 			$get_detail = $this->get_sliderid($data);
-			$path = "upload/Gambar/images/".$get_detail['gambar'];
 			$query = "DELETE FROM slider
 				WHERE id=$data";
 	        $result = $this->db->query($query);
 
 	        if($this->db->affected_rows() >= 1){
-		        if(unlink($path))
 		        return TRUE;
 		    } else {
 		        return FALSE;

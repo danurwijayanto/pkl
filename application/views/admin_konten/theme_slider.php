@@ -32,6 +32,36 @@
                   <td><img alt="Thumbnail image" src="<?php echo base_url();?>upload/Gambar/images/<?php echo $sliderone['gambar'];?>" class="img-thumbnail" width="150" height="200"></td>
                   <td>
                     <a href="<?php echo base_url();?>operation/del_slider?id=<?php echo $sliderone['id']; ?>" class="btn btn-danger">Delete</a>
+                    <a class="btn btn-primary edit_slider1" data-toggle="modal" data-target="#edit_slider1" id="<?php echo $sliderone['id'];?>"> Edit</a>
+                    <!-- Modal -->
+                    <div id="edit_slider1" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit Slider</h4>
+                          </div>
+                          <div class="modal-body">
+                             <form class="form-horizontal" role="form">
+                              <div class="form-group">
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control" name="keterangan" id="keterangan_edit" placeholder="Keterangan" required><br>                    
+                                  <input type="hidden" name="type" value="0">
+                                  <input type="text" style="cursor:pointer" class="form-control" name="file_gambar" id="file_gambar_edit" placeholder="Klick Untuk Upload" name="file_gambar"  placeholder="Klik Untuk Pilih File Gambar" value="" onclick="openKCFinder(this);previewImage(this,[256],1);" onchange="" readonly="readonly" required></input>
+                                </div>
+                              </div>
+                              <div class="form-group">        
+                                <div class="col-sm-10">
+                                 <a class="btn btn-primary simpan_edit_slider" id="">Ganti</a>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
                   </td>
                 </tr>
                 <?php
@@ -61,9 +91,9 @@
 		            	<form action='<?php echo base_url();?>operation/do_upload' class="form-horizontal" enctype="multipart/form-data" method='post'>
 		                 	<div class="form-group">
 		                    	<div class="col-sm-10">		    
-                            <input type="text" class="form-control" name="keterangan" placeholder="Keterangan" required><br>                  	
+                            <input type="text" id="keterangan" class="form-control" name="keterangan" placeholder="Keterangan" required><br>                  	
                            	<input type="hidden" name="type" value="0">
-                            <input type="text" style="cursor:pointer" class="form-control" name="file_gambar" placeholder="Klick Untuk Upload" name="file_gambar"  placeholder="Klik Untuk Pilih File Gambar" value="" onclick="openKCFinder(this);previewImage(this,[256],1);" onchange="" readonly="readonly" required></input>
+                            <input type="text" style="cursor:pointer" class="form-control" name="file_gambar" placeholder="Klick Untuk Upload" name="file_gambar" id="file_gambar"  placeholder="Klik Untuk Pilih File Gambar" value="" onclick="openKCFinder(this);previewImage(this,[256],1);" onchange="" readonly="readonly" required></input>
                             <!--<input type="file" name="userfile" size='20' id="upload" required onchange="previewImage(this,[256],1);">
                             <div class="imagePreview"></div>-->		                
 		                    	</div>
@@ -159,7 +189,7 @@
 
       </div><!-- /.content-wrapper -->
 
-      <script type="text/javascript">
+<script type="text/javascript">
 
 function openKCFinder(field) {
     window.KCFinder = {
@@ -174,5 +204,46 @@ function openKCFinder(field) {
         'resizable=1, scrollbars=0, width=800, height=600'
     );
 }
+
+   
+  //Menampilkan kategori di modal sebelum dirubah 
+  $(document).ready(function(){
+    var id;
+    $(".edit_slider1").click(function(){
+      var element = $(this);
+      id = element.attr("id");
+     
+      $.ajax({
+        url:"../operation/get_slider_byid?id="+id,              
+        dataType : "json",
+        type: "POST",
+
+        success: function(data){
+          document.getElementById("keterangan_edit").value = data.keterangan;
+          document.getElementById("file_gambar_edit").value = data.gambar;   
+        }
+      });                        
+    });
+
+    //Menyimpan kategori baru telah dirubah
+    $(".simpan_edit_slider1").click(function(){
+      var myData = 'value='+ document.getElementById("cat_text").value;
+     
+      $.ajax({
+        url:"../operation/ganti_kategori?id="+id,              
+        dataType : "json",
+        data : myData,
+        type: "POST",
+        success: success()       
+      });                        
+    });
+
+    // on success...
+    function success(){
+      alert('Perubahan Berhasil')
+      window.location.reload();
+    }
+  });
+
 
 </script>
