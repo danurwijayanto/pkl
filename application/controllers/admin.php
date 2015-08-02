@@ -46,6 +46,8 @@ class Admin extends CI_Controller {
 			'title'=>'Admin Page',
 			'isi' =>'admin_konten/home'
 		);
+		$data['active_parent']= '';
+		$data['parent'] = '';
 		$this->load->view('admin_wrapper', $data);
 	}
 	/**
@@ -64,6 +66,8 @@ class Admin extends CI_Controller {
 					'session' => $this->data_sesi
 					);
 		$data['artikel'] = $this->sma_sltg->get_semuaartikel();
+		$data['active_parent']= 'artikel';
+		$data['active'] = 'daftar_artikel';
 		$this->load->view('admin_wrapper', $data);
 	}
 
@@ -81,6 +85,8 @@ class Admin extends CI_Controller {
 					'session' => $this->data_sesi
 					);
 		$data['kategori'] = $this->sma_sltg->get_semuakat();
+		$data['active_parent']= 'artikel';
+		$data['active'] = 'tambah_artikel';
 		$this->load->view('admin_wrapper', $data);
 	}
 
@@ -100,6 +106,8 @@ class Admin extends CI_Controller {
 					);
 
 		$data['kategori'] = $this->sma_sltg->get_list_kategori();
+		$data['active_parent']= 'artikel';
+		$data['active'] = 'kategori';
 		$this->load->view('admin_wrapper', $data);
 	}
 
@@ -116,6 +124,8 @@ class Admin extends CI_Controller {
 					);
 		$data['artikel'] = $this->sma_sltg->get_artikelbyid($id);
 		$data['kategori'] = $this->sma_sltg->get_list_kategori();
+		$data['active_parent']= 'artikel';
+		$data['active'] = 'none';
 		//mengganti tombol simpan dengan edit
 		$data['simpan_edit'] = TRUE;
 		$this->load->view('admin_wrapper', $data);
@@ -133,6 +143,8 @@ class Admin extends CI_Controller {
 					);
 		$data['slider_one'] = $this->sma_sltg->get_slider(0);
 		$data['slider_two'] = $this->sma_sltg->get_slider(1);
+		$data['active_parent']= 'tampilan';
+		$data['active'] = 'slider';
 		//$data['kategori'] = $this->sma_sltg->get_list_kategori();
 		//$data['simpan_edit'] = TRUE;
 		$this->load->view('admin_wrapper', $data);
@@ -166,6 +178,8 @@ class Admin extends CI_Controller {
 					'session' => $this->data_sesi,
 					'kcfinder' => 'images'
 					);
+		$data['active_parent']= 'files';
+		$data['active'] = 'images';
 		$this->load->view('admin_wrapper', $data);
 	}
 
@@ -184,6 +198,8 @@ class Admin extends CI_Controller {
 					'session' => $this->data_sesi,
 					'kcfinder' => 'files'
 					);
+		$data['active_parent']= 'files';
+		$data['active'] = 'file';
 		$this->load->view('admin_wrapper', $data);
 	}
 
