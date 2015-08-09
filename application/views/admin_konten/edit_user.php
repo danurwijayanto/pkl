@@ -46,7 +46,7 @@
                 <div class="form-group">
                   <label class="col-sm-1 control-label" for="lg">Role</label>
                     <div class="col-sm-5">
-                      <select name='kategori' id='kategori'  class="form-control">
+                      <select name='role' id='role'  class="form-control">
                         <?php if (isset($data_user)){}else{echo '<option value=0>-- Pilih Role --</option>'; }?>
                         <?php 
                             foreach($hak as $hak)

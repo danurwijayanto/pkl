@@ -218,7 +218,8 @@ class Admin extends CI_Controller {
 		$data=array('title'=>'Manage User',
 					'isi' =>'admin_konten/manage_user',
 					'session' => $this->data_sesi,
-					'daftar_user' => $this->sma_sltg->get_alluser()
+					'daftar_user' => $this->sma_sltg->get_alluser(),
+					'role' => $this->sma_sltg->get_semuakat()
 					);
 		$data['active_parent']= 'user';
 		$data['active'] = 'manage_user';

@@ -19,18 +19,61 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Ganti Kategori</h4>
+                  <h4 class="modal-title">Tambah User</h4>
                 </div>
                 <div class="modal-body">
                    <form class="form-horizontal" role="form">
                     <div class="form-group">
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="kategori" id="cat_text"  placeholder="Nama Kategori Baru">
+                        <h5 class="modal-title">User dan Email</h5>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" name="username" id="username"  placeholder="Nama User">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-10">
+                        <input type="email" class="form-control" name="email" id="email"  placeholder="Email User">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-10">
+                        <h5 class="modal-title">Role</h5>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-10">
+                        <select name='role' id='role'  class="form-control">
+                          <option value=0>-- Pilih Role --</option>
+                        <?php 
+                            foreach($role as $role)
+                            {   ?>      
+                                <option value="<?php echo $role['id']; ?>"><?php echo $role['nama']; ?></option>
+                         <?php   }
+                        ?>
+                      </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-10">
+                        <h5 class="modal-title">Password</h5>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-10">
+                        <input type="password" class="form-control" name="pass" id="pass"  placeholder="Password User">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-10">
+                        <input type="password" class="form-control" name="cpass" id="cpass"  placeholder="Confirm Password">
                       </div>
                     </div>
                     <div class="form-group">        
                       <div class="col-sm-10">
-                       <a class="btn btn-default simpan_edit_kat" id="">Ganti</a>
+                       <a class="btn btn-default simpan_edit_kat" id="">Tambah</a>
                       </div>
                     </div>
                   </form>
