@@ -123,8 +123,8 @@ class Client extends CI_Controller {
 		$data=array('title'=>'SMA 2 Salatiga',
 					'isi' =>'client_konten/art_bykat',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
-					 'konten' => $this->sma_sltg->get_artikelbykat($config['per_page'],$page,$id),
-					 'konten_row' => $this->sma_sltg->get_artikelbykat(0,$offset,$id),
+					 'konten' => $this->sma_sltg->get_artikelbykat($config['per_page'],$page,$id,1),
+					 'konten_row' => $this->sma_sltg->get_artikelbykat(0,$offset,$id,1),
 					 'agenda' => $this->sma_sltg->get_artikelbykat(0,0,8,1),
 					);
 		$row = count($data['konten_row']);
