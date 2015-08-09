@@ -22,9 +22,9 @@
 		}
 
 		public function read_user_information($data) {
-			$query = "SELECT *  
-				FROM user
-				WHERE email='$data[email]'";
+			$query = "SELECT user.*, kategori.nama  
+				FROM user, kategori
+				WHERE email='$data[email]' AND user.role=kategori.id";
 			$result = $this->db->query($query);
 			$query_result = array();
 			foreach ($result->result_array() as $row){
@@ -32,6 +32,7 @@
 				$query_result['nama_user'] = $row['nama_user'];
 				$query_result['email'] = $row['email'];
 				$query_result['password'] = $row['password'];
+				$query_result['role'] = $row['nama'];
 			}
 	        if($result->num_rows() == 1){
 	            return $query_result;

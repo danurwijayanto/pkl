@@ -56,7 +56,7 @@ class Operation extends CI_Controller {
 		} else {
 			echo "<script type='text/javascript'>alert('Simpan Gagal !')</script>";
 		}
-		redirect('admin/tambah_artikel', 'refresh');
+		redirect($this->agent->referrer(), 'refresh');
 	}
 
 	/**
@@ -83,7 +83,7 @@ class Operation extends CI_Controller {
 		} else {
 			echo "<script type='text/javascript'>alert('Perubahan Gagal !')</script>";
 		}
-		redirect('admin/artikel', 'refresh');
+		redirect($this->agent->referrer(), 'refresh');
 		
 	}
 
@@ -353,7 +353,7 @@ class Operation extends CI_Controller {
 		} else {
 			echo "<script type='text/javascript'>alert('Pergantian Gagal !')</script>";
 		}
-		redirect('admin/akunku', 'refresh');
+		redirect($this->agent->referrer(), 'refresh');
 	}
 
 	/**
@@ -377,7 +377,7 @@ class Operation extends CI_Controller {
 		} else {
 			echo "<script type='text/javascript'>alert('Pergantian Password Gagal !')</script>";
 		}
-		redirect('admin/akunku', 'refresh');
+		redirect($this->agent->referrer(), 'refresh');
 	}
 
 	/**

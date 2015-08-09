@@ -2,7 +2,7 @@
  <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <input type="hidden" name="id" value="<?php echo $session['id'];?>">
+        <input type="hidden" name="id" value="<?php echo $data_user['id'];?>">
         <section class="content-header">
           <h1>
             Akun Saya
@@ -29,16 +29,16 @@
                 <div class="form-group">
                   <label class="col-sm-1 control-label" for="lg">Username</label>
                   <div class="col-sm-5">
-                    <input type="text" id="nama" class="form-control" id="focusedInput" name="nama" value="<?php echo $session['nama_user'];?>" required value="">
-                    <input type="hidden" name="id" value="<?php echo $session['id'];?>">
+                    <input type="text" id="nama" class="form-control" id="focusedInput" name="nama" value="<?php echo $data_user['nama_user'];?>" required value="">
+                    <input type="hidden" name="id" value="<?php echo $data_user['id'];?>">
                   </div>
                 </div>
 
-                <!-- Email -->
+                 <!-- Email -->
                 <div class="form-group">
                   <label class="col-sm-1 control-label" for="lg">Email</label>
                     <div class="col-sm-5">
-                       <input type="Email" id="email" name="email" class="form-control" value="<?php echo $session['email'];?>" required value="">
+                       <input type="Email" id="email" name="email" class="form-control" value="<?php echo $data_user['email'];?>" required value="">
                     </div>
                 </div>
 
@@ -47,11 +47,11 @@
                   <label class="col-sm-1 control-label" for="lg">Role</label>
                     <div class="col-sm-5">
                       <select name='kategori' id='kategori'  class="form-control">
-                        <?php if (isset($session)){}else{echo '<option value=0>-- Pilih Role --</option>'; }?>
+                        <?php if (isset($data_user)){}else{echo '<option value=0>-- Pilih Role --</option>'; }?>
                         <?php 
                             foreach($hak as $hak)
                             {   ?>      
-                                <option value="<?php echo $hak['id']; ?>" <?php if (isset($session)){if($hak['nama']==$session['role']){echo 'selected="selected"';}}else{}?>><?php echo $hak['nama']; ?></option>
+                                <option value="<?php echo $hak['id']; ?>" <?php if (isset($session)){if($hak['nama']==$data_user['role']){echo 'selected="selected"';}}else{}?>><?php echo $hak['nama']; ?></option>
                          <?php   }
                         ?>
                       </select>
@@ -94,7 +94,7 @@
                       <input type="password" id="cpassword" name="confirmpass" class="form-control" placeholder="Konfirmasi Masukkan Password yang Baru" required>
                     </div>
                 </div>
-                <input type="hidden" name="id" value="<?php echo $session['id'];?>">
+                <input type="hidden" name="id" value="<?php echo $data_user['id'];?>">
                 <input type="submit" name="simpan" value="Simpan" class="btn btn-primary" id="submit_pass">
               </form> 
               <!-- END FORM --> 

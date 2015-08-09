@@ -46,20 +46,6 @@
 
 		}
 
-		/**
-			*Menampilkan semua kategori
-			*data : 
-		*/
-		function get_list_kategori(){
-			$query = "SELECT *  
-				FROM kategori";
-	        $result = $this->db->query($query);
-	        if($result->num_rows() > 0){
-	            return $result->result_array();
-	        } else {
-	            return false;
-	        }
-		}
 
 		/**
 			*Delete Kategori Berdasarkan ID
@@ -124,7 +110,22 @@
 	        } else {
 	            return FALSE;
 	        }
+		}
 
+		/**
+			* Mendapatkan list kategori kecuali kategori admin
+			* data : 
+		*/
+		function get_kat(){
+			$query = "SELECT * 
+				FROM kategori
+				LIMIT 1, 18446744073709551615";
+	        $result = $this->db->query($query);
+	        if($result){
+	            return $result->result_array();
+	        } else {
+	            return FALSE;
+	        }
 		}
 
 		/**
@@ -388,16 +389,42 @@
 			*data : 
 		*/
 		function get_alluser(){
-			$query = "SELECT *  
-				FROM user";
+			$query = "SELECT *, kategori.nama 
+				FROM user, kategori
+				WHERE user.role = kategori.id";
 	        $result = $this->db->query($query);
 	        if($result){
 	            return $result->result_array();
 	        } else {
 	            return FALSE;
 	        }
-
 		}
+
+		/**
+			* Fungsi Edit User By Id 
+		*/
+		public function get_userbyid($data) {
+			$query = "SELECT user.*, kategori.nama  
+				FROM user, kategori
+				WHERE user.id='$data' AND user.role=kategori.id";
+			$result = $this->db->query($query);
+			$query_result = array();
+			foreach ($result->result_array() as $row){
+				$query_result['id'] = $row['id'];
+				$query_result['nama_user'] = $row['nama_user'];
+				$query_result['email'] = $row['email'];
+				$query_result['password'] = $row['password'];
+				$query_result['role'] = $row['nama'];
+			}
+	        if($result->num_rows() == 1){
+	            return $query_result;
+			}else {
+				return FALSE;
+			}	
+		}
+		/**
+			* End Fungsi Edit User By Id 
+		*/
 	}
 	/* End of file sma_sltg.php */
 	/* Location: ./application/models/sma_sltg.php */

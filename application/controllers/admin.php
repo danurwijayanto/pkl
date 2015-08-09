@@ -41,11 +41,12 @@ class Admin extends CI_Controller {
 		
 		$data=array(
 			'totalartikel' => count($this->sma_sltg->get_semuaartikel()),
-			'totalkategori' => count($this->sma_sltg->get_semuakat()),
+			'totalkategori' => count($this->sma_sltg->get_kat()),
 			'session' => $this->data_sesi,
 			'title'=>'Admin Page',
 			'isi' =>'admin_konten/home'
 		);
+
 		$data['active_parent']= '';
 		$data['parent'] = '';
 		$this->load->view('admin_wrapper', $data);
@@ -84,7 +85,7 @@ class Admin extends CI_Controller {
 					'isi' =>'admin_konten/tambah_artikel',
 					'session' => $this->data_sesi
 					);
-		$data['kategori'] = $this->sma_sltg->get_semuakat();
+		$data['kategori'] = $this->sma_sltg->get_kat();
 		$data['active_parent']= 'artikel';
 		$data['active'] = 'tambah_artikel';
 		$this->load->view('admin_wrapper', $data);
@@ -105,7 +106,7 @@ class Admin extends CI_Controller {
 					'session' => $this->data_sesi
 					);
 
-		$data['kategori'] = $this->sma_sltg->get_list_kategori();
+		$data['kategori'] = $this->sma_sltg->get_kat();
 		$data['active_parent']= 'artikel';
 		$data['active'] = 'kategori';
 		$this->load->view('admin_wrapper', $data);
@@ -123,7 +124,7 @@ class Admin extends CI_Controller {
 					'session' => $this->data_sesi
 					);
 		$data['artikel'] = $this->sma_sltg->get_artikelbyid($id);
-		$data['kategori'] = $this->sma_sltg->get_list_kategori();
+		$data['kategori'] = $this->sma_sltg->get_kat();
 		$data['active_parent']= 'artikel';
 		$data['active'] = 'none';
 		//mengganti tombol simpan dengan edit
@@ -145,7 +146,7 @@ class Admin extends CI_Controller {
 		$data['slider_two'] = $this->sma_sltg->get_slider(1);
 		$data['active_parent']= 'tampilan';
 		$data['active'] = 'slider';
-		//$data['kategori'] = $this->sma_sltg->get_list_kategori();
+		//$data['kategori'] = $this->sma_sltg->get_kat();
 		//$data['simpan_edit'] = TRUE;
 		$this->load->view('admin_wrapper', $data);
 	}
@@ -155,14 +156,15 @@ class Admin extends CI_Controller {
 	*/
 
 	/**
-		* Fungsi theme slider
+		* Fungsi edit akun berdasar session
 	*/
 
 	public function akunku(){
 		$this->load->database();
 		$data=array('title'=>'My Account',
 					'isi' =>'admin_konten/akun_detail',
-					'session' => $this->data_sesi
+					'session' => $this->data_sesi,
+					'hak' => $this->sma_sltg->get_semuakat()
 					);
 		$this->load->view('admin_wrapper', $data);
 	}
@@ -226,6 +228,27 @@ class Admin extends CI_Controller {
 	/**
 		* End Fungsi manage_user
 	*/
+
+	/**
+		* Fungsi edit akun 
+	*/
+
+	public function edit_user(){
+		$this->load->database();
+		$data=array('title'=>'My Account',
+					'isi' =>'admin_konten/edit_user',
+					'session' => $this->data_sesi,
+					'data_user' => $this->sma_sltg->get_userbyid($_GET['id']),
+					'hak' => $this->sma_sltg->get_semuakat()
+					);
+		$this->load->view('admin_wrapper', $data);
+	}
+
+	/**
+		* End Fungsi edit akun 
+	*/
+
+
 }
 
 /* End of file welcome.php */
