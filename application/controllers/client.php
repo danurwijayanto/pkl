@@ -22,9 +22,9 @@ class Client extends CI_Controller {
 		$this->load->database();
 		$data=array('title'=>'SMA 2 Salatiga',
 					'isi' =>'client_konten/home',
-					'agenda' => $this->sma_sltg->get_artikelbykat(0,0,8),
-					'pengumuman' => $this->sma_sltg->get_artikelbykat(0,0,6),
-					'artikel' => $this->sma_sltg->get_artikelbykat(0,0,3),
+					'agenda' => $this->sma_sltg->get_artikelbykat(0,0,8,1),
+					'pengumuman' => $this->sma_sltg->get_artikelbykat(0,0,6,1),
+					'artikel' => $this->sma_sltg->get_artikelbykat(0,0,3,1),
 					'slider_one' => $this->sma_sltg->get_slider(0),
 					'slider_two' => $this->sma_sltg->get_slider(1)
 					);
@@ -101,7 +101,7 @@ class Client extends CI_Controller {
 					'isi' =>'client_konten/artikel',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
 					 'konten' => $this->sma_sltg->get_artikelbyid($data),
-					 'agenda' => $this->sma_sltg->get_artikelbykat(0,0,8)
+					 'agenda' => $this->sma_sltg->get_artikelbykat(0,0,8,1)
 					);
 		$this->load->view('client_wrapper', $data);
 	}
@@ -125,7 +125,7 @@ class Client extends CI_Controller {
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
 					 'konten' => $this->sma_sltg->get_artikelbykat($config['per_page'],$page,$id),
 					 'konten_row' => $this->sma_sltg->get_artikelbykat(0,$offset,$id),
-					 'agenda' => $this->sma_sltg->get_artikelbykat(0,0,8),
+					 'agenda' => $this->sma_sltg->get_artikelbykat(0,0,8,1),
 					);
 		$row = count($data['konten_row']);
 		$config['total_rows'] = $row;

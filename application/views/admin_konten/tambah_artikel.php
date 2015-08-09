@@ -3,12 +3,30 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Tambah Artikel
+            <?php echo $title;?>
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Artikel</a></li>
             <li class="active">Tambah Artikel</li>
           </ol>
+          <?php 
+            if (isset($artikel)){
+              if ($artikel['status']==1){?>
+                <br>
+                <div class="alert alert-success">
+                  <strong><i class="fa fa-check fa-2x"></i> Artikel Sudah Terpublish <a style="text-decoration: none" href="<?php echo base_url();?>admin/artikel" class="btn btn-warning pull-right">Draft</a> </strong> 
+                </div>
+            <?php
+              }else{
+            ?>
+              <br>
+              <div class="alert alert-warning">
+                <strong><i class="fa fa-exclamation-triangle fa-2x"></i> Artikel Belum Terpublish <a style="text-decoration: none" href="<?php echo base_url();?>admin/artikel" class="btn btn-success pull-right">Publish</a> </strong> 
+              </div>  
+            <?php 
+              }
+            }
+            ?>
         </section>
 
         <!-- Main content -->
@@ -54,8 +72,8 @@
               <div class="form-group">
                 <div class="col-sm-1">
                 </div>
-                <div class="col-sm-11">
-                  <input type="submit" value="Simpan" class="btn btn-primary">
+                <div class="col-sm-10">
+                    <input type="submit" value="Simpan" class="btn btn-primary">
                    <a href="<?php echo base_url();?>admin/artikel" class="btn btn-danger">Kembali</a>
                 </div>
               </div>
@@ -66,5 +84,5 @@
       <script type="text/javascript" src="<?php echo base_url(); ?>assets/ckeditor/ckeditor.js"></script>
 
 
-      <form class="form-horizontal" role="form" method="post" action="<?php echo base_url();?>operation/simpan_kategori" >
+   <!--   <form class="form-horizontal" role="form" method="post" action="<?php echo base_url();?>operation/simpan_kategori" >-->
                     

@@ -24,6 +24,7 @@
                 <?php
                   }else{}
                 ?>
+                <li id="artikel_draft"><a href="<?php echo base_url();?>admin/draft"><i class="fa fa-circle-o"></i>Draft Artikel</a></li>
               </ul>
             </li>
             <?php 

@@ -113,6 +113,23 @@
 		}
 
 		/**
+			* Mendapatkan list artikel sesuak status
+			* data : 
+		*/
+		function get_artikelbystat($data){
+			$query = "SELECT artikel.* , kategori.nama , status.nama_status
+				FROM artikel, kategori, status
+				WHERE artikel.status=$data AND artikel.kategori=kategori.id AND artikel.status=status.id_status";
+	        $result = $this->db->query($query);
+	        if($result){
+	            return $result->result_array();
+	        } else {
+	            return FALSE;
+	        }
+
+		}
+
+		/**
 			* Mendapatkan list kategori kecuali kategori admin
 			* data : 
 		*/
@@ -164,6 +181,7 @@
 				$query_result['kategori'] = $row['kategori'];
 				$query_result['time'] = $row['time'];
 				$query_result['nama_user'] = $row['nama_user'];
+				$query_result['status'] = $row['status'];
 			}
 	        if($result){
 	            return $query_result;
@@ -177,11 +195,11 @@
 			* Mendapatkan artikel berdasarkan Kategori
 			* data : 
 		*/
-		function get_artikelbykat($limit=null, $offset=null, $data=null){
+		function get_artikelbykat($limit=null, $offset=null, $data=null, $status){
 			if (($limit <= 0) AND ($offset<= 0)){
 				$query = "SELECT artikel.* , kategori.nama 
 					FROM artikel, kategori
-					WHERE artikel.kategori = kategori.id AND kategori.id=$data
+					WHERE artikel.kategori = kategori.id AND kategori.id=$data AND artikel.status=$status
 					ORDER BY artikel.time DESC";
 		        $result = $this->db->query($query);
 		      
@@ -193,7 +211,7 @@
 		    }else{
 		    	$query = "SELECT artikel.* , kategori.nama, user.nama_user
 					FROM artikel, kategori, user
-					WHERE artikel.kategori = kategori.id AND kategori.id=$data AND artikel.user_id=user.id
+					WHERE artikel.kategori = kategori.id AND kategori.id=$data AND artikel.user_id=user.id AND artikel.status=$status
 					ORDER BY artikel.time DESC
 					LIMIT $limit OFFSET $offset";
 		        $result = $this->db->query($query);
@@ -452,6 +470,8 @@
 		        return FALSE;
 		    }
 		}
+
+
 	}	
 	/* End of file sma_sltg.php */
 	/* Location: ./application/models/sma_sltg.php */
