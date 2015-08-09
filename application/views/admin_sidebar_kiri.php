@@ -17,7 +17,13 @@
               <ul class="treeview-menu">
                 <li id="daftar_artikel"><a href="<?php echo base_url();?>admin/artikel"><i class="fa fa-circle-o" ></i>Daftar Artikel</a></li>
                 <li id="tambah_artikel"><a href="<?php echo base_url();?>admin/tambah_artikel"><i class="fa fa-circle-o"></i>Tambah Artikel</a></li>
-                <li id="kategori"><a href="<?php echo base_url();?>admin/kategori"><i class="fa fa-circle-o"></i>Kategori</a></li>
+                <?php 
+                  if ($session['role'] == 'Admin'){
+                ?>
+                  <li id="kategori"><a href="<?php echo base_url();?>admin/kategori"><i class="fa fa-circle-o"></i>Kategori</a></li>
+                <?php
+                  }else{}
+                ?>
               </ul>
             </li>
             <?php 
