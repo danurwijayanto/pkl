@@ -24,7 +24,7 @@
             <div class="tab-pane active" id="akun">
               <!-- DATA PERSONAL-->
               <h3>Data Personal</h3><br>
-              <form name="datauser" class="form-horizontal" role="form" action="<?php echo base_url();?>operation/change_useremail" method="post" >
+              <form id="formedit" name="datauser" class="form-horizontal" role="form" action="<?php echo base_url();?>operation/change_useremail" method="post" >
                 <!-- Nama -->
                 <div class="form-group">
                   <label class="col-sm-1 control-label" for="lg">Username</label>
@@ -46,12 +46,12 @@
                 <div class="form-group">
                   <label class="col-sm-1 control-label" for="lg">Role</label>
                     <div class="col-sm-5">
-                      <select name='role' id='role'  class="form-control">
-                        <?php if (isset($session)){}else{echo '<option value=0>-- Pilih Role --</option>'; }?>
+                      <select name='role' id='role'  class="form-control" disabled>
+                        <?php //if (isset($session)){}else{echo '<option value=0>-- Pilih Role --</option>'; }?>
                         <?php 
                             foreach($hak as $hak)
                             {   ?>      
-                                <option value="<?php echo $hak['id']; ?>" <?php if (isset($session)){if($hak['nama']==$session['role']){echo 'selected="selected"';}}else{}?>><?php echo $hak['nama']; ?></option>
+                                <option value="<?php echo $hak['id']; ?>" <?php if($hak['nama']==$session['role']){echo 'selected="selected"';}else{}?>><?php echo $hak['nama']; ?></option>
                          <?php   }
                         ?>
                       </select>
@@ -104,7 +104,7 @@
         </section>        
         <!-- /.content -->
       </div><!-- /.content-wrapper -->
-  <script>
+<script>
   $(document).ready(function(){
 
   //Menyembunyikan glype icon
@@ -120,6 +120,10 @@
            $(".alert").hide(); 
          }
   }); 
+
+  $('#formedit').submit(function() {
+    $('select').removeAttr('disabled');
+  });
 });
  //Validate Ganti Password
   function validatepassword(){ 

@@ -105,16 +105,20 @@ class Admin extends CI_Controller {
 	*/
 
 	public function kategori(){
-		$this->load->database();
-		$data=array('title'=>'Kelola Kategori',
-					'isi' =>'admin_konten/kategori',
-					'session' => $this->data_sesi
-					);
+		if ($this->data_sesi['role']!='Admin'){
+			$this->load->view('error/404');
+		}else{
+			$this->load->database();
+			$data=array('title'=>'Kelola Kategori',
+						'isi' =>'admin_konten/kategori',
+						'session' => $this->data_sesi
+						);
 
-		$data['kategori'] = $this->sma_sltg->get_kat();
-		$data['active_parent']= 'artikel';
-		$data['active'] = 'kategori';
-		$this->load->view('admin_wrapper', $data);
+			$data['kategori'] = $this->sma_sltg->get_kat();
+			$data['active_parent']= 'artikel';
+			$data['active'] = 'kategori';
+			$this->load->view('admin_wrapper', $data);
+		}
 	}
 
 	/**

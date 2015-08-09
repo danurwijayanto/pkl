@@ -336,6 +336,8 @@ class Operation extends CI_Controller {
 
 	public function change_useremail(){
 		$this->load->database();
+		$user_data = $this->session->userdata('logged_in');
+
 		$data = array(
 			'id' => $_POST['id'],
 			'nama' => $_POST['nama'],
@@ -345,12 +347,14 @@ class Operation extends CI_Controller {
 		$result=$this->sma_sltg->change_useremail($data);
 		if ($result == TRUE){
 			echo "<script type='text/javascript'>alert('Pergantian Berhasil !')</script>";
-			$sess_array = array(
-						'email' => $_POST['email']
-					);
-
-					// Add user data in session
-					$this->session->set_userdata('logged_in', $sess_array);
+			if ($user_data['email'] == $data['email']){
+				$sess_array = array(
+					'email' => $_POST['email']
+				);
+				// Add user data in session
+				$this->session->set_userdata('logged_in', $sess_array);
+			}		
+			
 		} else {
 			echo "<script type='text/javascript'>alert('Pergantian Gagal !')</script>";
 		}

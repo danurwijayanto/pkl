@@ -405,7 +405,7 @@
 			* Fungsi Edit User By Id 
 		*/
 		public function get_userbyid($data) {
-			$query = "SELECT user.*, kategori.nama  
+			$query = "SELECT user.*, kategori.nama, kategori.id as kat_id  
 				FROM user, kategori
 				WHERE user.id='$data' AND user.role=kategori.id";
 			$result = $this->db->query($query);
