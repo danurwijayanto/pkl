@@ -139,7 +139,7 @@
     // on success...
     function success(){
       alert('Perubahan Berhasil')
-      window.location.reload();
+       location.reload(); 
     }
   });
 

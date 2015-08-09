@@ -21,8 +21,13 @@
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">Tambah User</h4>
                 </div>
+                <div class="col-sm-11">
+                  <div class="alert alert-warning" id="peringatan">
+                    <Strong>Peringatan !</Strong>  Cek Kembali Password dan Konfirmasi Password
+                  </div>
+                </div>
                 <div class="modal-body">
-                   <form class="form-horizontal" role="form">
+                   <form class="form-horizontal" action="#" role="form" method="post" onsubmit="return validatepassword()">
                     <div class="form-group">
                       <div class="col-sm-10">
                         <h5 class="modal-title">User dan Email</h5>
@@ -30,12 +35,12 @@
                     </div>
                     <div class="form-group">
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" name="username" id="username"  placeholder="Nama User">
+                        <input type="text" class="form-control" name="username" id="username"  placeholder="Nama User" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <div class="col-sm-10">
-                        <input type="email" class="form-control" name="email" id="email"  placeholder="Email User">
+                        <input type="email" class="form-control" name="email" id="email"  placeholder="Email User" required>
                       </div>
                     </div>
                     <div class="form-group">
@@ -63,17 +68,17 @@
                     </div>
                     <div class="form-group">
                       <div class="col-sm-10">
-                        <input type="password" class="form-control" name="pass" id="pass"  placeholder="Password User">
+                        <input type="password" class="form-control" name="pass" id="pass"  placeholder="Password User" required>
                       </div>
                     </div>
                     <div class="form-group">
                       <div class="col-sm-10">
-                        <input type="password" class="form-control" name="cpass" id="cpass"  placeholder="Confirm Password">
+                        <input type="password" class="form-control" name="cpass" id="cpass"  placeholder="Confirm Password" required>
                       </div>
                     </div>
                     <div class="form-group">        
                       <div class="col-sm-10">
-                       <a class="btn btn-default simpan_edit_kat" id="">Tambah</a>
+                       <input type="submit" name="simpan" value="Simpan" class="btn btn-primary">
                       </div>
                     </div>
                   </form>
@@ -116,9 +121,38 @@
         </table>
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
-      <script>
-      //Datatables
-            $(document).ready(function(){
-                $('#myTable').DataTable();
-            });
-            </script>
+     
+
+<script>
+//Datatables
+$(document).ready(function(){
+    $('#myTable').DataTable();
+
+    $(".alert").hide();  
+
+    $("#pass, #cpass").change(function(){
+           var password   = $("#pass").val();
+           var cpassword    = $("#cpass").val();
+           if(password!=cpassword){
+            //alert('Password Didnt Match');
+            $(".alert").show();            
+           }else{
+             $(".alert").hide(); 
+           }
+    });    
+});
+
+//Validate Ganti Password
+function validatepassword(){ 
+  var password   = $("#pass").val();
+  var cpassword    = $("#cpass").val();
+     if(password!=cpassword){
+      //alert('Password Didnt Match');
+      $(".alert").show();
+      return false;            
+     }else{
+       $(".alert").hide(); 
+     }
+}
+
+</script>

@@ -242,6 +242,8 @@ class Admin extends CI_Controller {
 					'data_user' => $this->sma_sltg->get_userbyid($_GET['id']),
 					'hak' => $this->sma_sltg->get_semuakat()
 					);
+		$data['active_parent']= 'user';
+		$data['active'] = 'manage_user';
 		$this->load->view('admin_wrapper', $data);
 	}
 
