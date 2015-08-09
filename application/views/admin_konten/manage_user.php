@@ -27,7 +27,7 @@
                   </div>
                 </div>
                 <div class="modal-body">
-                   <form class="form-horizontal" action="#" role="form" method="post" onsubmit="return validatepassword()">
+                   <form class="form-horizontal" action="<?php echo base_url();?>operation/tambah_user" role="form" method="post" onsubmit="return validatepassword()">
                     <div class="form-group">
                       <div class="col-sm-10">
                         <h5 class="modal-title">User dan Email</h5>

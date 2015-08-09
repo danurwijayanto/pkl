@@ -307,7 +307,7 @@
 		*/
 		function change_useremail($data){
 			$query = "UPDATE user 
-				SET nama_user='$data[nama]', email='$data[email]'
+				SET nama_user='$data[nama]', email='$data[email]', role=$data[role]
 				WHERE id=$data[id]";
 			$result = $this->db->query($query);
 			if ($query) {
@@ -389,7 +389,7 @@
 			*data : 
 		*/
 		function get_alluser(){
-			$query = "SELECT *, kategori.nama 
+			$query = "SELECT user.*, kategori.nama 
 				FROM user, kategori
 				WHERE user.role = kategori.id";
 	        $result = $this->db->query($query);
@@ -422,10 +422,36 @@
 				return FALSE;
 			}	
 		}
+
 		/**
-			* End Fungsi Edit User By Id 
+			* Tambah User
+			* data : 
 		*/
-	}
+		function tambah_user($data){
+			$query = $this->db->insert('user',$data);
+			if ($this->db->affected_rows() > 0) {
+				return TRUE;
+			}else {
+				return FALSE;
+			}
+		}
+
+		/**
+			* Deletevuser berdasarkan ID
+			* data : 
+		*/
+		function del_user_byid($data){
+			$query = "DELETE FROM user
+				WHERE id=$data[id]";
+	        $result = $this->db->query($query);
+
+	        if($this->db->affected_rows() >= 1){
+		        return TRUE;
+		    } else {
+		        return FALSE;
+		    }
+		}
+	}	
 	/* End of file sma_sltg.php */
 	/* Location: ./application/models/sma_sltg.php */
 	

@@ -5,11 +5,11 @@
         <input type="hidden" name="id" value="<?php echo $data_user['id'];?>">
         <section class="content-header">
           <h1>
-            Akun Saya
+            Akun <?php echo $data_user['nama_user'];?>
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> User</a></li>
-            <li class="active">Akun Saya</li>
+            <li class="active">Akun <?php echo $data_user['nama_user'];?></li>
           </ol>
         </section>
 

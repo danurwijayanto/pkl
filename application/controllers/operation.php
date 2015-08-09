@@ -339,7 +339,8 @@ class Operation extends CI_Controller {
 		$data = array(
 			'id' => $_POST['id'],
 			'nama' => $_POST['nama'],
-			'email' => $_POST['email']
+			'email' => $_POST['email'],
+			'role' => $_POST['role']
 			);
 		$result=$this->sma_sltg->change_useremail($data);
 		if ($result == TRUE){
@@ -382,6 +383,53 @@ class Operation extends CI_Controller {
 
 	/**
 		* End Fungsi untuk mengganti password
+	*/
+
+	/**
+		* Fungsi untuk menambah user
+	*/
+
+	public function tambah_user(){
+		$this->load->database();
+		$data = array(
+			'nama_user' => $_POST['username'],
+			'email' => $_POST['email'],
+			'password' => md5(md5($_POST['pass'])),
+			'role' => $_POST['role']
+		);
+		$result=$this->sma_sltg->tambah_user($data);
+		if ($result == TRUE){
+			echo "<script type='text/javascript'>alert('Tambah User Berhasil !')</script>";
+		} else {
+			echo "<script type='text/javascript'>alert('Tambah User Gagal !')</script>";
+		}
+		redirect($this->agent->referrer(), 'refresh');
+	}
+
+	/**
+		* End Fungsi untuk menambah user
+	*/
+
+	/**
+		* Fungsi untuk delete user
+	*/
+
+	public function del_user_byid(){
+		$this->load->database();
+		$data = array(
+			'id' => $_GET['id']
+		);
+		$result=$this->sma_sltg->del_user_byid($data);
+		if ($result == TRUE){
+			echo "<script type='text/javascript'>alert('Delete User Berhasil !')</script>";
+		} else {
+			echo "<script type='text/javascript'>alert('Delete User Gagal !')</script>";
+		}
+		redirect($this->agent->referrer(), 'refresh');
+	}
+
+	/**
+		* End Fungsi untuk delete user
 	*/
 
 }
