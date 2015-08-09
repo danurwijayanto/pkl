@@ -30,13 +30,17 @@
                 <label class="col-sm-1 control-label">Kategori</label>
                 <div class="col-sm-7">
                   <select name='kategori' id='kategori'  class="form-control">
-                    <?php if (isset($artikel)){}else{echo '<option value=0>-- Pilih Kategori --</option>'; }?>
-                    <?php 
+                    <?php if ((isset($artikel)) OR ($session['role'] != 'Admin')){}else{echo '<option value=0>-- Pilih Kategori --</option>'; }?>
+                    <?php
+                        if ($session['role'] != 'Admin'){?>
+                          <option value="<?php echo $session['id_kat']; ?>" selected="selected"><?php echo $session['role']; ?></option>
+                    <?php    }else{ 
                         foreach($kategori as $kategori)
                         {   ?>      
                             <option value="<?php echo $kategori['id']; ?>" <?php if (isset($artikel)){if($artikel['nama']==$kategori['nama']){echo 'selected="selected"';}}else{}?>><?php echo $kategori['nama']; ?></option>
-                     <?php   }
-                    ?>
+                     <?php   
+                      }}
+                      ?>
                 </select>
                 </div>
               </div>

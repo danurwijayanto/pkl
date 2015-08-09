@@ -67,7 +67,11 @@ class Admin extends CI_Controller {
 					'isi' =>'admin_konten/artikel',
 					'session' => $this->data_sesi
 					);
-		$data['artikel'] = $this->sma_sltg->get_semuaartikel();
+		if ($data['session']['role']!='Admin'){
+			$data['artikel'] = $this->sma_sltg->get_artikelbykat(0,0,$data['session']['id_kat']);
+		}else{
+			$data['artikel'] = $this->sma_sltg->get_semuaartikel();
+		}
 		$data['active_parent']= 'artikel';
 		$data['active'] = 'daftar_artikel';
 		$this->load->view('admin_wrapper', $data);

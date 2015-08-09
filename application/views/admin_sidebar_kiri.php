@@ -20,26 +20,32 @@
                 <li id="kategori"><a href="<?php echo base_url();?>admin/kategori"><i class="fa fa-circle-o"></i>Kategori</a></li>
               </ul>
             </li>
-            <li id="tampilan" class="treeview">
-              <a href="#">
-                <i class="fa fa-pie-chart"></i>
-                <span>Tampilan</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li id="slider"><a href="<?php echo base_url();?>admin/slider"><i class="fa fa-circle-o"></i> Image Slider</a></li>
-              </ul>
-            </li>
-            <li id="user" class="treeview">
-              <a href="#">
-                <i class="fa fa-laptop"></i>
-                <span>User</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li id="manage_user"><a href="<?php echo base_url();?>admin/manage_user"><i class="fa fa-circle-o"></i> Manage User</a></li>
-              </ul>
-            </li>
+            <?php 
+              if ($session['role'] == 'Admin'){
+            ?>
+              <li id="tampilan" class="treeview">
+                <a href="#">
+                  <i class="fa fa-pie-chart"></i>
+                  <span>Tampilan</span>
+                  <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                  <li id="slider"><a href="<?php echo base_url();?>admin/slider"><i class="fa fa-circle-o"></i> Image Slider</a></li>
+                </ul>
+              </li>
+              <li id="user" class="treeview">
+                <a href="#">
+                  <i class="fa fa-laptop"></i>
+                  <span>User</span>
+                  <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                  <li id="manage_user"><a href="<?php echo base_url();?>admin/manage_user"><i class="fa fa-circle-o"></i> Manage User</a></li>
+                </ul>
+              </li>
+            <?php
+              }else{}
+            ?>
             <li id="files" class="treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
