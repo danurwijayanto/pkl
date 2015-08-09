@@ -29,7 +29,7 @@
                 <div class="form-group">
                   <label class="col-sm-1 control-label" for="lg">Username</label>
                   <div class="col-sm-5">
-                    <input type="text" id="nama" class="form-control" id="focusedInput" name="nama" value="<?php echo $session['nama'];?>" required value="">
+                    <input type="text" id="nama" class="form-control" id="focusedInput" name="nama" value="<?php echo $session['nama_user'];?>" required value="">
                     <input type="hidden" name="id" value="<?php echo $session['id'];?>">
                   </div>
                 </div>

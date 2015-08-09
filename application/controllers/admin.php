@@ -206,6 +206,26 @@ class Admin extends CI_Controller {
 	/**
 		* End Fungsi manage_files
 	*/
+
+	/**
+		* End Fungsi manage user
+	*/
+
+	public function manage_user(){
+		$this->load->database();
+		$data=array('title'=>'Manage User',
+					'isi' =>'admin_konten/manage_user',
+					'session' => $this->data_sesi,
+					'daftar_user' => $this->sma_sltg->get_alluser()
+					);
+		$data['active_parent']= 'user';
+		$data['active'] = 'manage_user';
+		$this->load->view('admin_wrapper', $data);
+	}
+
+	/**
+		* End Fungsi manage_user
+	*/
 }
 
 /* End of file welcome.php */

@@ -306,7 +306,7 @@
 		*/
 		function change_useremail($data){
 			$query = "UPDATE user 
-				SET nama='$data[nama]', email='$data[email]'
+				SET nama_user='$data[nama]', email='$data[email]'
 				WHERE id=$data[id]";
 			$result = $this->db->query($query);
 			if ($query) {
@@ -322,9 +322,9 @@
 		*/
 		function ganti_password($data){
 			// == Generate hash untuk password baru
-			$salt = '123NgopoNdes**//';
+			//$salt = '123NgopoNdes**//';
 			//encrypt password inputan lama
-			$password = crypt($data['pass'], $salt);
+			$password = md5(md5($data['pass']));
 			//Cek Password Lama
 			$cek = "SELECT password
 					FROM user
@@ -335,7 +335,7 @@
 			//Membandingkan Dengan Password Baru
 			if ($pass_lama!=NULL){
 				//Encrypt password baru
-				$passwordHash = crypt($data['passbaru'], $salt);
+				$passwordHash = md5(md5($data['passbaru']));
 
 				$query = "UPDATE user 
 				SET password='$passwordHash'
@@ -382,6 +382,23 @@
 	        }
 
 		}
+
+		/**
+			*Mendapatkan list seluruh user
+			*data : 
+		*/
+		function get_alluser(){
+			$query = "SELECT *  
+				FROM user";
+	        $result = $this->db->query($query);
+	        if($result){
+	            return $result->result_array();
+	        } else {
+	            return FALSE;
+	        }
+
+		}
 	}
 	/* End of file sma_sltg.php */
 	/* Location: ./application/models/sma_sltg.php */
+	

@@ -30,15 +30,14 @@
                 <li id="slider"><a href="<?php echo base_url();?>admin/slider"><i class="fa fa-circle-o"></i> Image Slider</a></li>
               </ul>
             </li>
-            <li class="treeview">
+            <li id="user" class="treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
                 <span>User</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li class=""><a href="#"><i class="fa fa-circle-o"></i> General</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Icons</a></li>
+                <li id="manage_user"><a href="<?php echo base_url();?>admin/manage_user"><i class="fa fa-circle-o"></i> Manage User</a></li>
               </ul>
             </li>
             <li id="files" class="treeview">
