@@ -48,7 +48,8 @@ class Operation extends CI_Controller {
 					'text' => $this->input->post('ckeditor'),
 					'kategori' => $this->input->post('kategori'),
 					'time' => date("Ymd"),
-					'user_id' => $this->data_sesi['id']
+					'user_id' => $this->data_sesi['id'],
+					'status' => 2
 				);
 		$result=$this->sma_sltg->simpan_artikel($data);
 		if ($result == TRUE){
@@ -56,7 +57,7 @@ class Operation extends CI_Controller {
 		} else {
 			echo "<script type='text/javascript'>alert('Simpan Gagal !')</script>";
 		}
-		redirect($this->agent->referrer(), 'refresh');
+		redirect('admin/draft', 'refresh');
 	}
 
 	/**
@@ -100,7 +101,7 @@ class Operation extends CI_Controller {
 		} else {
 			echo "<script type='text/javascript'>alert('Delete Gagal !')</script>";
 		}
-		redirect('admin/artikel', 'refresh');
+		redirect($this->agent->referrer(), 'refresh');
 
 	}
 
@@ -435,6 +436,51 @@ class Operation extends CI_Controller {
 	/**
 		* End Fungsi untuk delete user
 	*/
+
+	/**
+		* Fungsi untuk publish artikel
+	*/
+
+	public function publish(){
+		$this->load->database();
+		$data = array(
+			'id' => $_GET['id']
+		);
+		$result=$this->sma_sltg->publish($data);
+		if ($result == TRUE){
+			echo "<script type='text/javascript'>alert('Artikel Berhasil di Publish !')</script>";
+		} else {
+			echo "<script type='text/javascript'>alert('Artikel Gagal di Publish !')</script>";
+		}
+		redirect($this->agent->referrer(), 'refresh');
+	}
+
+	/**
+		* End Fungsi untuk publish artikel
+	*/
+
+	/**
+		* Fungsi untuk memasukkan ke draft artikel
+	*/
+
+	public function draft(){
+		$this->load->database();
+		$data = array(
+			'id' => $_GET['id']
+		);
+		$result=$this->sma_sltg->draft($data);
+		if ($result == TRUE){
+			echo "<script type='text/javascript'>alert('Artikel Berhasil dimasukkan ke dalam draft !')</script>";
+		} else {
+			echo "<script type='text/javascript'>alert('Artikel Gagal dimasukkan ke dalam draft !')</script>";
+		}
+		redirect($this->agent->referrer(), 'refresh');
+	}
+
+	/**
+		* End Fungsi untuk publish artikel
+	*/
+
 
 }
 

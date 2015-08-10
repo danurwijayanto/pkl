@@ -471,6 +471,37 @@
 		    }
 		}
 
+		/**
+			* Publish Artikel Berdasarkan id
+			* data : 
+		*/
+		function publish($data){
+			$query = "UPDATE artikel
+				SET status=1
+				WHERE id=$data[id]";
+	        $result = $this->db->query($query);
+	        if($this->db->affected_rows() >= 1){
+		        return TRUE;
+		    } else {
+		        return FALSE;
+		    }
+		}
+
+		/**
+			* Memasukkan Artikel Berdasarkan id
+			* data : 
+		*/
+		function draft($data){
+			$query = "UPDATE artikel
+				SET status=2
+				WHERE id=$data[id]";
+	        $result = $this->db->query($query);
+	        if($this->db->affected_rows() >= 1){
+		        return TRUE;
+		    } else {
+		        return FALSE;
+		    }
+		}
 
 	}	
 	/* End of file sma_sltg.php */

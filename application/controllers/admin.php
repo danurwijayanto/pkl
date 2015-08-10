@@ -70,7 +70,7 @@ class Admin extends CI_Controller {
 		if ($data['session']['role']!='Admin'){
 			$data['artikel'] = $this->sma_sltg->get_artikelbykat(0,0,$data['session']['id_kat'],1);
 		}else{
-			$data['artikel'] = $this->sma_sltg->get_semuaartikel();
+			$data['artikel'] = $this->sma_sltg->get_artikelbystat(1);
 		}
 		$data['active_parent']= 'artikel';
 		$data['active'] = 'daftar_artikel';
@@ -157,7 +157,7 @@ class Admin extends CI_Controller {
 		$data['artikel'] = $this->sma_sltg->get_artikelbyid($id);
 		$data['kategori'] = $this->sma_sltg->get_kat();
 		$data['active_parent']= 'artikel';
-		$data['active'] = 'none';
+		$data['active'] = '';
 		//mengganti tombol simpan dengan edit
 		$data['simpan_edit'] = TRUE;
 		$this->load->view('admin_wrapper', $data);

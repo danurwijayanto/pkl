@@ -14,14 +14,14 @@
               if ($artikel['status']==1){?>
                 <br>
                 <div class="alert alert-success">
-                  <strong><i class="fa fa-check fa-2x"></i> Artikel Sudah Terpublish <a style="text-decoration: none" href="<?php echo base_url();?>admin/artikel" class="btn btn-warning pull-right">Draft</a> </strong> 
+                  <strong><i class="fa fa-check fa-2x"></i> Artikel Sudah Terpublish  </strong> 
                 </div>
             <?php
               }else{
             ?>
               <br>
               <div class="alert alert-warning">
-                <strong><i class="fa fa-exclamation-triangle fa-2x"></i> Artikel Belum Terpublish <a style="text-decoration: none" href="<?php echo base_url();?>admin/artikel" class="btn btn-success pull-right">Publish</a> </strong> 
+                <strong><i class="fa fa-exclamation-triangle fa-2x"></i> Artikel Belum Terpublish  </strong> 
               </div>  
             <?php 
               }
@@ -73,8 +73,22 @@
                 <div class="col-sm-1">
                 </div>
                 <div class="col-sm-10">
-                    <input type="submit" value="Simpan" class="btn btn-primary">
-                   <a href="<?php echo base_url();?>admin/artikel" class="btn btn-danger">Kembali</a>
+                  <input type="submit" value="<?php if (isset($simpan_edit) AND ($simpan_edit==TRUE)){echo 'Simpan';}else{echo 'Tambah ke Draft';}?>" class="btn btn-primary">
+                  <!--Jika Melakukan Edit Artikel-->
+                  <?php if (isset($artikel)){
+                      if ($artikel['status']==1){
+                  ?>
+                    <a href="<?php echo base_url();?>operation/draft?id=<?php echo $artikel['id'];?>" class="btn btn-warning">Masukkan Draft</a>
+                  <?php
+                      }else{
+                  ?>
+                    <a href="<?php echo base_url();?>operation/publish?id=<?php echo $artikel['id'];?>" class="btn btn-success <?php if ($session['role']!='Admin')echo 'disabled';?>">Publish</a>
+                  <?php      
+                      }
+                    }
+                  ?>
+                  <!-- End Jika Melakukan Edit Artikel-->
+                   <a href="<?php echo base_url();?>admin/artikel" class="btn btn-danger pull-right">Kembali</a>
                 </div>
               </div>
             </form>
