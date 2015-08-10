@@ -79,16 +79,17 @@
                       if ($artikel['status']==1){
                   ?>
                     <a href="<?php echo base_url();?>operation/draft?id=<?php echo $artikel['id'];?>" class="btn btn-warning">Masukkan Draft</a>
+                    <a href="<?php echo base_url();?>admin/artikel" class="btn btn-danger pull-right">Kembali</a>
                   <?php
                       }else{
                   ?>
                     <a href="<?php echo base_url();?>operation/publish?id=<?php echo $artikel['id'];?>" class="btn btn-success <?php if ($session['role']!='Admin')echo 'disabled';?>">Publish</a>
+                    <a href="<?php echo base_url();?>admin/draft" class="btn btn-danger pull-right">Kembali</a>
                   <?php      
                       }
                     }
                   ?>
                   <!-- End Jika Melakukan Edit Artikel-->
-                   <a href="<?php echo base_url();?>admin/artikel" class="btn btn-danger pull-right">Kembali</a>
                 </div>
               </div>
             </form>

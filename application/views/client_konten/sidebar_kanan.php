@@ -37,18 +37,22 @@
 							</div>
 							<br>
 							<ul class="">
-								<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-							  		<a href="http://fsm.undip.ac.id/2015/06/hasil-seleksi-proposal-penelitian-hibah-fsm-tahun-2015-undip/" title="Hasil Seleksi Proposal Penelitian Hibah FSM Tahun 2015 UNDIP">Hasil Seleksi Proposal Penelitian Hibah FSM Tahun 2015 UNDIP</a>
-							  	</li>
-							  	<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-							  		<a href="http://fsm.undip.ac.id/2015/06/hasil-seleksi-proposal-penelitian-hibah-fsm-tahun-2015-undip/" title="PENGEMBANGAN BUDIDAYA PRODUKTIF BERKELANJUTAN (SUSTAINABLE AQUACULTURE) SISTEM IMTA (INTEGRATED MULTI TROPHIC AQUACULTURE)">PENGEMBANGAN BUDIDAYA PRODUKTIF BERKELANJUTAN (SUSTAINABLE AQUACULTURE) SISTEM IMTA (INTEGRATED MULTI TROPHIC AQUACULTURE)</a>
-							  	</li>
-							  	<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-							  		<a href="http://fsm.undip.ac.id/2015/06/hasil-seleksi-proposal-penelitian-hibah-fsm-tahun-2015-undip/" title="PENGEMBANGAN BUDIDAYA PRODUKTIF BERKELANJUTAN (SUSTAINABLE AQUACULTURE) SISTEM IMTA (INTEGRATED MULTI TROPHIC AQUACULTURE)">SK PPA dan BBPPPA tahun 2015</a>
-							  	</li>
-							  	<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-							  		<a href="http://fsm.undip.ac.id/2015/06/hasil-seleksi-proposal-penelitian-hibah-fsm-tahun-2015-undip/" title="PENGEMBANGAN BUDIDAYA PRODUKTIF BERKELANJUTAN (SUSTAINABLE AQUACULTURE) SISTEM IMTA (INTEGRATED MULTI TROPHIC AQUACULTURE)">PRESS RELEASE LAUNCHING KARTU CO-BRANDING BRI</a>
-							  	</li>
+								<?php 
+								if ($artikel == NULL){ ?>
+									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Tidak Ada Post
+								<?php
+								}else{
+								foreach ($artikel as $artikel) { ?>
+									<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							  			<?php echo anchor('client/news/'.$artikel['id'].'', ''.$artikel['judul']); ?>
+							  			<span class="date-title">
+									    	<i><?php echo date("d/m/Y",strtotime($artikel['time']));?></i>
+										</span>
+							  		</li>
+								<?php
+									}
+								}
+								?>
 							</ul>
 						</div>
 						<div class="panel" style="font-size: 14px;">
@@ -57,22 +61,22 @@
 							</div>
 							<br>
 							<ul class="">
-								<?php foreach ($agenda as $agenda) { ?>
+								<?php 
+								if ($agenda == NULL){ ?>
+									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Tidak Ada Post
+								<?php
+								}else{
+								foreach ($agenda as $agenda) { ?>
 									<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-							  			<?php echo anchor('client/news/'.$agenda['id'].'', ''.$agenda['judul'].'',array('title'=>'Link Title')); ?>
+							  			<?php echo anchor('client/news/'.$agenda['id'].'', ''.$agenda['judul']); ?>
+							  			<span class="date-title">
+									    	<i><?php echo date("d/m/Y",strtotime($agenda['time']));?></i>
+										</span>
 							  		</li>
 								<?php
 									}
+								}
 								?>
-							  	<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-							  		<a href="http://fsm.undip.ac.id/2015/06/hasil-seleksi-proposal-penelitian-hibah-fsm-tahun-2015-undip/" title="PENGEMBANGAN BUDIDAYA PRODUKTIF BERKELANJUTAN (SUSTAINABLE AQUACULTURE) SISTEM IMTA (INTEGRATED MULTI TROPHIC AQUACULTURE)">PENGEMBANGAN BUDIDAYA PRODUKTIF BERKELANJUTAN (SUSTAINABLE AQUACULTURE) SISTEM IMTA (INTEGRATED MULTI TROPHIC AQUACULTURE)</a>
-							  	</li>
-							  	<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-							  		<a href="http://fsm.undip.ac.id/2015/06/hasil-seleksi-proposal-penelitian-hibah-fsm-tahun-2015-undip/" title="PENGEMBANGAN BUDIDAYA PRODUKTIF BERKELANJUTAN (SUSTAINABLE AQUACULTURE) SISTEM IMTA (INTEGRATED MULTI TROPHIC AQUACULTURE)">SK PPA dan BBPPPA tahun 2015</a>
-							  	</li>
-							  	<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-							  		<a href="http://fsm.undip.ac.id/2015/06/hasil-seleksi-proposal-penelitian-hibah-fsm-tahun-2015-undip/" title="PENGEMBANGAN BUDIDAYA PRODUKTIF BERKELANJUTAN (SUSTAINABLE AQUACULTURE) SISTEM IMTA (INTEGRATED MULTI TROPHIC AQUACULTURE)">PRESS RELEASE LAUNCHING KARTU CO-BRANDING BRI</a>
-							  	</li>
 							</ul>
 						</div>
 					</div>

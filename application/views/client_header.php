@@ -178,11 +178,10 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>                        
                 </button>
-                <a class="navbar-brand" href="#">SMAN 2 Salatiga</a>
+                <a class="navbar-brand" href="<?php echo base_url();?>client">SMAN 2 Salatiga</a>
               </div>
           <div  class="collapse navbar-collapse" id="navbarku">
             <ul class="nav navbar-nav">
-              <li class=""><a href="<?php echo base_url();?>client">Home</a></li>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile
                       <span class="caret"></span></a>
@@ -207,9 +206,10 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Informasi
                       <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a href="#">Pengumuman</a></li>
-                          <li><a href="#">Berita</a></li>
-                          <li><a href="#">Artikel</a></li>
+                          <li><a href="<?php echo base_url();?>client/kategori?id=6">Pengumuman</a></li>
+                          <li><a href="<?php echo base_url();?>client/kategori?id=9">Berita</a></li>
+                          <li><a href="<?php echo base_url();?>client/kategori?id=3">Artikel</a></li>
+                          <li><a href="<?php echo base_url();?>client/kategori?id=8">Agenda</a></li>
                         </ul>
               </li>
               <li class="dropdown">
