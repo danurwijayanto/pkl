@@ -22,14 +22,15 @@ class Admin extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->database();
+			$this->lang->load("menu","english");
+			$this->load->database();
 
-		if ($this->session->userdata('logged_in')==NULL) {
-			redirect('masukadmin', 'refresh');
-		}else{
-			$this->session_data = $this->session->userdata('logged_in');
-			$this->data_sesi = $this->user_auth->read_user_information($this->session_data);
-		}
+			if ($this->session->userdata('logged_in')==NULL) {
+				redirect('masukadmin', 'refresh');
+			}else{
+				$this->session_data = $this->session->userdata('logged_in');
+				$this->data_sesi = $this->user_auth->read_user_information($this->session_data);
+			}
 	}
 
 	/**

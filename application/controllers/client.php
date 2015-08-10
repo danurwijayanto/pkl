@@ -17,6 +17,21 @@ class Client extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	public function __construct() {
+		parent::__construct();
+			$this->lang->load("menu", "english");
+			//$this->load->database();
+
+			/**if ($this->session->userdata('logged_in')==NULL) {
+				redirect('masukadmin', 'refresh');
+			}else{
+				$this->session_data = $this->session->userdata('logged_in');
+				$this->data_sesi = $this->user_auth->read_user_information($this->session_data);
+			}
+			**/
+	}
+
 	public function index()
 	{	
 		$this->load->database();

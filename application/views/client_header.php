@@ -191,6 +191,7 @@
                           <li><a href="<?php echo base_url();?>client/tujuan">Tujuan</a></li>
                           <li><a href="<?php echo base_url();?>client/logo_motto">Logo dan Motto</a></li>
                           <li><a href="<?php echo base_url();?>client/struktur_organisasi">Struktur Organisasi</a></li>
+                          <li><a href="<?php echo base_url();?>client/struktur_organisasi"><?php echo $this->lang->line('sejarah');?></a></li>
                         </ul>
                 
               </li>
@@ -233,6 +234,14 @@
               </li>
               <li class=""><a href="#">Elearning</a></li>
               <li class=""><a href="<?php echo base_url();?>client/kontak">Kontak</a></li>
+              <li style="top:13px; left:185px">
+                <form action="#" method="post" >
+                  <select name="language" id="lang"  onChange="this.form.submit()" style="font-family: 'Raleway',sans-serif; font-size: 16px; height: 25px; width: 100px;">
+                    <option value="Indonesia">Indonesia</option>
+                    <option value="English">English</option>
+                  </select>
+                </form> 
+              </li>
             </ul>
           </div>
         </div>
