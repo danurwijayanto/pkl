@@ -186,12 +186,11 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile
                       <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a href="<?php echo base_url();?>client/sejarah">Sejarah</a></li>
-                          <li><a href="<?php echo base_url();?>client/visimisi">Visi dan Misi</a></li>
-                          <li><a href="<?php echo base_url();?>client/tujuan">Tujuan</a></li>
-                          <li><a href="<?php echo base_url();?>client/logo_motto">Logo dan Motto</a></li>
-                          <li><a href="<?php echo base_url();?>client/struktur_organisasi">Struktur Organisasi</a></li>
-                          <li><a href="<?php echo base_url();?>client/struktur_organisasi"><?php echo $this->lang->line('sejarah');?></a></li>
+                          <li><a href="<?php echo base_url();?>client/sejarah"><?php echo $language['sejarah'];?></a></li>
+                          <li><a href="<?php echo base_url();?>client/visimisi"><?php echo $language['visimisi'];?></a></li>
+                          <li><a href="<?php echo base_url();?>client/tujuan"><?php echo $language['tujuan'];?></a></li>
+                          <li><a href="<?php echo base_url();?>client/logo_motto"><?php echo $language['logomoto'];?></a></li>
+                          <li><a href="<?php echo base_url();?>client/struktur_organisasi"><?php echo $language['strukturor'];?></a></li>
                         </ul>
                 
               </li>
@@ -235,10 +234,10 @@
               <li class=""><a href="#">Elearning</a></li>
               <li class=""><a href="<?php echo base_url();?>client/kontak">Kontak</a></li>
               <li style="top:13px; left:185px">
-                <form action="#" method="post" >
+                <form action="<?php echo base_url();?>operation/ganti_bahasa" method="post" >
                   <select name="language" id="lang"  onChange="this.form.submit()" style="font-family: 'Raleway',sans-serif; font-size: 16px; height: 25px; width: 100px;">
-                    <option value="Indonesia">Indonesia</option>
-                    <option value="English">English</option>
+                    <option value="indonesia" <?php if($language['selected']=='indonesia'){echo 'selected="selected"';}?>>Indonesia</option>
+                    <option value="english" <?php if($language['selected']=='english'){echo 'selected="selected"';}?>>English</option>
                   </select>
                 </form> 
               </li>

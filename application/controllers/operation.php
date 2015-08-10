@@ -481,6 +481,34 @@ class Operation extends CI_Controller {
 		* End Fungsi untuk publish artikel
 	*/
 
+	/**
+		* Fungsi untuk mengganti bahasa
+	*/
+
+	public function ganti_bahasa(){
+		$this->session->unset_userdata('bahasa');
+		$language = $this->input->post('language');
+
+		$this->lang->load("menu", $language);
+			$sess_data=array(
+					'selected' => $language,
+					'sejarah' => $this->lang->line('sejarah'),
+					'visimisi' => $this->lang->line('visimisi'),
+					'tujuan' => $this->lang->line('tujuan'),
+					'logomoto' => $this->lang->line('loggomotto'),
+					'strukturor' => $this->lang->line('strukturorganisasi')
+				);
+			// Set values in session
+		$this->session->set_userdata('bahasa', $sess_data);
+
+		redirect('client', 'refresh');
+	}
+
+	/**
+		* End Fungsi untuk mengganti bahasa
+	*/
+
+
 
 }
 

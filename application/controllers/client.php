@@ -20,7 +20,8 @@ class Client extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-			$this->lang->load("menu", "english");
+		
+			$this->load->database();
 			//$this->load->database();
 
 			/**if ($this->session->userdata('logged_in')==NULL) {
@@ -34,7 +35,23 @@ class Client extends CI_Controller {
 
 	public function index()
 	{	
-		$this->load->database();
+		//$this->session->unset_userdata('bahasa');
+		if(!$this->session->userdata('bahasa')){
+		    // do something when doesn't exist
+		    $this->lang->load("menu", "indonesia");
+			$sess_data=array(
+					'selected' => 'indonesia',
+					'sejarah' => $this->lang->line('sejarah'),
+					'visimisi' => $this->lang->line('visimisi'),
+					'tujuan' => $this->lang->line('tujuan'),
+					'logomoto' => $this->lang->line('loggomotto'),
+					'strukturor' => $this->lang->line('strukturorganisasi')
+				);
+			// Set values in session
+			$this->session->set_userdata('bahasa', $sess_data);
+		}
+		// Retrieve session values
+		//$set_data = $this->session->userdata('bahasa');
 		$data=array('title'=>'SMA 2 Salatiga',
 					'isi' =>'client_konten/home',
 					'agenda' => $this->sma_sltg->get_artikelbykat(4,0,8,1),
@@ -42,7 +59,8 @@ class Client extends CI_Controller {
 					'artikel' => $this->sma_sltg->get_artikelbykat(4,0,3,1),
 					'berita' => $this->sma_sltg->get_artikelbykat(4,0,9,1),
 					'slider_one' => $this->sma_sltg->get_slider(0),
-					'slider_two' => $this->sma_sltg->get_slider(1)
+					'slider_two' => $this->sma_sltg->get_slider(1),
+					'language' => $this->session->userdata('bahasa')
 					);
 		$this->load->view('client_wrapper', $data);
 	}
