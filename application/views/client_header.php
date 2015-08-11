@@ -203,36 +203,41 @@
                         </ul>
               </li>
               <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Informasi
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $language['informasi'];?>
                       <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a href="<?php echo base_url();?>client/kategori?id=6">Pengumuman</a></li>
-                          <li><a href="<?php echo base_url();?>client/kategori?id=9">Berita</a></li>
-                          <li><a href="<?php echo base_url();?>client/kategori?id=3">Artikel</a></li>
-                          <li><a href="<?php echo base_url();?>client/kategori?id=8">Agenda</a></li>
+                          <li><a href="<?php echo base_url();?>client/kategori?id=6"><?php echo $language['pengumuman'];?></a></li>
+                          <li><a href="<?php echo base_url();?>client/kategori?id=9"><?php echo $language['berita'];?></a></li>
+                          <li><a href="<?php echo base_url();?>client/kategori?id=3"><?php echo $language['artikel'];?></a></li>
+                          <li><a href="<?php echo base_url();?>client/kategori?id=8"><?php echo $language['agenda'];?></a></li>
                         </ul>
               </li>
               <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kemitraan
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $language['kemitraan'];?>
                       <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a href="#">Perguruan Tinggi</a></li>
-                          <li><a href="#">Pemerintah</a></li>
-                          <li><a href="#">Masyarakat</a></li>
+                          <li><a href="#"><?php echo $language['perguruan'];?></a></li>
+                          <li><a href="#"><?php echo $language['pemerintah'];?></a></li>
+                          <li><a href="#"><?php echo $language['masyarakat'];?></a></li>
                         </ul>
                 
               </li>
               <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bahan Ajar
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $language['bahanajar'];?>
                       <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a href="#">Materi Pembelajaran</a></li>
-                          <li><a href="#">Media Pembelajaran</a></li>
+                          <li><a href="#"><?php echo $language['materibelajar'];?></a></li>
+                          <li><a href="#"><?php echo $language['mediabelajar'];?></a></li>
                           <li><a href="#">Download</a></li>
                         </ul>
               </li>
-              <li class=""><a href="#">Elearning</a></li>
-              <li class=""><a href="<?php echo base_url();?>client/kontak">Kontak</a></li>
+              <li class="">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Elearning
+                <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Coming Soon</a></li>
+                        </ul>
+              <li class=""><a href="<?php echo base_url();?>client/kontak"><?php echo $language['kontak'];?></a></li>
               <li style="top:13px; left:185px">
                 <form action="<?php echo base_url();?>operation/ganti_bahasa" method="post" >
                   <select name="language" id="lang"  onChange="this.form.submit()" style="font-family: 'Raleway',sans-serif; font-size: 16px; height: 25px; width: 100px;">

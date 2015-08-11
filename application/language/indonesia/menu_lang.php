@@ -11,3 +11,12 @@
 	$lang["agendaterdekat"] = "Agenda Terdekat";
 	$lang["berita"] = "Berita";
 	$lang["artikel"] = "Artikel";
+	$lang["informasi"] = "Informasi";
+	$lang["kemitraan"] = "Kemitraan";
+	$lang["perguruan"] = "Perguruan";
+	$lang["pemerintah"] = "Pemerintah";
+	$lang["masyarakat"] = "Masyarakat";
+	$lang["bahanajar"] = "Bahan Ajar";
+	$lang["materibelajar"] = "Materi Pembelajaran";
+	$lang["mediabelajar"] = "Media Pembelajaran";
+	$lang["kontak"] = "Kontak";
