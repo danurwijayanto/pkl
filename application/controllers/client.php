@@ -22,21 +22,8 @@ class Client extends CI_Controller {
 		parent::__construct();
 		
 			$this->load->database();
-			//$this->load->database();
 
-			/**if ($this->session->userdata('logged_in')==NULL) {
-				redirect('masukadmin', 'refresh');
-			}else{
-				$this->session_data = $this->session->userdata('logged_in');
-				$this->data_sesi = $this->user_auth->read_user_information($this->session_data);
-			}
-			**/
-	}
-
-	public function index()
-	{	
-		//$this->session->unset_userdata('bahasa');
-		if(!$this->session->userdata('bahasa')){
+			if(!$this->session->userdata('bahasa')){
 		    // do something when doesn't exist
 		    $this->lang->load("menu", "indonesia");
 			$sess_data=array(
@@ -62,11 +49,18 @@ class Client extends CI_Controller {
 					'bahanajar' => $this->lang->line('bahanajar'),
 					'materibelajar' => $this->lang->line('materibelajar'),
 					'mediabelajar' => $this->lang->line('mediabelajar'),
-					'kontak' => $this->lang->line('kontak')
+					'kontak' => $this->lang->line('kontak'),
+					'tautan' => $this->lang->line('tautan')
 				);
 			// Set values in session
 			$this->session->set_userdata('bahasa', $sess_data);
 		}
+	}
+
+	public function index()
+	{	
+		//$this->session->unset_userdata('bahasa');
+		
 		// Retrieve session values
 		//$set_data = $this->session->userdata('bahasa');
 		$data=array('title'=>'SMA 2 Salatiga',
@@ -88,7 +82,8 @@ class Client extends CI_Controller {
 					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
 					 'konten' => $this->sma_sltg->get_artikelbyid(13),
-					 'tautan'=> TRUE
+					 'tautan'=> TRUE,
+					 'language' => $this->session->userdata('bahasa')
 					);
 		$this->load->view('client_wrapper', $data);
 	}
@@ -96,7 +91,8 @@ class Client extends CI_Controller {
 	public function artikel(){
 		$data=array('title'=>'SMA 2 Salatiga',
 					'isi' =>'client_konten/artikel',
-					 'sidebar_kanan' => 'client_konten/sidebar_kanan'
+					'sidebar_kanan' => 'client_konten/sidebar_kanan',
+					'language' => $this->session->userdata('bahasa')
 					);
 		$this->load->view('client_wrapper', $data);
 	}
@@ -107,7 +103,8 @@ class Client extends CI_Controller {
 					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
 					 'konten' => $this->sma_sltg->get_artikelbyid(12),
-					 'tautan'=> TRUE
+					 'tautan'=> TRUE,
+					 'language' => $this->session->userdata('bahasa')
 					);
 		$this->load->view('client_wrapper', $data);
 	}
@@ -118,7 +115,8 @@ class Client extends CI_Controller {
 					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
 					 'konten' => $this->sma_sltg->get_artikelbyid(14),
-					 'tautan'=> TRUE
+					 'tautan'=> TRUE,
+					 'language' => $this->session->userdata('bahasa')
 					);
 		$this->load->view('client_wrapper', $data);
 	}
@@ -129,7 +127,8 @@ class Client extends CI_Controller {
 					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
 					 'konten' => $this->sma_sltg->get_artikelbyid(15),
-					 'tautan'=> TRUE
+					 'tautan'=> TRUE,
+					 'language' => $this->session->userdata('bahasa')
 					);
 		$this->load->view('client_wrapper', $data);
 	}
@@ -140,7 +139,8 @@ class Client extends CI_Controller {
 					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
 					 'konten' => $this->sma_sltg->get_artikelbyid(16),
-					 'tautan'=> TRUE
+					 'tautan'=> TRUE,
+					 'language' => $this->session->userdata('bahasa')
 					);
 		$this->load->view('client_wrapper', $data);
 	}
@@ -152,7 +152,8 @@ class Client extends CI_Controller {
 					'isi' =>'client_konten/artikel',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
 					 'konten' => $this->sma_sltg->get_artikelbyid($data),
-					 'agenda' => $this->sma_sltg->get_artikelbykat(4,0,8,1)
+					 'agenda' => $this->sma_sltg->get_artikelbykat(4,0,8,1),
+					 'language' => $this->session->userdata('bahasa')
 					);
 		$this->load->view('client_wrapper', $data);
 	}
@@ -177,7 +178,8 @@ class Client extends CI_Controller {
 					 'konten' => $this->sma_sltg->get_artikelbykat($config['per_page'],$page,$id,1),
 					 'konten_row' => $this->sma_sltg->get_artikelbykat(0,$offset,$id,1),
 					 'agenda' => $this->sma_sltg->get_artikelbykat(4,0,8,1),
-					 'artikel' => $this->sma_sltg->get_artikelbykat(4,0,3,1)
+					 'artikel' => $this->sma_sltg->get_artikelbykat(4,0,3,1),
+					 'language' => $this->session->userdata('bahasa')
 					);
 		$row = count($data['konten_row']);
 		$config['total_rows'] = $row;
@@ -196,7 +198,8 @@ class Client extends CI_Controller {
 					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
 					 'konten' => $this->sma_sltg->get_artikelbyid(20),
-					 'tautan'=> TRUE
+					 'tautan'=> TRUE,
+					 'language' => $this->session->userdata('bahasa')
 					);
 		$this->load->view('client_wrapper', $data);
 	}
@@ -207,7 +210,8 @@ class Client extends CI_Controller {
 					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
 					 'konten' => $this->sma_sltg->get_artikelbyid(21),
-					 'tautan'=> TRUE
+					 'tautan'=> TRUE,
+					 'language' => $this->session->userdata('bahasa')
 					);
 		$this->load->view('client_wrapper', $data);
 	}
@@ -218,7 +222,8 @@ class Client extends CI_Controller {
 					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
 					 'konten' => $this->sma_sltg->get_artikelbyid(22),
-					 'tautan'=> TRUE
+					 'tautan'=> TRUE,
+					 'language' => $this->session->userdata('bahasa')
 					);
 		$this->load->view('client_wrapper', $data);
 	}

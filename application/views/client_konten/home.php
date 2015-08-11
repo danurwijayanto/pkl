@@ -45,7 +45,7 @@
 										</span>
 										<?php if ($i==1){?>
 											<p style="clearfix"></p>
-											<p  style="padding: 0 20px 0 20px; text-align: justify; font-size: 13px;"><?php echo substr( strip_tags($pengumuman['text']), 0, 200).' .....  <a href="'.base_url().'client/news/'.$pengumuman['id'].'" class="news_readmore">Read More >></a>';?>						
+											<p  style="padding: 0 20px 0 20px; text-align: justify; font-size: 12px;"><?php echo substr( strip_tags($pengumuman['text']), 0, 200).' .....  <a href="'.base_url().'client/news/'.$pengumuman['id'].'" class="news_readmore">Read More >></a>';?>						
 											</p>
 											<p></p>
 										<?php
@@ -79,7 +79,7 @@
 										</span>
 							  		<?php if ($i==1){?>
 											<p style="clearfix"></p>
-											<p  style="padding: 0 20px 0 20px; text-align: justify; font-size: 13px;"><?php echo substr( strip_tags($agenda['text']), 0, 200).' .....  <a href="'.base_url().'client/news/'.$agenda['id'].'" class="news_readmore">Read More >></a>';?>						
+											<p  style="padding: 0 20px 0 20px; text-align: justify; font-size: 12px;"><?php echo substr( strip_tags($agenda['text']), 0, 200).' .....  <a href="'.base_url().'client/news/'.$agenda['id'].'" class="news_readmore">Read More >></a>';?>						
 											</p>
 											<p></p>
 										<?php
@@ -117,7 +117,7 @@
 										</span>
 							  		<?php if ($i==1){?>
 											<p style="clearfix"></p>
-											<p  style="padding: 0 20px 0 20px; text-align: justify; font-size: 13px;"><?php echo substr( strip_tags($berita['text']), 0, 200).' .....  <a href="'.base_url().'client/news/'.$berita['id'].'" class="news_readmore">Read More >></a>';?>						
+											<p  style="padding: 0 20px 0 20px; text-align: justify; font-size: 12px;"><?php echo substr( strip_tags($berita['text']), 0, 200).' .....  <a href="'.base_url().'client/news/'.$berita['id'].'" class="news_readmore">Read More >></a>';?>						
 											</p>
 											<p></p>
 										<?php
@@ -152,7 +152,7 @@
 										</span>
 							  		<?php if ($i==1){?>
 											<p style="clearfix"></p>
-											<p  style="padding: 0 20px 0 20px; text-align: justify; font-size: 13px;"><?php echo substr( strip_tags($artikel['text']), 0, 200).' .....  <a href="'.base_url().'client/news/'.$artikel['id'].'" class="news_readmore">Read More >></a>';?>						
+											<p  style="padding: 0 20px 0 20px; text-align: justify; font-size: 12px;"><?php echo substr( strip_tags($artikel['text']), 0, 200).' .....  <a href="'.base_url().'client/news/'.$artikel['id'].'" class="news_readmore">Read More >></a>';?>						
 											</p>
 											<p></p>
 										<?php

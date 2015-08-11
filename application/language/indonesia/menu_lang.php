@@ -20,3 +20,4 @@
 	$lang["materibelajar"] = "Materi Pembelajaran";
 	$lang["mediabelajar"] = "Media Pembelajaran";
 	$lang["kontak"] = "Kontak";
+	$lang["tautan"] = "Tautan";

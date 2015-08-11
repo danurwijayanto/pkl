@@ -513,12 +513,13 @@ class Operation extends CI_Controller {
 					'bahanajar' => $this->lang->line('bahanajar'),
 					'materibelajar' => $this->lang->line('materibelajar'),
 					'mediabelajar' => $this->lang->line('mediabelajar'),
-					'kontak' => $this->lang->line('kontak')
+					'kontak' => $this->lang->line('kontak'),
+					'tautan' => $this->lang->line('tautan')
 				);
 			// Set values in session
 		$this->session->set_userdata('bahasa', $sess_data);
 
-		redirect('client', 'refresh');
+		redirect($this->agent->referrer(), 'refresh');
 	}
 
 	/**

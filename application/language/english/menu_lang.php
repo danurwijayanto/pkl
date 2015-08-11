@@ -1,8 +1,8 @@
 <?php
 	$lang["sejarah"] = "History";
-	$lang["visimisi"] = "Last Name";
-	$lang["tujuan"] = "Date of Birth";
-	$lang["loggomotto"] = "Address";
+	$lang["visimisi"] = "Vision and Mission";
+	$lang["tujuan"] = "Goal";
+	$lang["loggomotto"] = "Loggo and Motto	";
 	$lang["strukturorganisasi"] = "Organization";
 	$lang["kepegawaian"] = "Employee";
 	$lang["guru"] = "Teachers";
@@ -20,5 +20,7 @@
 	$lang["materibelajar"] = "Learning Materials";
 	$lang["mediabelajar"] = "Instructional Media";
 	$lang["kontak"] = "Contact";
+	$lang["tautan"] = "Links";
+
 
 

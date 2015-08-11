@@ -4,7 +4,7 @@
 						<div class="col-md-4">
 						<div class="panel" style="font-size: 14px;">
 							<div class="judul_panel">
-								<h5><b>Tautan</b></h5>
+								<h5><b><?php echo $language['tautan'];?></b></h5>
 							</div>
 							<br>
 							<ul class="">
