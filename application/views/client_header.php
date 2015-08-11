@@ -165,7 +165,7 @@
   <body>
     <!--Gambar header-->
     <div class="image-header" >
-      <img class="img-responsive" style="width:100%;" src="<?php echo base_url();?>assets/image/header.png">
+      <img class="img-responsive" style="width:100%;" src="<?php if ($language['selected']=='indonesia'){echo base_url()."assets/image/header_in.png"; }else{echo base_url()."assets/image/header_en.png";}?>">
     </div>
     <!--Menu Navigasi-->
     <div class="navigasi_atas">
@@ -195,11 +195,11 @@
                 
               </li>
               <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kepegawaian
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $language['kepegawaian'];?>
                       <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a href="<?php echo base_url();?>client/guru">Guru</a></li>
-                          <li><a href="<?php echo base_url();?>client/karyawan">Karyawan</a></li>
+                          <li><a href="<?php echo base_url();?>client/guru"><?php echo $language['guru'];?></a></li>
+                          <li><a href="<?php echo base_url();?>client/karyawan"><?php echo $language['karyawan'];?></a></li>
                         </ul>
               </li>
               <li class="dropdown">

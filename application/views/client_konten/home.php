@@ -28,7 +28,7 @@
 					<div class="col-md-6">
 						<div class="panel" style="font-size: 14px;">
 							<div class="judul_panel">
-								<h5><b>Pengumuman</b></h5>
+								<h5><b><?php echo $language['pengumuman'];?></b></h5>
 							</div>
 							<br>
 							<ul class="">
@@ -37,14 +37,23 @@
 									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Tidak Ada Post
 								<?php
 								}else{
-								foreach ($pengumuman as $pengumuman) { ?>
+								$i=1;foreach ($pengumuman as $pengumuman) { ?>
 									<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 							  			<?php echo anchor('client/news/'.$pengumuman['id'].'', ''.$pengumuman['judul']); ?>
 							  			<span class="date-title">
 									    	<i><?php echo date("d/m/Y",strtotime($pengumuman['time']));?></i>
 										</span>
+										<?php if ($i==1){?>
+											<p style="clearfix"></p>
+											<p  style="padding: 0 20px 0 20px; text-align: justify; font-size: 13px;"><?php echo substr( strip_tags($pengumuman['text']), 0, 200).' .....  <a href="'.base_url().'client/news/'.$pengumuman['id'].'" class="news_readmore">Read More >></a>';?>						
+											</p>
+											<p></p>
+										<?php
+										}else{}
+										?>
 							  		</li>
 								<?php
+									$i=$i+1;
 									}
 								}
 								?>
@@ -53,7 +62,7 @@
 						</div>
 						<div class="panel" style="font-size: 14px;">
 							<div class="judul_panel">
-								<h5><b>Agenda Terdekat</b></h5>
+								<h5><b><?php echo $language['agenda'];?></b></h5>
 							</div>
 							<br>
 							<ul class="">
@@ -68,8 +77,17 @@
 							  			<span class="date-title">
 									    	<i><?php echo date("d/m/Y",strtotime($agenda['time']));?></i>
 										</span>
+							  		<?php if ($i==1){?>
+											<p style="clearfix"></p>
+											<p  style="padding: 0 20px 0 20px; text-align: justify; font-size: 13px;"><?php echo substr( strip_tags($agenda['text']), 0, 200).' .....  <a href="'.base_url().'client/news/'.$agenda['id'].'" class="news_readmore">Read More >></a>';?>						
+											</p>
+											<p></p>
+										<?php
+										}else{}
+										?>
 							  		</li>
 								<?php
+									$i=$i+1;
 									}
 								}
 								?>
@@ -81,7 +99,7 @@
 					<div class="col-md-6">
 						<div class="panel" style="font-size: 14px;">
 							<div class="judul_panel">
-								<h5><b>Berita</b></h5>
+								<h5><b><?php echo $language['berita'];?></b></h5>
 							</div>
 							<br>
 							<ul class="">
@@ -90,17 +108,26 @@
 									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Tidak Ada Post
 								<?php
 								}else{
-								foreach ($berita as $berita) { ?>
+								$i=1; foreach ($berita as $berita) { ?>
 									<li>
 										<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 							  			<?php echo anchor('client/news/'.$berita['id'].'', ''.$berita['judul']); ?>
 							  			<span class="date-title">
 									    	<i><?php echo date("d/m/Y",strtotime($berita['time']));?></i>
 										</span>
+							  		<?php if ($i==1){?>
+											<p style="clearfix"></p>
+											<p  style="padding: 0 20px 0 20px; text-align: justify; font-size: 13px;"><?php echo substr( strip_tags($berita['text']), 0, 200).' .....  <a href="'.base_url().'client/news/'.$berita['id'].'" class="news_readmore">Read More >></a>';?>						
+											</p>
+											<p></p>
+										<?php
+										}else{}
+										?>
 							  		</li>
 								<?php
+									$i=$i+1;
 									}
-									}
+								}
 								?>
 							</ul>
 						</div>
@@ -108,7 +135,7 @@
 					<div class="col-md-6">
 						<div class="panel" style="font-size: 14px;">
 							<div class="judul_panel">
-								<h5><b>Artikel</b></h5>
+								<h5><b><?php echo $language['artikel'];?></b></h5>
 							</div>
 							<br>
 							<ul class="">
@@ -117,14 +144,23 @@
 									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Tidak Ada Post
 								<?php
 								}else{
-								foreach ($artikel as $artikel) { ?>
+								$i=1; foreach ($artikel as $artikel) { ?>
 									<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 							  			<?php echo anchor('client/news/'.$artikel['id'].'', ''.$artikel['judul']); ?>
 							  			<span class="date-title">
 									    	<i><?php echo date("d/m/Y",strtotime($artikel['time']));?></i>
 										</span>
+							  		<?php if ($i==1){?>
+											<p style="clearfix"></p>
+											<p  style="padding: 0 20px 0 20px; text-align: justify; font-size: 13px;"><?php echo substr( strip_tags($artikel['text']), 0, 200).' .....  <a href="'.base_url().'client/news/'.$artikel['id'].'" class="news_readmore">Read More >></a>';?>						
+											</p>
+											<p></p>
+										<?php
+										}else{}
+										?>
 							  		</li>
 								<?php
+									$i=$i+1;
 									}
 								}
 								?>

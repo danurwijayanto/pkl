@@ -40,12 +40,20 @@ class Client extends CI_Controller {
 		    // do something when doesn't exist
 		    $this->lang->load("menu", "indonesia");
 			$sess_data=array(
+					'logo' => $this->lang->line('logo'),
 					'selected' => 'indonesia',
 					'sejarah' => $this->lang->line('sejarah'),
 					'visimisi' => $this->lang->line('visimisi'),
 					'tujuan' => $this->lang->line('tujuan'),
 					'logomoto' => $this->lang->line('loggomotto'),
-					'strukturor' => $this->lang->line('strukturorganisasi')
+					'strukturor' => $this->lang->line('strukturorganisasi'),
+					'kepegawaian' => $this->lang->line('kepegawaian'),
+					'guru' => $this->lang->line('guru'),
+					'karyawan' => $this->lang->line('karyawan'),
+					'pengumuman' => $this->lang->line('pengumuman'),
+					'agenda' => $this->lang->line('agendaterdekat'),
+					'berita' => $this->lang->line('berita'),
+					'artikel' => $this->lang->line('artikel')
 				);
 			// Set values in session
 			$this->session->set_userdata('bahasa', $sess_data);

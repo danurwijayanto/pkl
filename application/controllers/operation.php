@@ -491,12 +491,20 @@ class Operation extends CI_Controller {
 
 		$this->lang->load("menu", $language);
 			$sess_data=array(
+					'logo' => $this->lang->line('logo'),
 					'selected' => $language,
 					'sejarah' => $this->lang->line('sejarah'),
 					'visimisi' => $this->lang->line('visimisi'),
 					'tujuan' => $this->lang->line('tujuan'),
 					'logomoto' => $this->lang->line('loggomotto'),
-					'strukturor' => $this->lang->line('strukturorganisasi')
+					'strukturor' => $this->lang->line('strukturorganisasi'),
+					'kepegawaian' => $this->lang->line('kepegawaian'),
+					'guru' => $this->lang->line('guru'),
+					'karyawan' => $this->lang->line('karyawan'),
+					'pengumuman' => $this->lang->line('pengumuman'),
+					'agenda' => $this->lang->line('agendaterdekat'),
+					'berita' => $this->lang->line('berita'),
+					'artikel' => $this->lang->line('artikel')
 				);
 			// Set values in session
 		$this->session->set_userdata('bahasa', $sess_data);
