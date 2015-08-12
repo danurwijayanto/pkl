@@ -13,7 +13,7 @@
 	$lang["artikel"] = "Artikel";
 	$lang["informasi"] = "Informasi";
 	$lang["kemitraan"] = "Kemitraan";
-	$lang["perguruan"] = "Perguruan";
+	$lang["perguruan"] = "Perguruan Tinggi";
 	$lang["pemerintah"] = "Pemerintah";
 	$lang["masyarakat"] = "Masyarakat";
 	$lang["bahanajar"] = "Bahan Ajar";

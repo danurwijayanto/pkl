@@ -27,14 +27,6 @@ class Operation extends CI_Controller {
 
 	}
 
-	public function index()
-	{
-		
-		$data=array('title'=>'SMA 2 Salatiga',
-					'isi' =>'admin_konten/home'
-					);
-		$this->load->view('admin_wrapper', $data);
-	}
 
 	/**
 		* Fungsi untuk menyimpan artikel ke database
@@ -47,7 +39,7 @@ class Operation extends CI_Controller {
 					'judul' => $this->input->post('judul'),
 					'text' => $this->input->post('ckeditor'),
 					'kategori' => $this->input->post('kategori'),
-					'time' => date("Ymd"),
+					'time' => date("YmdHis"),
 					'user_id' => $this->data_sesi['id'],
 					'status' => 2,
 					'bahasa' => $this->input->post('bahasa')

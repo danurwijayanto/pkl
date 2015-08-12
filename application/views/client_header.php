@@ -216,9 +216,9 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $language['kemitraan'];?>
                       <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a href="#"><?php echo $language['perguruan'];?></a></li>
-                          <li><a href="#"><?php echo $language['pemerintah'];?></a></li>
-                          <li><a href="#"><?php echo $language['masyarakat'];?></a></li>
+                          <li><a href="<?php echo base_url();?>client/perguruan_tinggi"><?php echo $language['perguruan'];?></a></li>
+                          <li><a href="<?php echo base_url();?>client/pemerintah"><?php echo $language['pemerintah'];?></a></li>
+                          <li><a href="<?php echo base_url();?>client/masyarakat"><?php echo $language['masyarakat'];?></a></li>
                         </ul>
                 
               </li>

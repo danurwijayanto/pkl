@@ -138,10 +138,14 @@ class Client extends CI_Controller {
 		$data=array('title'=>'SMA 2 Salatiga',
 					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
-					 'konten' => $this->sma_sltg->get_artikelbyid(15),
 					 'tautan'=> TRUE,
 					 'language' => $this->session->userdata('bahasa')
 					);
+		if ($data['language']['selected']=='indonesia'){
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(15);
+		}else{
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(36);
+		}
 		$this->load->view('client_wrapper', $data);
 	}
 
@@ -150,16 +154,19 @@ class Client extends CI_Controller {
 		$data=array('title'=>'SMA 2 Salatiga',
 					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
-					 'konten' => $this->sma_sltg->get_artikelbyid(16),
 					 'tautan'=> TRUE,
 					 'language' => $this->session->userdata('bahasa')
 					);
+		if ($data['language']['selected']=='indonesia'){
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(16);
+		}else{
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(37);
+		}	
 		$this->load->view('client_wrapper', $data);
 	}
 
 	public function news($data){
 		$this->load->database();
-
 		$data=array('title'=>'SMA 2 Salatiga',
 					'isi' =>'client_konten/artikel',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
@@ -209,10 +216,14 @@ class Client extends CI_Controller {
 		$data=array('title'=>'SMA 2 Salatiga',
 					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
-					 'konten' => $this->sma_sltg->get_artikelbyid(20),
 					 'tautan'=> TRUE,
 					 'language' => $this->session->userdata('bahasa')
 					);
+		if ($data['language']['selected']=='indonesia'){
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(20);
+		}else{
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(39);
+		}	
 		$this->load->view('client_wrapper', $data);
 	}
 
@@ -221,10 +232,62 @@ class Client extends CI_Controller {
 		$data=array('title'=>'SMA 2 Salatiga',
 					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
-					 'konten' => $this->sma_sltg->get_artikelbyid(21),
 					 'tautan'=> TRUE,
 					 'language' => $this->session->userdata('bahasa')
 					);
+		if ($data['language']['selected']=='indonesia'){
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(21);
+		}else{
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(40);
+		}	
+		$this->load->view('client_wrapper', $data);
+	}
+
+	public function perguruan_tinggi(){
+		$this->load->database();
+		$data=array('title'=>'SMA 2 Salatiga',
+					'isi' =>'client_konten/profile',
+					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
+					 'tautan'=> TRUE,
+					 'language' => $this->session->userdata('bahasa')
+					);
+		if ($data['language']['selected']=='indonesia'){
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(41);
+		}else{
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(42);
+		}	
+		$this->load->view('client_wrapper', $data);
+	}
+
+	public function pemerintah(){
+		$this->load->database();
+		$data=array('title'=>'SMA 2 Salatiga',
+					'isi' =>'client_konten/profile',
+					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
+					 'tautan'=> TRUE,
+					 'language' => $this->session->userdata('bahasa')
+					);
+		if ($data['language']['selected']=='indonesia'){
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(43);
+		}else{
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(44);
+		}	
+		$this->load->view('client_wrapper', $data);
+	}
+
+	public function masyarakat(){
+		$this->load->database();
+		$data=array('title'=>'SMA 2 Salatiga',
+					'isi' =>'client_konten/profile',
+					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
+					 'tautan'=> TRUE,
+					 'language' => $this->session->userdata('bahasa')
+					);
+		if ($data['language']['selected']=='indonesia'){
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(45);
+		}else{
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(46);
+		}	
 		$this->load->view('client_wrapper', $data);
 	}
 
