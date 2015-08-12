@@ -65,10 +65,10 @@ class Client extends CI_Controller {
 		//$set_data = $this->session->userdata('bahasa');
 		$data=array('title'=>'SMA 2 Salatiga',
 					'isi' =>'client_konten/home',
-					'agenda' => $this->sma_sltg->get_artikelbykat(4,0,8,1),
-					'pengumuman' => $this->sma_sltg->get_artikelbykat(4,0,6,1),
-					'artikel' => $this->sma_sltg->get_artikelbykat(4,0,3,1),
-					'berita' => $this->sma_sltg->get_artikelbykat(4,0,9,1),
+					'agenda' => $this->sma_sltg->get_artikelbykat(4,0,8,1,2),
+					'pengumuman' => $this->sma_sltg->get_artikelbykat(4,0,6,1,2),
+					'artikel' => $this->sma_sltg->get_artikelbykat(4,0,3,1,2),
+					'berita' => $this->sma_sltg->get_artikelbykat(4,0,9,1,2),
 					'slider_one' => $this->sma_sltg->get_slider(0),
 					'slider_two' => $this->sma_sltg->get_slider(1),
 					'language' => $this->session->userdata('bahasa')
@@ -81,10 +81,14 @@ class Client extends CI_Controller {
 		$data=array('title'=>'SMA 2 Salatiga',
 					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
-					 'konten' => $this->sma_sltg->get_artikelbyid(13),
 					 'tautan'=> TRUE,
 					 'language' => $this->session->userdata('bahasa')
 					);
+		if ($data['language']['selected']=='indonesia'){
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(13);
+		}else{
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(33);
+		}
 		$this->load->view('client_wrapper', $data);
 	}
 
@@ -102,10 +106,14 @@ class Client extends CI_Controller {
 		$data=array('title'=>'SMA 2 Salatiga',
 					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
-					 'konten' => $this->sma_sltg->get_artikelbyid(12),
 					 'tautan'=> TRUE,
 					 'language' => $this->session->userdata('bahasa')
 					);
+		if ($data['language']['selected']=='indonesia'){
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(12);
+		}else{
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(34);
+		}
 		$this->load->view('client_wrapper', $data);
 	}
 
@@ -114,10 +122,14 @@ class Client extends CI_Controller {
 		$data=array('title'=>'SMA 2 Salatiga',
 					'isi' =>'client_konten/profile',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
-					 'konten' => $this->sma_sltg->get_artikelbyid(14),
 					 'tautan'=> TRUE,
 					 'language' => $this->session->userdata('bahasa')
 					);
+		if ($data['language']['selected']=='indonesia'){
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(14);
+		}else{
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(35);
+		}
 		$this->load->view('client_wrapper', $data);
 	}
 
@@ -152,7 +164,7 @@ class Client extends CI_Controller {
 					'isi' =>'client_konten/artikel',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
 					 'konten' => $this->sma_sltg->get_artikelbyid($data),
-					 'agenda' => $this->sma_sltg->get_artikelbykat(4,0,8,1),
+					 'agenda' => $this->sma_sltg->get_artikelbykat(4,0,8,1,2),
 					 'language' => $this->session->userdata('bahasa')
 					);
 		$this->load->view('client_wrapper', $data);
@@ -175,10 +187,10 @@ class Client extends CI_Controller {
 		$data=array('title'=>'SMA 2 Salatiga',
 					'isi' =>'client_konten/art_bykat',
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
-					 'konten' => $this->sma_sltg->get_artikelbykat($config['per_page'],$page,$id,1),
-					 'konten_row' => $this->sma_sltg->get_artikelbykat(0,$offset,$id,1),
-					 'agenda' => $this->sma_sltg->get_artikelbykat(4,0,8,1),
-					 'artikel' => $this->sma_sltg->get_artikelbykat(4,0,3,1),
+					 'konten' => $this->sma_sltg->get_artikelbykat($config['per_page'],$page,$id,1,2),
+					 'konten_row' => $this->sma_sltg->get_artikelbykat(0,$offset,$id,1,2),
+					 'agenda' => $this->sma_sltg->get_artikelbykat(4,0,8,1,2),
+					 'artikel' => $this->sma_sltg->get_artikelbykat(4,0,3,1,2),
 					 'language' => $this->session->userdata('bahasa')
 					);
 		$row = count($data['konten_row']);

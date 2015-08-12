@@ -49,7 +49,8 @@ class Operation extends CI_Controller {
 					'kategori' => $this->input->post('kategori'),
 					'time' => date("Ymd"),
 					'user_id' => $this->data_sesi['id'],
-					'status' => 2
+					'status' => 2,
+					'bahasa' => $this->input->post('bahasa')
 				);
 		$result=$this->sma_sltg->simpan_artikel($data);
 		if ($result == TRUE){
@@ -75,8 +76,9 @@ class Operation extends CI_Controller {
 				'judul' => $this->input->post('judul'),
 				'text' => $this->input->post('ckeditor'),
 				'kategori' => $this->input->post('kategori'),
-				'time' => date("Ymd"),
-				'user_id' => $this->data_sesi['id']
+				'time' => date("YmdHis"),
+				'user_id' => $this->data_sesi['id'],
+				'bahasa' => $this->input->post('bahasa')
 			);
 		$result=$this->sma_sltg->rubah_artikel($data);
 		if ($result == TRUE){

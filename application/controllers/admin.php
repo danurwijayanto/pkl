@@ -68,10 +68,13 @@ class Admin extends CI_Controller {
 					'isi' =>'admin_konten/artikel',
 					'session' => $this->data_sesi
 					);
+		//Jika user login bukan Admin 
 		if ($data['session']['role']!='Admin'){
-			$data['artikel'] = $this->sma_sltg->get_artikelbykat(0,0,$data['session']['id_kat'],1);
+			$data['artikelidn'] = $this->sma_sltg->get_artikelbykat(0,0,$data['session']['id_kat'],1,2);
+			$data['artikelen'] = $this->sma_sltg->get_artikelbykat(0,0,$data['session']['id_kat'],1,1);
 		}else{
-			$data['artikel'] = $this->sma_sltg->get_artikelbystat(1);
+			$data['artikelidn'] = $this->sma_sltg->get_artikelbystat(1,2);
+			$data['artikelen'] = $this->sma_sltg->get_artikelbystat(1,1);
 		}
 		$data['active_parent']= 'artikel';
 		$data['active'] = 'daftar_artikel';
@@ -91,7 +94,8 @@ class Admin extends CI_Controller {
 	    
 		$data=array('title'=>'Tambah Artikel',
 					'isi' =>'admin_konten/tambah_artikel',
-					'session' => $this->data_sesi
+					'session' => $this->data_sesi,
+					'bahasa' => $this->sma_sltg->get_bahasa()
 					);
 		$data['kategori'] = $this->sma_sltg->get_kat();
 		$data['active_parent']= 'artikel';
@@ -116,7 +120,7 @@ class Admin extends CI_Controller {
 		if ($data['session']['role']!='Admin'){
 			$data['draft'] = $this->sma_sltg->get_artikelbykat(0,0,$data['session']['id_kat'],2);
 		}else{
-			$data['draft'] = $this->sma_sltg->get_artikelbystat(2);
+			$data['draft'] = $this->sma_sltg->get_artikelbystat(2,0);
 		}
 		$data['active_parent']= 'artikel';
 		$data['active'] = 'artikel_draft';
@@ -157,6 +161,7 @@ class Admin extends CI_Controller {
 					);
 		$data['artikel'] = $this->sma_sltg->get_artikelbyid($id);
 		$data['kategori'] = $this->sma_sltg->get_kat();
+		$data['bahasa'] = $this->sma_sltg->get_bahasa();
 		$data['active_parent']= 'artikel';
 		$data['active'] = '';
 		//mengganti tombol simpan dengan edit

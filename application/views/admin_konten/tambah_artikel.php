@@ -63,6 +63,20 @@
                 </div>
               </div>
               <div class="form-group">
+                <label class="col-sm-1 control-label">Bahasa</label>
+                <div class="col-sm-7">
+                  <select name='bahasa' id='bahasa'  class="form-control">
+                    <?php if (isset($artikel)){}else{echo '<option value=0>-- Pilih Kategori Bahasa --</option>'; } ?>
+                    <?php 
+                        foreach($bahasa as $bahasa){  ?>      
+                        <option value="<?php echo $bahasa['id_bahasa']; ?>" <?php if (isset($artikel)){if($artikel['bahasa']==$bahasa['id_bahasa']){echo 'selected="selected"';}}else{}?>><?php echo $bahasa['nama_bahasa']; ?></option>
+                     <?php   
+                      }
+                      ?>
+                </select>
+                </div>
+              </div>
+              <div class="form-group">
                 <div class="col-sm-1">
                 </div>
                 <div class="col-sm-11">

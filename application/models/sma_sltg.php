@@ -21,7 +21,7 @@
 		*/
 		function rubah_artikel($data) {
 			$query = "UPDATE artikel 
-				SET judul='$data[judul]', text='$data[text]', kategori='$data[kategori]' , time='$data[time]'
+				SET judul='$data[judul]', text='$data[text]', kategori='$data[kategori]' , time='$data[time]' , bahasa='$data[bahasa]'
 				WHERE id=$data[id]";
 			$result = $this->db->query($query);
 			if ($query) {
@@ -116,11 +116,19 @@
 			* Mendapatkan list artikel sesuak status
 			* data : 
 		*/
-		function get_artikelbystat($data){
-			$query = "SELECT artikel.* , kategori.nama , status.nama_status
+		function get_artikelbystat($status, $bahasa=NULL){
+			if ($bahasa==0){
+				$query = "SELECT artikel.* , kategori.nama , status.nama_status
 				FROM artikel, kategori, status
-				WHERE artikel.status=$data AND artikel.kategori=kategori.id AND artikel.status=status.id_status";
-	        $result = $this->db->query($query);
+				WHERE artikel.status=$status AND artikel.kategori=kategori.id AND artikel.status=status.id_status";
+	        	$result = $this->db->query($query);
+			}else{
+				$query = "SELECT artikel.* , kategori.nama , status.nama_status
+				FROM artikel, kategori, status
+				WHERE artikel.status=$status AND artikel.kategori=kategori.id AND artikel.status=status.id_status AND artikel.bahasa=$bahasa";
+	        	$result = $this->db->query($query);
+			}
+			
 	        if($result){
 	            return $result->result_array();
 	        } else {
@@ -167,9 +175,9 @@
 			* data : 
 		*/
 		function get_artikelbyid($data){
-			$query = "SELECT artikel.* , kategori.nama, user.nama_user
-				FROM artikel, kategori, user
-				WHERE artikel.kategori = kategori.id AND artikel.id=$data AND artikel.user_id=user.id";
+			$query = "SELECT artikel.* , kategori.nama, user.nama_user, bahasa.nama_bahasa
+				FROM artikel, kategori, user, bahasa
+				WHERE artikel.kategori = kategori.id AND artikel.id=$data AND artikel.user_id=user.id AND artikel.bahasa=bahasa.id_bahasa";
 	        $result = $this->db->query($query);
 	      
 			$query_result = array();
@@ -182,6 +190,7 @@
 				$query_result['time'] = $row['time'];
 				$query_result['nama_user'] = $row['nama_user'];
 				$query_result['status'] = $row['status'];
+				$query_result['bahasa'] = $row['bahasa'];
 			}
 	        if($result){
 	            return $query_result;
@@ -195,11 +204,11 @@
 			* Mendapatkan artikel berdasarkan Kategori
 			* data : 
 		*/
-		function get_artikelbykat($limit=null, $offset=null, $data=null, $status){
+		function get_artikelbykat($limit=null, $offset=null, $data=null, $status, $bahasa){
 			if (($limit <= 0) AND ($offset<= 0)){
 				$query = "SELECT artikel.* , kategori.nama 
 					FROM artikel, kategori
-					WHERE artikel.kategori = kategori.id AND kategori.id=$data AND artikel.status=$status
+					WHERE artikel.kategori = kategori.id AND kategori.id=$data AND artikel.status=$status AND artikel.bahasa=$bahasa
 					ORDER BY artikel.time DESC";
 		        $result = $this->db->query($query);
 		      
@@ -211,7 +220,7 @@
 		    }else{
 		    	$query = "SELECT artikel.* , kategori.nama, user.nama_user
 					FROM artikel, kategori, user
-					WHERE artikel.kategori = kategori.id AND kategori.id=$data AND artikel.user_id=user.id AND artikel.status=$status
+					WHERE artikel.kategori = kategori.id AND kategori.id=$data AND artikel.user_id=user.id AND artikel.status=$status AND artikel.bahasa=$bahasa
 					ORDER BY artikel.time DESC
 					LIMIT $limit OFFSET $offset";
 		        $result = $this->db->query($query);
@@ -501,6 +510,21 @@
 		    } else {
 		        return FALSE;
 		    }
+		}
+
+		/**
+			*Mendapatkan list bahasa
+			*data : 
+		*/
+		function get_bahasa(){
+			$query = "SELECT *
+				FROM bahasa";
+	        $result = $this->db->query($query);
+	        if($result){
+	            return $result->result_array();
+	        } else {
+	            return FALSE;
+	        }
 		}
 
 	}	

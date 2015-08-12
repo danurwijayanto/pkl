@@ -66,7 +66,7 @@
           text-align: center;
       }
 
-      ul, li {
+      ul.home , li.home {
         list-style-type:none;
         padding-left: 0;
       }

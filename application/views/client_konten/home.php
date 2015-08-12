@@ -31,14 +31,14 @@
 								<h5><b><?php echo $language['pengumuman'];?></b></h5>
 							</div>
 							<br>
-							<ul class="">
+							<ul class="home">
 								<?php 
 								if ($pengumuman == NULL){ ?>
 									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Tidak Ada Post
 								<?php
 								}else{
 								$i=1;foreach ($pengumuman as $pengumuman) { ?>
-									<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+									<li class="home"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 							  			<?php echo anchor('client/news/'.$pengumuman['id'].'', ''.$pengumuman['judul']); ?>
 							  			<span class="date-title">
 									    	<i><?php echo date("d/m/Y",strtotime($pengumuman['time']));?></i>
@@ -65,14 +65,14 @@
 								<h5><b><?php echo $language['agenda'];?></b></h5>
 							</div>
 							<br>
-							<ul class="">
+							<ul class="home">
 								<?php 
 								if ($agenda == NULL){ ?>
 									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Tidak Ada Post
 								<?php
 								}else{
 								foreach ($agenda as $agenda) { ?>
-									<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+									<li class="home"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 							  			<?php echo anchor('client/news/'.$agenda['id'].'', ''.$agenda['judul']); ?>
 							  			<span class="date-title">
 									    	<i><?php echo date("d/m/Y",strtotime($agenda['time']));?></i>
@@ -102,14 +102,14 @@
 								<h5><b><?php echo $language['berita'];?></b></h5>
 							</div>
 							<br>
-							<ul class="">
+							<ul class="home">
 								<?php 
 								if ($berita == NULL){ ?>
 									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Tidak Ada Post
 								<?php
 								}else{
 								$i=1; foreach ($berita as $berita) { ?>
-									<li>
+									<li class="home"> 
 										<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 							  			<?php echo anchor('client/news/'.$berita['id'].'', ''.$berita['judul']); ?>
 							  			<span class="date-title">
@@ -138,14 +138,14 @@
 								<h5><b><?php echo $language['artikel'];?></b></h5>
 							</div>
 							<br>
-							<ul class="">
+							<ul class="home">
 								<?php 
 								if ($artikel == NULL){ ?>
 									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Tidak Ada Post
 								<?php
 								}else{
 								$i=1; foreach ($artikel as $artikel) { ?>
-									<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+									<li class="home"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 							  			<?php echo anchor('client/news/'.$artikel['id'].'', ''.$artikel['judul']); ?>
 							  			<span class="date-title">
 									    	<i><?php echo date("d/m/Y",strtotime($artikel['time']));?></i>
