@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.min.css">
-
+     <!-- Latest compiled font-awesome CSS -->
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/font-awesome/css/font-awesome.css">
     <!-- jQuery library -->
     <script src="<?php echo base_url();?>assets/jquery/1.11.3/jquery.min.js"></script>
 
@@ -19,7 +20,7 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/flexslider/css/flexslider.css" type="text/css" media="screen" />
 
     <!-- Modernizr -->
-      <script src="<?php echo base_url();?>assets/flexslider/js/modernizr.js"></script>
+    <script src="<?php echo base_url();?>assets/flexslider/js/modernizr.js"></script>
 
 
     <style>

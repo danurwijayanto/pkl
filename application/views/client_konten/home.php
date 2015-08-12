@@ -57,6 +57,8 @@
 									}
 								}
 								?>
+								<p></p>
+								<span><i class="fa fa-bars fa-fw"></i><?php echo $language['lihatsemua'];?> <b><a href="<?php echo base_url();?>client/kategori?id=6" rel="category tag"><?php echo $language['pengumuman']?></a></b></span>
 
 							</ul>
 						</div>
@@ -91,6 +93,9 @@
 									}
 								}
 								?>
+								<p></p>
+								<span><i class="fa fa-bars fa-fw"></i><?php echo $language['lihatsemua'];?> <b><a href="<?php echo base_url();?>client/kategori?id=8" rel="category tag"><?php echo $language['agenda']?></a></b></span>
+
 							</ul>
 						</div>
 					</div>
@@ -130,6 +135,9 @@
 								}
 								?>
 							</ul>
+							<p></p>
+							<span><i class="fa fa-bars fa-fw"></i><?php echo $language['lihatsemua'];?> <b><a href="<?php echo base_url();?>client/kategori?id=9" rel="category tag"><?php echo $language['berita']?></a></b></span>
+
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -165,6 +173,9 @@
 								}
 								?>
 							</ul>
+							<p></p>
+							<span><i class="fa fa-bars fa-fw"></i><?php echo $language['lihatsemua'];?> <b><a href="<?php echo base_url();?>client/kategori?id=3" rel="category tag"><?php echo $language['artikel']?></a></b></span>
+
 						</div>
 					</div>
 

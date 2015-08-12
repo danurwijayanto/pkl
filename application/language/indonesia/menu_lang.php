@@ -27,3 +27,4 @@
 	$lang["student"] = "Kesiswaan";
 	$lang["infrastruktur"] = "Sarana Prasarana";
 	$lang["humas"] = "Hubungan Masyarakat";
+	$lang["lihatsemua"] = "Lihat Semua";

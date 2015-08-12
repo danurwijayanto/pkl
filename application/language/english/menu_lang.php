@@ -27,6 +27,7 @@
 	$lang["student"] = "Student";
 	$lang["infrastruktur"] = "Infrastructure";
 	$lang["humas"] = "Public Relations";
+	$lang["lihatsemua"] = "See More";
 
 
 
