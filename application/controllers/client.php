@@ -179,7 +179,8 @@ class Client extends CI_Controller {
 					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
 					 'konten' => $this->sma_sltg->get_artikelbyid($data),
 					 'agenda' => $this->sma_sltg->get_artikelbykat(4,0,8,1,2),
-					 'language' => $this->session->userdata('bahasa')
+					 'language' => $this->session->userdata('bahasa'),
+					 'artikel' => $this->sma_sltg->get_artikelbykat(4,0,3,1,2)
 					);
 		$this->load->view('client_wrapper', $data);
 	}
@@ -189,6 +190,7 @@ class Client extends CI_Controller {
 		$this->load->library('pagination');
 
 		$id = $this->input->get('id');
+		if ($id == NULL) show_404();
 		//config pagination
 		$config['base_url'] = base_url().'/client/kategori/';
 		//setting supaya link pagination terdatap parameter

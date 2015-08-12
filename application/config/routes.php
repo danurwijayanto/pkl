@@ -41,6 +41,9 @@
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
+$route['client/news/(:num)'] = "client/news/$1";
+$route['client/news'] = "error";
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

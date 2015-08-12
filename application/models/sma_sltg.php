@@ -24,7 +24,7 @@
 				SET judul='$data[judul]', text='$data[text]', kategori='$data[kategori]' , time='$data[time]' , bahasa='$data[bahasa]'
 				WHERE id=$data[id]";
 			$result = $this->db->query($query);
-			if ($query) {
+			if ($this->db->affected_rows() > 0) {
 				return TRUE;
 			}else {
 				return FALSE;
@@ -55,7 +55,7 @@
 			$query = "DELETE FROM kategori
 				WHERE id=$data[id]";
 	        $result = $this->db->query($query);
-	        if($result){
+	        if($this->db->affected_rows() > 0){
 	            return TRUE;
 	        } else {
 	            return FALSE;
@@ -89,7 +89,7 @@
 			$query = "UPDATE kategori SET nama='$data[value]'
 				WHERE id=$data[id]";
 	        $result = $this->db->query($query);
-	        if($result){
+	        if($this->db->affected_rows() > 0){
 	            return TRUE;
 	        } else {
 	            return FALSE;
