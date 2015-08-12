@@ -50,7 +50,13 @@ class Client extends CI_Controller {
 					'materibelajar' => $this->lang->line('materibelajar'),
 					'mediabelajar' => $this->lang->line('mediabelajar'),
 					'kontak' => $this->lang->line('kontak'),
-					'tautan' => $this->lang->line('tautan')
+					'tautan' => $this->lang->line('tautan'),
+					'staff' => $this->lang->line('staff'),
+					'kualitasmanagemen' => $this->lang->line('kualitasmanagemen'),
+					'kurikulum' => $this->lang->line('kurikulum'),
+					'student' => $this->lang->line('student'),
+					'infrastruktur' => $this->lang->line('infrastruktur'),
+					'humas' => $this->lang->line('humas')
 				);
 			// Set values in session
 			$this->session->set_userdata('bahasa', $sess_data);
@@ -300,6 +306,86 @@ class Client extends CI_Controller {
 					 'tautan'=> TRUE,
 					 'language' => $this->session->userdata('bahasa')
 					);
+		$this->load->view('client_wrapper', $data);
+	}
+
+	public function manajemen_mutu(){
+		$this->load->database();
+		$data=array('title'=>'SMA 2 Salatiga',
+					'isi' =>'client_konten/profile',
+					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
+					 'tautan'=> TRUE,
+					 'language' => $this->session->userdata('bahasa')
+					);
+		if ($data['language']['selected']=='indonesia'){
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(50);
+		}else{
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(51);
+		}	
+		$this->load->view('client_wrapper', $data);
+	}
+
+	public function kurikulum(){
+		$this->load->database();
+		$data=array('title'=>'SMA 2 Salatiga',
+					'isi' =>'client_konten/profile',
+					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
+					 'tautan'=> TRUE,
+					 'language' => $this->session->userdata('bahasa')
+					);
+		if ($data['language']['selected']=='indonesia'){
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(52);
+		}else{
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(53);
+		}	
+		$this->load->view('client_wrapper', $data);
+	}
+
+	public function kemahasiswaan(){
+		$this->load->database();
+		$data=array('title'=>'SMA 2 Salatiga',
+					'isi' =>'client_konten/profile',
+					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
+					 'tautan'=> TRUE,
+					 'language' => $this->session->userdata('bahasa')
+					);
+		if ($data['language']['selected']=='indonesia'){
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(54);
+		}else{
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(55);
+		}	
+		$this->load->view('client_wrapper', $data);
+	}
+
+	public function infrastruktur(){
+		$this->load->database();
+		$data=array('title'=>'SMA 2 Salatiga',
+					'isi' =>'client_konten/profile',
+					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
+					 'tautan'=> TRUE,
+					 'language' => $this->session->userdata('bahasa')
+					);
+		if ($data['language']['selected']=='indonesia'){
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(56);
+		}else{
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(57);
+		}	
+		$this->load->view('client_wrapper', $data);
+	}
+
+	public function humas(){
+		$this->load->database();
+		$data=array('title'=>'SMA 2 Salatiga',
+					'isi' =>'client_konten/profile',
+					 'sidebar_kanan' => 'client_konten/sidebar_kanan',
+					 'tautan'=> TRUE,
+					 'language' => $this->session->userdata('bahasa')
+					);
+		if ($data['language']['selected']=='indonesia'){
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(58);
+		}else{
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(59);
+		}	
 		$this->load->view('client_wrapper', $data);
 	}
 }

@@ -21,6 +21,12 @@
 	$lang["mediabelajar"] = "Instructional Media";
 	$lang["kontak"] = "Contact";
 	$lang["tautan"] = "Links";
+	$lang["staff"] = "Staff";
+	$lang["kualitasmanagemen"] = "Quality Management";
+	$lang["kurikulum"] = "Curriculum";
+	$lang["student"] = "Student";
+	$lang["infrastruktur"] = "Infrastructure";
+	$lang["humas"] = "Public Relations";
 
 
 

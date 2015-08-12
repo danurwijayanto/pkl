@@ -21,3 +21,9 @@
 	$lang["mediabelajar"] = "Media Pembelajaran";
 	$lang["kontak"] = "Kontak";
 	$lang["tautan"] = "Tautan";
+	$lang["staff"] = "Staff";
+	$lang["kualitasmanagemen"] = "Manajemen Mutu";
+	$lang["kurikulum"] = "Kurikulum";
+	$lang["student"] = "Kesiswaan";
+	$lang["infrastruktur"] = "Sarana Prasarana";
+	$lang["humas"] = "Hubungan Masyarakat";

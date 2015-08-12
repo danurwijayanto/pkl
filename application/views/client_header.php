@@ -160,6 +160,48 @@
           background: #F7FBFF none repeat scroll 0% 0%;
           clear: both;
       }
+
+      .dropdown-submenu {
+          position:relative;
+      }
+      .dropdown-submenu>.dropdown-menu {
+          top:0;
+          left:100%;
+          margin-top:-6px;
+          margin-left:-1px;
+          -webkit-border-radius:0 6px 6px 6px;
+          -moz-border-radius:0 6px 6px 6px;
+          border-radius:0 6px 6px 6px;
+      }
+      .dropdown-submenu:hover>.dropdown-menu {
+          display:block;
+      }
+      .dropdown-submenu>a:after {
+          display:block;
+          content:" ";
+          float:right;
+          width:0;
+          height:0;
+          border-color:transparent;
+          border-style:solid;
+          border-width:5px 0 5px 5px;
+          border-left-color:#cccccc;
+          margin-top:5px;
+          margin-right:-10px;
+      }
+      .dropdown-submenu:hover>a:after {
+          border-left-color:#ffffff;
+      }
+      .dropdown-submenu.pull-left {
+          float:none;
+      }
+      .dropdown-submenu.pull-left>.dropdown-menu {
+          left:-100%;
+          margin-left:10px;
+          -webkit-border-radius:6px 0 6px 6px;
+          -moz-border-radius:6px 0 6px 6px;
+          border-radius:6px 0 6px 6px;
+      }
     </style>
   </head>
   <body>
@@ -200,7 +242,28 @@
                         <ul class="dropdown-menu">
                           <li><a href="<?php echo base_url();?>client/guru"><?php echo $language['guru'];?></a></li>
                           <li><a href="<?php echo base_url();?>client/karyawan"><?php echo $language['karyawan'];?></a></li>
-                        </ul>
+                          <li class="menu-item dropdown dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $language['staff'];?></a>
+                              <ul class="dropdown-menu">
+                                  <li>
+                                      <a href="<?php echo base_url();?>client/manajemen_mutu"><?php echo $language['kualitasmanagemen'];?></a>
+                                  </li>
+                                  <li>
+                                      <a href="<?php echo base_url();?>client/kurikulum"><?php echo $language['kurikulum'];?></a>
+                                  </li>
+                                  <li>
+                                      <a href="<?php echo base_url();?>client/kemahasiswaan"><?php echo $language['student'];?></a>
+                                  </li>
+                                  <li>
+                                      <a href="<?php echo base_url();?>client/infrastruktur"><?php echo $language['infrastruktur'];?></a>
+                                  </li>
+                                  <li>
+                                      <a href="<?php echo base_url();?>client/humas"><?php echo $language['humas'];?></a>
+                                  </li>
+                              </ul>
+                          </li>
+                      </ul>
+                        
               </li>
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $language['informasi'];?>
