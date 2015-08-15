@@ -72,13 +72,13 @@
                 </div>
               <form name="datauser" class="form-horizontal" role="form" action="<?php echo base_url();?>operation/ganti_password" method="post" onsubmit="return validatepassword()">
                 <!-- Password Lama -->
-                <div class="form-group">
+            <!--    <div class="form-group">
                   <label class="col-sm-1 control-label" for="lg">Password Lama</label>
                     <div class="col-sm-5">
                        <input type="password" id="pass" class="form-control" name="pass" placeholder="password lama" required>
                     </div>
                 </div>
-
+            -->
                 <!-- Password Baru-->
                 <div class="form-group">
                   <label class="col-sm-1 control-label" for="lg">Password Baru</label>

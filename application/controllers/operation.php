@@ -368,8 +368,8 @@ class Operation extends CI_Controller {
 		$this->load->database();
 		$data = array(
 			'id' => $_POST['id'],
-			'pass' => $_POST['pass'],
-			'passbaru' => $_POST['passbaru'],
+			//'pass' => $_POST['pass'],
+			'passbaru' => $_POST['passbaru']
 		);
 		$result=$this->sma_sltg->ganti_password($data);
 		if ($result == TRUE){

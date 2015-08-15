@@ -353,7 +353,7 @@
 			// == Generate hash untuk password baru
 			//$salt = '123NgopoNdes**//';
 			//encrypt password inputan lama
-			$password = md5(md5($data['pass']));
+			/*$password = md5(md5($data['pass']));
 			//Cek Password Lama
 			$cek = "SELECT password
 					FROM user
@@ -363,6 +363,7 @@
 
 			//Membandingkan Dengan Password Baru
 			if ($pass_lama!=NULL){
+			*/
 				//Encrypt password baru
 				$passwordHash = md5(md5($data['passbaru']));
 
@@ -375,9 +376,10 @@
 				}else {
 					return FALSE;
 				}
+			/*	
 			}else {
 				return FALSE;
-			}
+			}*/
 		}
 
 		/**
