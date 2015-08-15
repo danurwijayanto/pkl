@@ -34,13 +34,13 @@
         margin-bottom: 60px;
         /* padding-top: 40px; */
         padding-top: 0px;
-        background-image: url(../assets/image/bg3.png);
+        background-image: url(assets/image/bg3.png);
         background-repeat: repeat;
       }
       .footer {
-        background: #252525 url(../assets/image/foot.png) repeat-x scroll 0% 0%;
+        background: #252525 url(assets/image/foot.png) repeat-x scroll 0% 0%;
             background-color: #252525;
-            background-image: url(../assets/image/foot.png);
+            background-image: url(assets/image/foot.png);
             background-repeat: repeat-x;
             background-attachment: scroll;
             background-position: 0% 0%;
@@ -53,7 +53,8 @@
           /* Set the fixed height of the footer here */
           min-height: 145px;
           margin-top: 10px;
-          color:#FFF;         
+          color:#FFF;
+          margin: 0 0 -35px 0;         
       }
       
       .pengumuman {

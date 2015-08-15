@@ -7,6 +7,7 @@
 								<h5><b><?php echo $language['tautan'];?></b></h5>
 							</div>
 							<br>
+							<?php if ($language['selected']=='indonesia'){ ?>
 							<ul class="">
 							  	<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 							  		<a href="http://www.uksw.edu/id.php" title="Universitas Kristen Satya Wacana Salatiga">Universitas Kristen Satya Wacana Salatiga</a>
@@ -17,7 +18,26 @@
 							  	<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 							  		<a href="http://iainsalatiga.ac.id/" title="STAIN / UIN Salatiga">STAIN / UIN Salatiga</a>
 							  	</li>
+							  	<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							  		<a href="http://undip.ac.id/" title="STAIN / UIN Salatiga">Universitas Diponegoro</a>
+							  	</li>
 							</ul>
+							<?php } else { ?>
+							<ul class="">
+							  	<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							  		<a href="http://www.uksw.edu/id.php" title="Universitas Kristen Satya Wacana Salatiga"> Kristen Satya Wacana University Salatiga</a>
+							  	</li>
+							  	<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							  		<a href="http://unnes.ac.id/" title="Universitas Negeri Semarang">State University of Semarang</a>
+							  	</li>
+							  	<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							  		<a href="http://iainsalatiga.ac.id/" title="STAIN / UIN Salatiga">STAIN / UIN Salatiga</a>
+							  	</li>
+							  	<li><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							  		<a href="http://undip.ac.id/" title="STAIN / UIN Salatiga">Diponegoro University</a>
+							  	</li>
+							</ul>
+							<?php } ?>
 						</div>
 					</div>
 				</div>
