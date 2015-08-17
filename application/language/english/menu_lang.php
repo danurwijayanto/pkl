@@ -28,6 +28,8 @@
 	$lang["infrastruktur"] = "Infrastructure";
 	$lang["humas"] = "Public Relations";
 	$lang["lihatsemua"] = "See More";
+	$lang["slidertaktersedia"] = "Slider Image Not Found";
+	$lang["tidakadapost"] = "Post not Found";
 
 
 

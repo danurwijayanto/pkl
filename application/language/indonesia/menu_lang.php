@@ -28,3 +28,6 @@
 	$lang["infrastruktur"] = "Sarana Prasarana";
 	$lang["humas"] = "Hubungan Masyarakat";
 	$lang["lihatsemua"] = "Lihat Semua";
+	$lang["slidertaktersedia"] = "Tidak Ada Slider";
+	$lang["tidakadapost"] = "Tidak Ada Post";
+

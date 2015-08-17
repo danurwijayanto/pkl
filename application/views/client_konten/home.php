@@ -10,7 +10,7 @@
 				          	if ($slider_one == NULL){?>
 				          	<li>
 				          		<img src="<?php echo base_url();?>upload/Gambar/images/no-image-available.jpg" />
-				  	    	    <p class="flex-caption">Slider Tidak Tersedia</p>	
+				  	    	    <p class="flex-caption"><?php echo $language['slidertaktersedia'];?></p>	
 				          	</li>
 				          	<?php } else {
 				          	foreach ($slider_one as $sliderone) {?>
@@ -34,7 +34,7 @@
 							<ul class="home">
 								<?php 
 								if ($pengumuman == NULL){ ?>
-									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Tidak Ada Post
+									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><?php echo $language['tidakadapost'];?>
 								<?php
 								}else{
 								$i=1;foreach ($pengumuman as $pengumuman) { ?>
@@ -70,7 +70,7 @@
 							<ul class="home">
 								<?php 
 								if ($agenda == NULL){ ?>
-									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Tidak Ada Post
+									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><?php echo $language['tidakadapost'];?>
 								<?php
 								}else{
 								foreach ($agenda as $agenda) { ?>
@@ -110,7 +110,7 @@
 							<ul class="home">
 								<?php 
 								if ($berita == NULL){ ?>
-									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Tidak Ada Post
+									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><?php echo $language['tidakadapost'];?>
 								<?php
 								}else{
 								$i=1; foreach ($berita as $berita) { ?>
@@ -149,7 +149,7 @@
 							<ul class="home">
 								<?php 
 								if ($artikel == NULL){ ?>
-									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>Tidak Ada Post
+									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><?php echo $language['tidakadapost'];?>
 								<?php
 								}else{
 								$i=1; foreach ($artikel as $artikel) { ?>

@@ -57,7 +57,9 @@ class Client extends CI_Controller {
 					'student' => $this->lang->line('student'),
 					'infrastruktur' => $this->lang->line('infrastruktur'),
 					'humas' => $this->lang->line('humas'),
-					'lihatsemua' => $this->lang->line('lihatsemua')
+					'lihatsemua' => $this->lang->line('lihatsemua'),
+					'slidertaktersedia' => $this->lang->line('slidertaktersedia'),
+					'tidakadapost' => $this->lang->line('tidakadapost')
 				);
 			// Set values in session
 			$this->session->set_userdata('bahasa', $sess_data);
@@ -69,8 +71,10 @@ class Client extends CI_Controller {
 		//$this->session->unset_userdata('bahasa');
 		
 		// Retrieve session values
-		//$set_data = $this->session->userdata('bahasa');
-		$data=array('title'=>'SMA 2 Salatiga',
+		$session = $this->session->userdata('bahasa');
+		if ($session['selected']=='indonesia'){
+			$data=array(
+					'title'=>'SMA 2 Salatiga',
 					'isi' =>'client_konten/home',
 					'agenda' => $this->sma_sltg->get_artikelbykat(4,0,8,1,2),
 					'pengumuman' => $this->sma_sltg->get_artikelbykat(4,0,6,1,2),
@@ -79,7 +83,21 @@ class Client extends CI_Controller {
 					'slider_one' => $this->sma_sltg->get_slider(0),
 					'slider_two' => $this->sma_sltg->get_slider(1),
 					'language' => $this->session->userdata('bahasa')
-					);
+			);
+		}else{
+			$data=array(
+					'title'=>'SMA 2 Salatiga',
+					'isi' =>'client_konten/home',
+					'agenda' => $this->sma_sltg->get_artikelbykat(4,0,8,1,1),
+					'pengumuman' => $this->sma_sltg->get_artikelbykat(4,0,6,1,1),
+					'artikel' => $this->sma_sltg->get_artikelbykat(4,0,3,1,1),
+					'berita' => $this->sma_sltg->get_artikelbykat(4,0,9,1,1),
+					'slider_one' => $this->sma_sltg->get_slider(0),
+					'slider_two' => $this->sma_sltg->get_slider(1),
+					'language' => $this->session->userdata('bahasa')
+			);
+		}
+		
 		$this->load->view('client_wrapper', $data);
 	}
 

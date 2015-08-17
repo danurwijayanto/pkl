@@ -515,7 +515,9 @@ class Operation extends CI_Controller {
 					'student' => $this->lang->line('student'),
 					'infrastruktur' => $this->lang->line('infrastruktur'),
 					'humas' => $this->lang->line('humas'),
-					'lihatsemua' => $this->lang->line('lihatsemua')
+					'lihatsemua' => $this->lang->line('lihatsemua'),
+					'slidertaktersedia' => $this->lang->line('slidertaktersedia'),
+					'tidakadapost' => $this->lang->line('tidakadapost')
 				);
 			// Set values in session
 		$this->session->set_userdata('bahasa', $sess_data);
