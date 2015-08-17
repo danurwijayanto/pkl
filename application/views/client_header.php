@@ -291,9 +291,9 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $language['bahanajar'];?>
                       <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a href="#"><?php echo $language['materibelajar'];?></a></li>
-                          <li><a href="#"><?php echo $language['mediabelajar'];?></a></li>
-                          <li><a href="#">Download</a></li>
+                          <li><a href="<?php echo base_url();?>client/materibelajar"><?php echo $language['materibelajar'];?></a></li>
+                          <li><a href="<?php echo base_url();?>client/mediabelajar"><?php echo $language['mediabelajar'];?></a></li>
+                          <li><a href="<?php echo base_url();?>client/download">Download</a></li>
                         </ul>
               </li>
               <li class="">
