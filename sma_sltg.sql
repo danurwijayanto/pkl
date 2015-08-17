@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2015 at 02:30 PM
--- Server version: 5.6.24
--- PHP Version: 5.6.8
+-- Generation Time: Aug 17, 2015 at 05:03 AM
+-- Server version: 5.5.27
+-- PHP Version: 5.4.7
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -27,15 +27,16 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `artikel` (
-  `id` int(255) NOT NULL,
+  `id` int(255) NOT NULL AUTO_INCREMENT,
   `judul` varchar(1000) NOT NULL,
   `text` varchar(10000) NOT NULL,
   `kategori` int(11) NOT NULL,
   `time` datetime NOT NULL,
   `user_id` int(11) NOT NULL,
   `status` int(11) NOT NULL,
-  `bahasa` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
+  `bahasa` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=53 ;
 
 --
 -- Dumping data for table `artikel`
@@ -74,7 +75,10 @@ INSERT INTO `artikel` (`id`, `judul`, `text`, `kategori`, `time`, `user_id`, `st
 (46, 'PARTNERSHIP WITH PARENTS/ COMMUNITY', '<div><strong>Cooperation with parents of learners was implemented through the school Committee. There are five roles of parents in the development of the school, namely the following:</strong></div>\r\n\r\n<div>&nbsp;</div>\r\n\r\n<ol>\r\n	<li>Donors support the activities and means the school, but have not run optimally given the condition of the economy.</li>\r\n	<li>School partners in coaching education</li>\r\n	<li>Partner in guiding the students events</li>\r\n	<li>Dialogue partner in improving the quality of education</li>\r\n	<li>Learning resources</li>\r\n	<li>One of the cooperation carried out by the school with the community is terealisasinya IPAL (installation of wastewater treatment) that has just been completed. Under the responsibility of the NGOS &quot;SMA 2 Salatiga&quot;, submission of proposals and the funds can be realized, as well as realized, so the great expectations school in the presence of the IPA can be used much and waste water which is not terpaki again can be utilized for other purposes.</li>\r\n</ol>\r\n', 7, '2015-08-12 00:00:00', 1, 1, 1),
 (47, 'Cap 3 Jari', '<p><strong>Cap 3 jari Ijasah dilaksanakan pada hari Senin tanggal 03 Agustus 2015 di Aula &quot;Sarwa Guna&quot;.</strong></p>\r\n', 6, '2015-08-12 14:29:20', 1, 1, 2),
 (48, 'PENCEGAHAN PERPLONCOAN, PELECEHAN DAN KEKERASAN ', '<p style="text-align: justify;"><br />\r\nMenindaklanjuti arahan Direktur Jenderal Pendidikan Dasar dan Menengah bahwa berkenaan dimulainya Tahun Pelajaran 2015/2016, Kami informasikan bahwa Mendikbud telah mengintruksikan agar Kepala Dinas Pendidikan Propinsi/Kab/Kota dan Kepala Sekolah untuk :</p>\r\n\r\n<p style="text-align: justify;">&nbsp;</p>\r\n\r\n<ol>\r\n	<li style="text-align: justify;">Mengantisipasi dan memastikan bahwa dalam pelaksanaan orientasi peserta didik baru tidak ada praktik dan atau menjurus pada praktik perpeloncoan,pelecehan, kekerasan terhadap peserta didik baru baik secara fisik maupun psikologis yang dilakukan di dalam maupun di luar sekolah;</li>\r\n	<li style="text-align: justify;">Melakukan berbagai upaya agar kegiatan orientasi peserta didik baru digunakan sebagai kegiatan mengenalkan program sekolah, lingkungan sekolah, cara belajar, dan penanaman konsep pengenalan diri, kegiatan kepramukaan, dan kegiatan lainnya, bukan sebagai ajang bagi kakak kelas atau alumni atau pihak lain untuk mempermainkan atau melakukan tindak perpeloncoan, pelecehan, dan atau kekerasan terhadap peserta didik baru atau adik kelas;</li>\r\n	<li style="text-align: justify;">Mengingatkan bahwa kegiatan orientasi peserta didik baru tidak boleh memungut biaya dan membebani orang tua/ wali dan peserta didik dalam bentuk apapun.</li>\r\n	<li style="text-align: justify;">Memastikan bahwa kepala sekolah telah mengetahui isi Permendikbud Nomor 55 tahun 2014 tentang Masa Orientasi Peserta Didik Baru di Sekolah dan menginformasikan kepada para pelaksana di sekolah masing-masing.</li>\r\n	<li style="text-align: justify;">Memastikan bahwa kepala sekolah, wakil kepala sekolah, wali kelas, dan guru adalah pihak yang bertanggung jawab sepenuhnya atas penyiapan dan pelaksanaan kegiatan orientasi peserta didik baru; dan</li>\r\n	<li style="text-align: justify;">Melakukan tindakan dan atau hukuman disiplin sesuai kewenangan Saudara terhadap sekolah dan kepala sekolah yang membiarkan praktek kekerasan dan atau kegiatan yang menjurus pada perpeloncoan dan atau pelecehan dan atau yang melanggar Permendikbud Nomor 55 tahun 2014.</li>\r\n</ol>\r\n', 9, '2015-08-12 14:24:34', 1, 1, 2),
-(49, 'PENUMBUHAN BUDI PEKERTI DI AWAL TAHUN PELAJARAN 2015/2016', '<p>&nbsp;</p>\r\n\r\n<p>Dalam rangka menghadapi tahun pelajaran baru 2015/2016, Kementerian Pendidikan dan Kebudayaan (Kemendikbud) mengeluarkan aturan teknis yang berkaitan dengan &nbsp;sikap dan perilaku peserta didik, guru, dan orangtua peserta didik di sekolah. Tujuannya adalah untuk mengoptimalkan pendidikan karakter dari sektor non-kurikuler yang selama ini sering dikesampingkan sejak dimulainya tahun pelajaran baru 2015/2016. Beberapa hal yang tertera dalam aturan teknis teknis tersebut (Permendikbud No 21 Tahun 2015 akan kami susulkan segera) adalah :</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ol>\r\n	<li>Sekolah wajib melaksanakan upacara bendera setiap Senin.&nbsp;</li>\r\n	<li>Kegiatan ini bertujuan untuk mendidik kedisiplinan peserta didik, membiasakan memanfaatkan waktu dengan sebaik-baiknya. Pelaksanaan upacara bendera juga mendidik peserta didik menjadi seorang pemimpin yang bertanggungjawab, diantaranya melalui penugasan panitia upacara secara bergilir.</li>\r\n	<li>Orangtua wajib mengantar anaknya ke sekolah di hari pertama masuk.&nbsp;Kegiatan ini bertujuan untuk memperdalam keterikatan orangtua dengan sekolah. Hubungan antara orang tua dengan guru yang erat saling bekerja sama bisa memecahkan persoalan peserta didik. Baik dalam belajar atau pergaulan di sekolah, maupun di rumah. Karena selama ini orang tua ke sekolah hanya ketika pembagian rapor atau saat perpisahan. Aktivitas ini tidak sebatas mengantar anak di luar pagar sekolah saja. Kemudian peserta didik masuk sekolah dan orang tua pulang sambil keduanya melambaikan tangan. Namun orang tua harus benar-benar ikut masuk sampai di dalam kelas. Setelah sampai di dalam sekolah, orangtua harus berkomunikasi dengan para guru. Khususnya guru yang akan mengajar sang anak. Dengan maksud bahwa orangtua tua menitipkan anaknya kepada guru di sekolah.&nbsp;</li>\r\n	<li>Kewajiban berdoa bersama-sama ketika akan mengawali dan mengakhiri proses pembelajaran di kelas.&nbsp;Kegiatan ini bertujuan untuk meningkatkan keimanan peserta didik kepada sang pencipta sehingga tumbuh jiwa religious peserta didik. Kegiatan berdoa bersama ini awalnya diterapkan dipimpin oleh guru, dan dihari berikutnya para peserta didik ditugasi mempimpin doa secara bergantian.&nbsp;</li>\r\n	<li>Peserta didik wajib menyanyikan lagu Indonesia Raya sebelum belajar.&nbsp;Kegiatan menyanyikan lagu kebangsaan ini dilakukan setiap hari baik sebelum belajar atau akan pulang sekolah. Ketika akan pulang sekolah, juga menyanyikan lagu-lagu perjuangan atau lagu-lagu daerah. Lagu-lagu patriotik populer seperti Bendera (Coklat Band) atau Pancasila Rumah Kita (Franky Sahilatua) boleh dibawakan peserta didik rame-rame di kelas masig-masing. Jika bosan dengan lagu patriotik, peserta didik boleh membawakan lagu-lagu daerah setempat. Hal tersebut diterapkan karena selama ini cukup menimbulkan keprihatinan karena peserta didik-peserta didik sekarang ini tidak banyak mengenal lagu-lagu daerah sedangkan diindonesia lagu daerah sangat bannyak sekali. sebagai contoh : banyak peserta didik di Jawa yang tidak tahu lagu-lagu tradisional Jawa. Begitu pula peserta didik-peserta didik di Bandung dan sekitarnya, yang mulai tidak mengenali lagu tradisional Sunda.</li>\r\n	<li>Demikian beberapra aturan teknis yang dikeluarkan kemdikbud yang akan diterapkan di awal tahun ajaran baru 2015-2016. Kemendikbud memberikan instruksi kepada seluruh dinas pendidikan, untuk mengawasi aturan-aturan baru itu baik di sekolah negeri maupun swasta. Jika ada sekolah yang bandel tidak menerapkan aturan tadi, disiapkan sanksi teguran. (AWK)</li>\r\n</ol>\r\n', 9, '2015-08-12 14:28:58', 1, 1, 2);
+(49, 'PENUMBUHAN BUDI PEKERTI DI AWAL TAHUN PELAJARAN 2015/2016', '<p>&nbsp;</p>\r\n\r\n<p>Dalam rangka menghadapi tahun pelajaran baru 2015/2016, Kementerian Pendidikan dan Kebudayaan (Kemendikbud) mengeluarkan aturan teknis yang berkaitan dengan &nbsp;sikap dan perilaku peserta didik, guru, dan orangtua peserta didik di sekolah. Tujuannya adalah untuk mengoptimalkan pendidikan karakter dari sektor non-kurikuler yang selama ini sering dikesampingkan sejak dimulainya tahun pelajaran baru 2015/2016. Beberapa hal yang tertera dalam aturan teknis teknis tersebut (Permendikbud No 21 Tahun 2015 akan kami susulkan segera) adalah :</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ol>\r\n	<li>Sekolah wajib melaksanakan upacara bendera setiap Senin.&nbsp;</li>\r\n	<li>Kegiatan ini bertujuan untuk mendidik kedisiplinan peserta didik, membiasakan memanfaatkan waktu dengan sebaik-baiknya. Pelaksanaan upacara bendera juga mendidik peserta didik menjadi seorang pemimpin yang bertanggungjawab, diantaranya melalui penugasan panitia upacara secara bergilir.</li>\r\n	<li>Orangtua wajib mengantar anaknya ke sekolah di hari pertama masuk.&nbsp;Kegiatan ini bertujuan untuk memperdalam keterikatan orangtua dengan sekolah. Hubungan antara orang tua dengan guru yang erat saling bekerja sama bisa memecahkan persoalan peserta didik. Baik dalam belajar atau pergaulan di sekolah, maupun di rumah. Karena selama ini orang tua ke sekolah hanya ketika pembagian rapor atau saat perpisahan. Aktivitas ini tidak sebatas mengantar anak di luar pagar sekolah saja. Kemudian peserta didik masuk sekolah dan orang tua pulang sambil keduanya melambaikan tangan. Namun orang tua harus benar-benar ikut masuk sampai di dalam kelas. Setelah sampai di dalam sekolah, orangtua harus berkomunikasi dengan para guru. Khususnya guru yang akan mengajar sang anak. Dengan maksud bahwa orangtua tua menitipkan anaknya kepada guru di sekolah.&nbsp;</li>\r\n	<li>Kewajiban berdoa bersama-sama ketika akan mengawali dan mengakhiri proses pembelajaran di kelas.&nbsp;Kegiatan ini bertujuan untuk meningkatkan keimanan peserta didik kepada sang pencipta sehingga tumbuh jiwa religious peserta didik. Kegiatan berdoa bersama ini awalnya diterapkan dipimpin oleh guru, dan dihari berikutnya para peserta didik ditugasi mempimpin doa secara bergantian.&nbsp;</li>\r\n	<li>Peserta didik wajib menyanyikan lagu Indonesia Raya sebelum belajar.&nbsp;Kegiatan menyanyikan lagu kebangsaan ini dilakukan setiap hari baik sebelum belajar atau akan pulang sekolah. Ketika akan pulang sekolah, juga menyanyikan lagu-lagu perjuangan atau lagu-lagu daerah. Lagu-lagu patriotik populer seperti Bendera (Coklat Band) atau Pancasila Rumah Kita (Franky Sahilatua) boleh dibawakan peserta didik rame-rame di kelas masig-masing. Jika bosan dengan lagu patriotik, peserta didik boleh membawakan lagu-lagu daerah setempat. Hal tersebut diterapkan karena selama ini cukup menimbulkan keprihatinan karena peserta didik-peserta didik sekarang ini tidak banyak mengenal lagu-lagu daerah sedangkan diindonesia lagu daerah sangat bannyak sekali. sebagai contoh : banyak peserta didik di Jawa yang tidak tahu lagu-lagu tradisional Jawa. Begitu pula peserta didik-peserta didik di Bandung dan sekitarnya, yang mulai tidak mengenali lagu tradisional Sunda.</li>\r\n	<li>Demikian beberapra aturan teknis yang dikeluarkan kemdikbud yang akan diterapkan di awal tahun ajaran baru 2015-2016. Kemendikbud memberikan instruksi kepada seluruh dinas pendidikan, untuk mengawasi aturan-aturan baru itu baik di sekolah negeri maupun swasta. Jika ada sekolah yang bandel tidak menerapkan aturan tadi, disiapkan sanksi teguran. (AWK)</li>\r\n</ol>\r\n', 9, '2015-08-12 14:28:58', 1, 1, 2),
+(50, 'Materi Pembelajaran', '<p style="text-align: center;"><strong>COMING SOON</strong></p>\r\n', 7, '2015-08-17 04:47:44', 1, 1, 2),
+(51, 'Media Pembelajaran', '<p style="text-align: center;"><strong>Coming Soon</strong></p>\r\n', 7, '2015-08-17 04:48:50', 1, 1, 2),
+(52, 'Download', '<p style="text-align: center;"><strong>Coming Soon</strong></p>\r\n', 7, '2015-08-17 04:49:26', 1, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -83,9 +87,10 @@ INSERT INTO `artikel` (`id`, `judul`, `text`, `kategori`, `time`, `user_id`, `st
 --
 
 CREATE TABLE IF NOT EXISTS `bahasa` (
-  `id_bahasa` int(11) NOT NULL,
-  `nama_bahasa` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `id_bahasa` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_bahasa` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_bahasa`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `bahasa`
@@ -102,9 +107,10 @@ INSERT INTO `bahasa` (`id_bahasa`, `nama_bahasa`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `kategori` (
-  `id` int(255) NOT NULL,
-  `nama` varchar(1000) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(1000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `kategori`
@@ -125,13 +131,14 @@ INSERT INTO `kategori` (`id`, `nama`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `slider` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `keterangan` varchar(1000) NOT NULL,
   `gambar` varchar(100) NOT NULL,
   `tanggal` date NOT NULL,
   `type` int(2) NOT NULL,
-  `link` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+  `link` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=32 ;
 
 --
 -- Dumping data for table `slider`
@@ -153,9 +160,10 @@ INSERT INTO `slider` (`id`, `keterangan`, `gambar`, `tanggal`, `type`, `link`) V
 --
 
 CREATE TABLE IF NOT EXISTS `status` (
-  `id_status` int(11) NOT NULL,
-  `nama_status` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `id_status` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_status` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_status`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `status`
@@ -172,12 +180,13 @@ INSERT INTO `status` (`id_status`, `nama_status`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama_user` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `role` int(2) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `role` int(2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `user`
@@ -185,83 +194,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `nama_user`, `email`, `password`, `role`) VALUES
 (1, 'danur', 'danurwijayanto@gmail.com', 'c3284d0f94606de1fd2af172aba15bf3', 1),
-(4, 'mobinity', 'mobinity.fx@gmail.com', '8451b3bd7c8b4ee85efcdc4567ab3b0b', 3),
-(5, 'DaNoer', 'generation@windowslive.com', 'a20ae62ff43f8655e85a6407f53a205e', 6);
+(4, 'mobinity', 'mobinity.fx@gmail.com', 'c3284d0f94606de1fd2af172aba15bf3', 3),
+(5, 'DaNoer', 'generation@windowslive.com', 'c3284d0f94606de1fd2af172aba15bf3', 6);
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `artikel`
---
-ALTER TABLE `artikel`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `bahasa`
---
-ALTER TABLE `bahasa`
-  ADD PRIMARY KEY (`id_bahasa`);
-
---
--- Indexes for table `kategori`
---
-ALTER TABLE `kategori`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `slider`
---
-ALTER TABLE `slider`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `status`
---
-ALTER TABLE `status`
-  ADD PRIMARY KEY (`id_status`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `artikel`
---
-ALTER TABLE `artikel`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=50;
---
--- AUTO_INCREMENT for table `bahasa`
---
-ALTER TABLE `bahasa`
-  MODIFY `id_bahasa` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `kategori`
---
-ALTER TABLE `kategori`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT for table `slider`
---
-ALTER TABLE `slider`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
---
--- AUTO_INCREMENT for table `status`
---
-ALTER TABLE `status`
-  MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
