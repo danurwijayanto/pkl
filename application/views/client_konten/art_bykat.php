@@ -7,7 +7,7 @@
 					<div class="col-md-8" style="margin: auto">
 						<?php if ($konten == NULL) {echo "Data Tidak Ditemukan";}else{ ?>
 						<?php $i=1; foreach ($konten as $konten) { ?>
-						<?php if ($i==1)echo "<h3>Category : <b>".$konten['nama']."</b></h3>";?>
+						<?php if ($i==1)echo "<h3>Category : <b>".$language[$konten["nama"]]."</b></h3>";?>
 						<div id="article">
 							<!-- Place somewhere in the <body> of your page -->
 							<h3 style="padding: 15px 0 0 20px;"><?php echo $konten['judul']?></h3>
