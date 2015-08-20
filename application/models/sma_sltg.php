@@ -206,10 +206,18 @@
 		*/
 		function get_artikelbykat($limit=null, $offset=null, $data=null, $status, $bahasa){
 			if (($limit <= 0) AND ($offset<= 0)){
-				$query = "SELECT artikel.* , kategori.nama 
+				if ($bahasa <=0){
+					$query = "SELECT artikel.* , kategori.nama 
+					FROM artikel, kategori
+					WHERE artikel.kategori = kategori.id AND kategori.id=$data AND artikel.status=$status
+					ORDER BY artikel.time DESC";
+				}else{
+					$query = "SELECT artikel.* , kategori.nama 
 					FROM artikel, kategori
 					WHERE artikel.kategori = kategori.id AND kategori.id=$data AND artikel.status=$status AND artikel.bahasa=$bahasa
 					ORDER BY artikel.time DESC";
+				}
+				
 		        $result = $this->db->query($query);
 		      
 		        if($result){

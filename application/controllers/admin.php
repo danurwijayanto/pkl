@@ -118,7 +118,7 @@ class Admin extends CI_Controller {
 					'session' => $this->data_sesi
 					);
 		if ($data['session']['role']!='Admin'){
-			$data['draft'] = $this->sma_sltg->get_artikelbykat(0,0,$data['session']['id_kat'],2);
+			$data['draft'] = $this->sma_sltg->get_artikelbykat(0,0,$data['session']['id_kat'],2,0);
 		}else{
 			$data['draft'] = $this->sma_sltg->get_artikelbystat(2,0);
 		}
