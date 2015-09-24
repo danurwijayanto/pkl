@@ -39,7 +39,7 @@ class reset_password extends CI_Model {
 					<p>Tetapi jangan khawatir! Anda dapat menggunakan link berikut untuk mereset password anda:</p>
 					<p>" . site_url ( "control_autentikasi/lupa_password/" . $this->requestKey ) . "</p>
 					<p>Jika anda tidak menggunakan link ini dalam waktu 1 jam, maka link akan dinonaktifkan.</p>
-					<p>Thanks<br>MSDNAA FSM</p>
+					<p>Terimakasih<br>Administrator WebsiteSMANDA2</p>
 				</body>
 			</html>";
 

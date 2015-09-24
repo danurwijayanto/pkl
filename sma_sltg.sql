@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2015 at 03:01 PM
+-- Generation Time: Sep 25, 2015 at 12:58 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -126,6 +126,30 @@ INSERT INTO `kategori` (`id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reset_password`
+--
+
+CREATE TABLE IF NOT EXISTS `reset_password` (
+  `idRequest` int(32) unsigned NOT NULL,
+  `idAdmin` int(8) unsigned NOT NULL,
+  `requestKey` varchar(16) NOT NULL,
+  `tanggalRequest` datetime NOT NULL,
+  `expiredRequest` datetime NOT NULL,
+  `statusRequest` tinyint(3) unsigned NOT NULL DEFAULT '1'
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reset_password`
+--
+
+INSERT INTO `reset_password` (`idRequest`, `idAdmin`, `requestKey`, `tanggalRequest`, `expiredRequest`, `statusRequest`) VALUES
+(1, 1, '7103108f', '2015-09-25 00:53:51', '2015-09-25 01:53:51', 1),
+(2, 4, '35ae02b7', '2015-09-25 00:54:18', '2015-09-25 01:54:18', 1),
+(3, 4, 'fbd7e987', '2015-09-25 00:56:15', '2015-09-25 01:56:15', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `slider`
 --
 
@@ -216,6 +240,12 @@ ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `reset_password`
+--
+ALTER TABLE `reset_password`
+  ADD PRIMARY KEY (`idRequest`);
+
+--
 -- Indexes for table `slider`
 --
 ALTER TABLE `slider`
@@ -253,6 +283,11 @@ ALTER TABLE `bahasa`
 ALTER TABLE `kategori`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
+-- AUTO_INCREMENT for table `reset_password`
+--
+ALTER TABLE `reset_password`
+  MODIFY `idRequest` int(32) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
@@ -267,6 +302,16 @@ ALTER TABLE `status`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+DELIMITER $$
+--
+-- Events
+--
+CREATE DEFINER=`msdnaa_db_msdna`@`localhost` EVENT `konfirmasi_status` ON SCHEDULE EVERY 24 HOUR STARTS '2015-01-26 13:05:27' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE tbl_mahasiswa
+    SET konfirmasi = 1
+    WHERE expired >= now( ) AND expired IS NOT NULL$$
+
+DELIMITER ;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
