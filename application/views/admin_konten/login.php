@@ -51,7 +51,9 @@
 						<!-- <a href="forgotpassword.php" style="color:red">Forgot Password ?</a> -->	
 					<br>
 						<input type="submit" name="loginklik" value="Login" class="btn btn-primary">
-
+					<br>
+					<br>
+					<a href="<?php echo base_url();?>auth/request_lupa_password">Lupa Password?</a>
 					
 				
 				</div>
