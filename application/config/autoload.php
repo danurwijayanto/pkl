@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('sma_sltg', 'user_auth');
+$autoload['model'] = array('sma_sltg', 'user_auth', 'reset_password');
 
 
 /* End of file autoload.php */

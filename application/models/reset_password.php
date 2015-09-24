@@ -3,12 +3,12 @@ class reset_password extends CI_Model {
 	private $idRequest, $idAdmin, $requestKey, $tanggalRequest, $expiredRequest, $statusRequest;
 	
 	public function sendRequestKey($tujuanEmail) {
-		$this->load->model ( 'admin' );
+		$this->load->database();
 		
-		$admin = $this->admin->getAdminbyEmail($tujuanEmail);
+		$admin = $this->user_auth->get_userby_email($tujuanEmail);
 
-		$this->idAdmin = $admin->idAdmin;
-		$rand = substr ( md5 ( $admin->email ), rand ( 0, 26 ), 3 );
+		$this->idAdmin = $admin['id'];
+		$rand = substr ( md5 ( $admin['email'] ), rand ( 0, 26 ), 3 );
 		$rand .= substr ( md5 ( microtime () ), rand ( 0, 26 ), 5 );
 		$this->requestKey = $rand;
 		$now = new DateTime ();
@@ -25,7 +25,7 @@ class reset_password extends CI_Model {
 				'statusRequest' => $this->statusRequest 
 		);
 		
-		$this->db->insert ( 'tbl_reset_password', $data );
+		$this->db->insert ( 'reset_password', $data );
 		
 		$content = "
 			<html>

@@ -69,26 +69,28 @@ class Auth extends CI_Controller {
 	//function request password
 	public function request_lupa_password(){
 		// Genereate link reset password
-		$this->load->model('user_auth');
-		$this->load->model('reset_password');
+		$this->load->database();
+		//$this->load->model('user_auth');
+		//$this->load->model('reset_password');
 		$data['title'] = "Reset Password";
 		//$data['useSimple'] = true;
 		
 		if(isset($_POST['submit'])){
-			$email = $this->user_auth->cekEmail();
+			$email = $this->user_auth->cek_email();
 			
-			if($email !== 0){
-				$dataAdmin = $this->admin->getAdminbyEmail($email);
-				$tujuanEmail = $dataAdmin->email;
+			if($email !== NULL){
+				//$dataAdmin = $this->admin->getAdminbyEmail($email);
+				//$tujuanEmail = $dataAdmin->email;
+				$tujuanEmail = $email['email'];
 				$kontenEmail = $this->reset_password->sendRequestKey($tujuanEmail);
 					
 				// Kirim email
 				$this->load->library('email');
 					
-				$this->email->from('panitia@carakafest.org', 'MSDNAA FSM');
+				$this->email->from('panitia@carakafest.org', 'SMA Negeri 2 Salatiga');
 				$this->email->to($tujuanEmail);
 					
-				$this->email->subject("[MSDNAA FSM] Reset Password");
+				$this->email->subject("SMANDA2 Reset Password");
 				$this->email->message($kontenEmail);
 					
 				$berhasil = $this->email->send();
