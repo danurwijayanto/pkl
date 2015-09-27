@@ -38,10 +38,6 @@
 						?>
 					</h1>
 					<br>
-					<?php
-						//echo $err;
-						
-					?>
 				
 				<div>
 					<label for="inputEmail" >User Name</label>

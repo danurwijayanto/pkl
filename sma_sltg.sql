@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2015 at 12:58 AM
+-- Generation Time: Sep 27, 2015 at 08:21 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `reset_password` (
   `tanggalRequest` datetime NOT NULL,
   `expiredRequest` datetime NOT NULL,
   `statusRequest` tinyint(3) unsigned NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `reset_password`
@@ -145,7 +145,13 @@ CREATE TABLE IF NOT EXISTS `reset_password` (
 INSERT INTO `reset_password` (`idRequest`, `idAdmin`, `requestKey`, `tanggalRequest`, `expiredRequest`, `statusRequest`) VALUES
 (1, 1, '7103108f', '2015-09-25 00:53:51', '2015-09-25 01:53:51', 1),
 (2, 4, '35ae02b7', '2015-09-25 00:54:18', '2015-09-25 01:54:18', 1),
-(3, 4, 'fbd7e987', '2015-09-25 00:56:15', '2015-09-25 01:56:15', 1);
+(3, 4, 'fbd7e987', '2015-09-25 00:56:15', '2015-09-25 01:56:15', 1),
+(4, 1, '85737e43', '2015-09-27 18:31:50', '2015-09-27 19:31:50', 1),
+(5, 1, '74360f1c', '2015-09-27 18:32:26', '2015-09-27 19:32:26', 1),
+(6, 1, '710128f6', '2015-09-27 18:33:28', '2015-09-27 19:33:28', 1),
+(7, 1, 'd74d57f2', '2015-09-27 18:33:44', '2015-09-27 19:33:44', 1),
+(8, 1, 'b7989f8b', '2015-09-27 20:10:08', '2015-09-27 21:10:08', 0),
+(9, 1, '3fdb167e', '2015-09-27 20:20:17', '2015-09-27 21:20:17', 0);
 
 -- --------------------------------------------------------
 
@@ -286,7 +292,7 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT for table `reset_password`
 --
 ALTER TABLE `reset_password`
-  MODIFY `idRequest` int(32) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `idRequest` int(32) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `slider`
 --

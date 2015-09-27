@@ -37,7 +37,7 @@ class reset_password extends CI_Model {
 				<body>
 					<p>Kami turut bersimpati atas kehilangan password anda.</p>
 					<p>Tetapi jangan khawatir! Anda dapat menggunakan link berikut untuk mereset password anda:</p>
-					<p>" . site_url ( "control_autentikasi/lupa_password/" . $this->requestKey ) . "</p>
+					<p>" . site_url ( "auth/lupa_password/" . $this->requestKey ) . "</p>
 					<p>Jika anda tidak menggunakan link ini dalam waktu 1 jam, maka link akan dinonaktifkan.</p>
 					<p>Terimakasih<br>Administrator WebsiteSMANDA2</p>
 				</body>
@@ -48,14 +48,14 @@ class reset_password extends CI_Model {
 	
 	public function getRequestKey($requestKey) {
 		$this->db->where("requestKey", $requestKey);
-		$result = $this->db->get("tbl_reset_password");
+		$result = $this->db->get("reset_password");
 		$row = $result->row();
 		return $row;
 	}
 	
 	public function deactivateKey($requestKey) {
 		$this->db->where("requestKey",$requestKey);
-		$result = $this->db->update("tbl_reset_password",array(
+		$result = $this->db->update("reset_password",array(
 				"statusRequest" => 0
 		));
 		return $result;

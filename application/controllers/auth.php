@@ -118,33 +118,36 @@ class Auth extends CI_Controller {
 	}
 	
 	public function lupa_password($requestKey = null){
+		$this->load->database();
 		$data['pageTitle'] = "Reset Password";
 		$data['useSimple'] = true;
 		
 		$now = new DateTime ();
 		$sekarang = $now->format ( 'Y-m-d H:i:s' );
 		if ($requestKey != null) {
-			$this->load->model("reset_password");
+			//$this->load->model("reset_password");
 			$dataRequest = $this->reset_password->getRequestKey($requestKey);
 			if ($dataRequest != null) {
 				if (($dataRequest->expiredRequest >= $sekarang) && ($dataRequest->statusRequest == 1)) {
 					if (isset($_POST['submit'])) {
 						$passBaru1	= ($this->input->post("newPassword"));
 						
-						if ($this->form_validation->run() == FALSE){
+						//if ($this->form_validation->run() == FALSE){
 						
-						}else {
-							$this->load->model("admin");
-							$admin = $this->admin->getAdminbyId($dataRequest->idAdmin);	
-							$queryResult = $this->admin->set_hashed_password($admin['username'], $passBaru1);
-							if ($queryResult == null) {
+						//}else {
+							//$this->load->model("admin");
+							//$admin = $this->sma_sltg->get_userbyid($dataRequest->idAdmin);
+							$data['id'] = $dataRequest->idAdmin;
+							$data['passbaru'] = $passBaru1;
+							$queryResult = $this->sma_sltg->ganti_password($data);
+							if ($queryResult == TRUE) {
 								$this->reset_password->deactivateKey($requestKey);
 								$data['submitSukses'] = "<span class=\"fa fa-check\"></span> Kata sandi berhasil direset.";
 								$data['hideForm'] = true;
 							} else {
 								$data['errors'] = $queryResult;
 							}
-						}
+						//}
 					} // End if POST
 				} else {
 					$data['errors'] = "Request sudah tidak berlaku. Silakan request ulang.";
@@ -155,11 +158,11 @@ class Auth extends CI_Controller {
 				$data['hideForm'] = true;
 			}
 		} else {
-			$this->output->set_header("Location: ".site_url("/control_autentikasi"));
+			$this->output->set_header("Location: ".site_url("/auth"));
 			return;
 		}
-		$data['formAction'] = "/control_autentikasi/lupa_password/".$requestKey;
-		$this->load->template_admin("reset_lupa_password", $data);
+		$data['formAction'] = "/auth/lupa_password/".$requestKey;
+		$this->load->view("admin_konten/reset_lupa_password", $data);
 	}
 }
 
