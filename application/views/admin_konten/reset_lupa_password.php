@@ -21,6 +21,7 @@ function checkPasswordMatch() {
 		$("#validPass").html("Passwords Tidak Sama!");
 		$("#validPass").addClass("alert alert-danger");
 		$("#validPass").removeClass("alert-success");
+		return false; 
 	}
 	else{
 		$("#validPass").html("Passwords Sesuai.");
@@ -38,7 +39,7 @@ function checkPasswordMatch() {
 		<!-- /.panel-heading -->
 		<div class="panel-body">
 		<?php if (empty($hideForm)) {?>
-			<form class="form-login" method="POST" action="<?php echo site_url($formAction);?>" role="form">
+			<form class="form-login" method="POST" action="<?php echo site_url($formAction);?>" role="form" onsubmit="return checkPasswordMatch()">
 				<label for="newPassword">Password Baru</label>
 				<input type="password" name="newPassword" id="newPassword" class="form-control" placeholder="Isikan password baru" onKeyUp="checkPasswordMatch();" required />
 				<label for="newPasswordConf">Konfirmasi Password Baru</label>
