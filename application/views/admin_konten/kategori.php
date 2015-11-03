@@ -34,7 +34,7 @@
                       <i class="fa fa-trash-o fa-lg"></i> Delete</a>
 
                     <a class="btn btn-default edit_kat" data-toggle="modal" data-target="#edit" id="<?php echo $kategori['id'];?>">
-                      <i class="fa fa-trash-o fa-lg"></i> Edit</a>
+                      <i class="fa fa-pencil-square-o fa-lg"></i> Edit</a>
                     <!-- Modal -->
                     <div id="edit" class="modal fade" role="dialog">
                       <div class="modal-dialog">
