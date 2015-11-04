@@ -17,7 +17,7 @@
           <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="info-box">
-                <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+                <a href="<?php echo base_url();?>admin/artikel"><span class="info-box-icon bg-aqua"><i class="fa fa-newspaper-o"></i></span></a>
                 <div class="info-box-content">
                   <span class="info-box-text">Total Post</span>
                   <span class="info-box-number"><?php echo $totalartikel;?> POST</span>
@@ -26,7 +26,7 @@
             </div><!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="info-box">
-                <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+                <span class="info-box-icon bg-red"><i class="fa fa-info-circle"></i></span>
                 <div class="info-box-content">
                   <span class="info-box-text">Total Kategori</span>
                   <span class="info-box-number"><?php echo $totalkategori;?> Kategori</span>
@@ -35,7 +35,7 @@
             </div><!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="info-box">
-                <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+                <span class="info-box-icon bg-red"><i class="fa fa-users"></i></span>
                 <div class="info-box-content">
                   <span class="info-box-text">Total User</span>
                   <span class="info-box-number"><?php echo $totaluser;?> User</span>

@@ -10,7 +10,7 @@
             <li class="header">MENU NAVIGASI</li>
             <li id="artikel" class="treeview">
               <a href="#">
-                <i class="fa fa-files-o"></i>
+                <i class="fa fa-newspaper-o"></i>
                 <span>Artikel</span>
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
@@ -32,7 +32,7 @@
             ?>
               <li id="tampilan" class="treeview">
                 <a href="#">
-                  <i class="fa fa-pie-chart"></i>
+                  <i class="fa fa-picture-o"></i>
                   <span>Tampilan</span>
                   <i class="fa fa-angle-left pull-right"></i>
                 </a>
@@ -42,7 +42,7 @@
               </li>
               <li id="user" class="treeview">
                 <a href="#">
-                  <i class="fa fa-laptop"></i>
+                  <i class="fa fa-users"></i>
                   <span>User</span>
                   <i class="fa fa-angle-left pull-right"></i>
                 </a>
@@ -55,7 +55,7 @@
             ?>
             <li id="files" class="treeview">
               <a href="#">
-                <i class="fa fa-laptop"></i>
+                <i class="fa fa-files-o"></i>
                 <span>Files</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
