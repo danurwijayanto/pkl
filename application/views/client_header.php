@@ -291,9 +291,9 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Elearning
                 <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                          <li><a href="#">Coming Soon</a></li>
+                          <li><a href="http://learning.sma2salatiga.sch.id">Elearning</a></li>
                         </ul>
-              <li class=""><a href="<?php echo base_url();?>client/kontak"><?php echo $language['kontak'];?></a></li>
+              <li class=""><a href="<?php echo base_url();?>client/kontak" target="_blank"><?php echo $language['kontak'];?></a></li>
               <li style="top:13px; left:185px">
                 <form action="<?php echo base_url();?>operation/ganti_bahasa" method="post" >
                   <select name="language" id="lang"  onChange="this.form.submit()" style="font-family: 'Raleway',sans-serif; font-size: 16px; height: 25px; width: 100px;">

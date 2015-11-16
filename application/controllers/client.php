@@ -339,9 +339,9 @@ class Client extends CI_Controller {
 					 'language' => $this->session->userdata('bahasa')
 					);
 		if ($data['language']['selected']=='indonesia'){
-			$data['konten'] = $this->sma_sltg->get_artikelbyid(50);
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(56);
 		}else{
-			$data['konten'] = $this->sma_sltg->get_artikelbyid(51);
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(56);
 		}	
 		$this->load->view('client_wrapper', $data);
 	}
@@ -355,9 +355,9 @@ class Client extends CI_Controller {
 					 'language' => $this->session->userdata('bahasa')
 					);
 		if ($data['language']['selected']=='indonesia'){
-			$data['konten'] = $this->sma_sltg->get_artikelbyid(52);
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(57);
 		}else{
-			$data['konten'] = $this->sma_sltg->get_artikelbyid(53);
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(57);
 		}	
 		$this->load->view('client_wrapper', $data);
 	}
@@ -371,9 +371,9 @@ class Client extends CI_Controller {
 					 'language' => $this->session->userdata('bahasa')
 					);
 		if ($data['language']['selected']=='indonesia'){
-			$data['konten'] = $this->sma_sltg->get_artikelbyid(54);
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(58);
 		}else{
-			$data['konten'] = $this->sma_sltg->get_artikelbyid(55);
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(58);
 		}	
 		$this->load->view('client_wrapper', $data);
 	}
@@ -387,9 +387,9 @@ class Client extends CI_Controller {
 					 'language' => $this->session->userdata('bahasa')
 					);
 		if ($data['language']['selected']=='indonesia'){
-			$data['konten'] = $this->sma_sltg->get_artikelbyid(56);
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(59);
 		}else{
-			$data['konten'] = $this->sma_sltg->get_artikelbyid(57);
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(59);
 		}	
 		$this->load->view('client_wrapper', $data);
 	}
@@ -403,9 +403,9 @@ class Client extends CI_Controller {
 					 'language' => $this->session->userdata('bahasa')
 					);
 		if ($data['language']['selected']=='indonesia'){
-			$data['konten'] = $this->sma_sltg->get_artikelbyid(58);
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(60);
 		}else{
-			$data['konten'] = $this->sma_sltg->get_artikelbyid(59);
+			$data['konten'] = $this->sma_sltg->get_artikelbyid(60);
 		}	
 		$this->load->view('client_wrapper', $data);
 	}

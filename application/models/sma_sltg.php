@@ -491,6 +491,21 @@
 		}
 
 		/**
+			* Mengemablikan author artikel ke super admin
+		*/
+		function change_superadmin($data){
+			$query = "SELECT * FROM artikel
+				WHERE user_id=$data[id]";
+			$result = $this->db->query($query);
+
+			foreach ($result->result_array() as $row)
+			{
+			   $update = "UPDATE artikel SET user_id=1 where user_id=$row[user_id]";
+			   $hasil =  $this->db->query($update);			
+			}
+		}
+
+		/**
 			* Publish Artikel Berdasarkan id
 			* data : 
 		*/

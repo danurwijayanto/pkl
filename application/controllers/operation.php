@@ -418,6 +418,7 @@ class Operation extends CI_Controller {
 		$data = array(
 			'id' => $_GET['id']
 		);
+		$artikel=$this->sma_sltg->change_superadmin($data);
 		$result=$this->sma_sltg->del_user_byid($data);
 		if ($result == TRUE){
 			echo "<script type='text/javascript'>alert('Delete User Berhasil !')</script>";
