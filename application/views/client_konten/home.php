@@ -73,7 +73,7 @@
 									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><?php echo $language['tidakadapost'];?>
 								<?php
 								}else{
-								foreach ($agenda as $agenda) { ?>
+								$i=1;foreach ($agenda as $agenda) { ?>
 									<li class="home"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 							  			<?php echo anchor('client/news/'.$agenda['id'].'', ''.$agenda['judul']); ?>
 							  			<span class="date-title">
@@ -193,7 +193,7 @@
 										</a>	
 						          	</li>
 						          	<?php } else {
-						          	foreach ($slider_two as $slidertwo) {?>
+						          	$i=1;foreach ($slider_two as $slidertwo) {?>
 						          	<li>
 						          		<a href="<?php echo $slidertwo['link'];?>">
 										<img style="height: 100px; !important" src="<?php echo base_url();?>upload/Gambar/images/<?php echo $slidertwo['gambar']?>" class="attachment-full image" alt="site-name3" />

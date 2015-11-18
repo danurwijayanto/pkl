@@ -77,7 +77,7 @@
           </tbody>
         </table>
         	<a class="btn btn-default edit_kat" data-toggle="modal" data-target="#edit" id="<?php //echo //$kategori['id'];?>">
-          	<i class="fa fa-trash-o fa-lg"></i> Tambah</a>
+          	<i class="fa fa-plus fa-lg"></i> Tambah</a>
 	        <!-- Modal -->
 	        <div id="edit" class="modal fade" role="dialog">
 	          <div class="modal-dialog">
@@ -184,7 +184,7 @@
           </tbody>
         </table>
           <a class="btn btn-default edit_kat" data-toggle="modal" data-target="#tambah1" >
-          <i class="fa fa-trash-o fa-lg"></i> Tambah</a>
+          <i class="fa fa-plus fa-lg"></i> Tambah</a>
           <!-- Modal -->
           <div id="tambah1" class="modal fade" role="dialog">
             <div class="modal-dialog">
