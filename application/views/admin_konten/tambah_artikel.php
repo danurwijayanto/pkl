@@ -33,22 +33,22 @@
         <section class="content">
             <?php 
             if(isset($simpan_edit) AND ($simpan_edit==TRUE)){
-              echo '<form action="'.base_url().'operation/rubah_artikel" role="form" method="post" class="form-horizontal">';
+              echo '<form name="tambahartikel" action="'.base_url().'operation/rubah_artikel" role="form" method="post" class="form-horizontal" onsubmit="return validasi(this)">';
               echo '<input type="hidden" name="id" value="'.$artikel['id'].'" />';
             }else{
-              echo '<form action="'.base_url().'operation/simpan_artikel" role="form" method="post" class="form-horizontal">';
+              echo '<form name="tambahartikel" action="'.base_url().'operation/simpan_artikel" role="form" method="post" class="form-horizontal" onsubmit="return validasi(this)">';
             }?>
               <div class="form-group">
                 <label class="col-sm-1 control-label" >Judul</label>
                 <div class="col-sm-7">
-                  <input type="text" class="form-control" name="judul" value="<?php if (isset($artikel)){echo $artikel['judul'];}else{}?>" placeholder="Judul">
+                  <input type="text" class="form-control" name="judul" value="<?php if (isset($artikel)){echo $artikel['judul'];}else{}?>" placeholder="Judul" required>
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-1 control-label">Kategori</label>
                 <div class="col-sm-7">
-                  <select name='kategori' id='kategori'  class="form-control">
-                    <?php if ((isset($artikel)) OR ($session['role'] != 'Admin')){}else{echo '<option value=0>-- Pilih Kategori --</option>'; }?>
+                  <select name='kategori' id='kategori'  class="form-control required">
+                    <?php if ((isset($artikel)) OR ($session['role'] != 'Admin')){}else{echo '<option value="0">-- Pilih Kategori --</option>'; }?>
                     <?php
                         if ($session['role'] != 'Admin'){?>
                           <option value="<?php echo $session['id_kat']; ?>" selected="selected"><?php echo $session['role']; ?></option>
@@ -65,7 +65,7 @@
               <div class="form-group">
                 <label class="col-sm-1 control-label">Bahasa</label>
                 <div class="col-sm-7">
-                  <select name='bahasa' id='bahasa'  class="form-control">
+                  <select name='bahasa' id='bahasa'  class="form-control required">
                     <?php if (isset($artikel)){}else{echo '<option value=0>-- Pilih Kategori Bahasa --</option>'; } ?>
                     <?php 
                         foreach($bahasa as $bahasa){  ?>      
@@ -111,7 +111,17 @@
       </div><!-- /.content-wrapper -->
 
       <script type="text/javascript" src="<?php echo base_url(); ?>assets/ckeditor/ckeditor.js"></script>
+      <script>
 
+          function validasi(form){
+            var kategori=document.tambahartikel.kategori.value;
+            if (kategori=="0" || kategori==0){
+              alert("Kategori harus dipilih");
+              return false;
+            } 
+            return true;
+
+      </script>
 
    <!--   <form class="form-horizontal" role="form" method="post" action="<?php echo base_url();?>operation/simpan_kategori" >-->
                     
