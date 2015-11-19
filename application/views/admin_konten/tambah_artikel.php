@@ -115,11 +115,18 @@
 
           function validasi(form){
             var kategori=document.tambahartikel.kategori.value;
-            if (kategori=="0" || kategori==0){
+            var bahasa=document.tambahartikel.bahasa.value;
+            if (kategori==0){
               alert("Kategori harus dipilih");
+              document.getElementById("kategori").focus();
               return false;
-            } 
+            }
+            if (bahasa==0){
+              alert("Bahasa harus dipilih");
+              return false;
+            }  
             return true;
+          }
 
       </script>
 
